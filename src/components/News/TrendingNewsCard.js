@@ -7,7 +7,7 @@ export default function TrendingNewsCard() {
       <div className="col-lg-6 col-md-6">
         <div className="trending-news-3-item">
           <div className="trending-news-thumb">
-            <img src="/images/trending-thumb.jpg" alt="trending" />
+            <Image src="/images/trending-thumb.jpg" alt="trending" />
             <div className="icon">
               <Link href="/post-details-one" tabIndex="-1">
                 <i className="fas fa-bolt"></i>
@@ -56,7 +56,7 @@ export default function TrendingNewsCard() {
         <div className="post_gallery_items">
           <div className="gallery_item gallery_item_3">
             <div className="gallery_item_thumb">
-              <img src="/images/gallery-1.jpg" alt="gallery" />
+              <Image src="/images/gallery-1.jpg" alt="gallery" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">
@@ -76,7 +76,7 @@ export default function TrendingNewsCard() {
           </div>
           <div className="gallery_item gallery_item_3">
             <div className="gallery_item_thumb">
-              <img src="/images/gallery-2.jpg" alt="gallery" />
+              <Image src="/images/gallery-2.jpg" alt="gallery" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">
@@ -96,7 +96,7 @@ export default function TrendingNewsCard() {
           </div>
           <div className="gallery_item gallery_item_3">
             <div className="gallery_item_thumb">
-              <img src="/images/gallery-3.jpg" alt="gallery" />
+              <Image src="/images/gallery-3.jpg" alt="gallery" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">
@@ -116,7 +116,7 @@ export default function TrendingNewsCard() {
           </div>
           <div className="gallery_item gallery_item_3">
             <div className="gallery_item_thumb">
-              <img src="/images/gallery-4.jpg" alt="gallery" />
+              <Image src="/images/gallery-4.jpg" alt="gallery" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">
@@ -136,7 +136,7 @@ export default function TrendingNewsCard() {
           </div>
           <div className="gallery_item gallery_item_3">
             <div className="gallery_item_thumb">
-              <img src="/images/gallery-5.jpg" alt="gallery" />
+              <Image src="/images/gallery-5.jpg" alt="gallery" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">
@@ -156,7 +156,7 @@ export default function TrendingNewsCard() {
           </div>
           <div className="gallery_item gallery_item_3">
             <div className="gallery_item_thumb">
-              <img src="/images/gallery-5.jpg" alt="gallery" />
+              <Image src="/images/gallery-5.jpg" alt="gallery" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">
@@ -176,7 +176,7 @@ export default function TrendingNewsCard() {
           </div>
           <div className="gallery_item gallery_item_3">
             <div className="gallery_item_thumb">
-              <img src="/images/gallery-5.jpg" alt="gallery" />
+              <Image src="/images/gallery-5.jpg" alt="gallery" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">

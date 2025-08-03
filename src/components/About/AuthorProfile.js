@@ -22,7 +22,7 @@ export default function AuthorProfile() {
               </nav>
               <div className="author-content">
                 <div className="thumb">
-                  <img src="/images/author.png" alt="" />
+                  <Image src="/images/author.png" alt="" />
                 </div>
                 <h3 className="title">Subash Chandra</h3>
                 <ul>

@@ -29,7 +29,7 @@ export default function InternationVerticalCard() {
               amphitheater and a swimming pond with sandy shower…
             </p>
             <div className="thumb">
-              <img src="/images/international-post-thumb.jpg" alt="" />
+              <Image src="/images/international-post-thumb.jpg" alt="" />
             </div>
           </div>
           <ul>
@@ -71,7 +71,7 @@ export default function InternationVerticalCard() {
               amphitheater and a swimming pond with sandy shower…
             </p>
             <div className="thumb">
-              <img src="/images/international-post-thumb.jpg" alt="" />
+              <Image src="/images/international-post-thumb.jpg" alt="" />
             </div>
           </div>
           <ul>
@@ -113,7 +113,7 @@ export default function InternationVerticalCard() {
               amphitheater and a swimming pond with sandy shower…
             </p>
             <div className="thumb">
-              <img src="/images/international-post-thumb.jpg" alt="" />
+              <Image src="/images/international-post-thumb.jpg" alt="" />
             </div>
           </div>
           <ul>
@@ -155,7 +155,7 @@ export default function InternationVerticalCard() {
               amphitheater and a swimming pond with sandy shower…
             </p>
             <div className="thumb">
-              <img src="/images/international-post-thumb.jpg" alt="" />
+              <Image src="/images/international-post-thumb.jpg" alt="" />
             </div>
           </div>
           <ul>

@@ -23,7 +23,7 @@ export default function VideoNews({ dark }) {
         }`}
       >
         <div className="video-news-post-thumb">
-          <img src="/images/video-post-thumb.jpg" alt="" />
+          <Image src="/images/video-post-thumb.jpg" alt="" />
           <div className="play-btn" onClick={() => setOpen(true)}>
             <a
               onClick={(e) => e.preventDefault()}

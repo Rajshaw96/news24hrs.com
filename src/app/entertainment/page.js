@@ -120,7 +120,7 @@ export default function Entertainment() {
                             key={i + 1}
                           >
                             <div className="bussiness-post-thumb">
-                              <img src={item.postThumb} alt="business" />
+                              <Image src={item.postThumb} alt="business" />
                             </div>
                             <div className="bussiness-post-content">
                               <h3 className="title">
@@ -144,7 +144,7 @@ export default function Entertainment() {
                               <p>{item.postDesc}</p>
                               <a href="#">
                                 LEARN MORE{' '}
-                                <img src="/images/arrow-2.svg" alt="" />
+                                <Image src="/images/arrow-2.svg" alt="" />
                               </a>
                             </div>
                           </div>

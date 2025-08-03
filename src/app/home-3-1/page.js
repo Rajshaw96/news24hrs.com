@@ -47,7 +47,7 @@ export default function HomeThreeOne() {
                   <MostViewTwo />
                   <div className="ad mt-40">
                     <a href="#">
-                      <img src="/images/ad/ad-3.png" alt="" />
+                      <Image src="/images/ad/ad-3.png" alt="" />
                     </a>
                   </div>
                   <FInanceNews />

@@ -189,34 +189,34 @@ export default function NewsGallary({ customClass, dark }) {
         className="post_gallery_inner_slider"
       >
         <div className="item">
-          <img src="/images/gallery-post/item-1.jpg" alt="" />
+          <Image src="/images/gallery-post/item-1.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-2.jpg" alt="" />
+          <Image src="/images/gallery-post/item-2.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-3.jpg" alt="" />
+          <Image src="/images/gallery-post/item-3.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-4.jpg" alt="" />
+          <Image src="/images/gallery-post/item-4.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-5.jpg" alt="" />
+          <Image src="/images/gallery-post/item-5.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-6.jpg" alt="" />
+          <Image src="/images/gallery-post/item-6.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-7.jpg" alt="" />
+          <Image src="/images/gallery-post/item-7.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-2.jpg" alt="" />
+          <Image src="/images/gallery-post/item-2.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-3.jpg" alt="" />
+          <Image src="/images/gallery-post/item-3.jpg" alt="" />
         </div>
         <div className="item">
-          <img src="/images/gallery-post/item-4.jpg" alt="" />
+          <Image src="/images/gallery-post/item-4.jpg" alt="" />
         </div>
       </Slider>
       <ModalVideo

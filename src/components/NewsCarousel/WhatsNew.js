@@ -60,7 +60,7 @@ export default function WhatsNew() {
         <div className="post_gallery_items">
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/1.png" alt="gallery" />
+              <Image src="/images/gallery-post/1.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -80,7 +80,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/2.png" alt="gallery" />
+              <Image src="/images/gallery-post/2.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -100,7 +100,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/3.png" alt="gallery" />
+              <Image src="/images/gallery-post/3.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -120,7 +120,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/4.png" alt="gallery" />
+              <Image src="/images/gallery-post/4.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -140,7 +140,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/5.png" alt="gallery" />
+              <Image src="/images/gallery-post/5.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -162,7 +162,7 @@ export default function WhatsNew() {
         <div className="post_gallery_items">
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/1.png" alt="gallery" />
+              <Image src="/images/gallery-post/1.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -182,7 +182,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/2.png" alt="gallery" />
+              <Image src="/images/gallery-post/2.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -202,7 +202,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/3.png" alt="gallery" />
+              <Image src="/images/gallery-post/3.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -222,7 +222,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/4.png" alt="gallery" />
+              <Image src="/images/gallery-post/4.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">
@@ -242,7 +242,7 @@ export default function WhatsNew() {
           </div>
           <div className="post-gallery-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/5.png" alt="gallery" />
+              <Image src="/images/gallery-post/5.png" alt="gallery" />
             </div>
             <div className="post-gallery-content">
               <h5 className="title">

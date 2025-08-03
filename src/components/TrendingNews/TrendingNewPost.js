@@ -36,7 +36,7 @@ export default function TrendingNewPost({ dark }) {
               key={i + 1}
             >
               <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="gallery" />
+                <Image src={item.postThumb} alt="gallery" />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
                 </div>
@@ -70,7 +70,7 @@ export default function TrendingNewPost({ dark }) {
               key={i + 1}
             >
               <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="gallery" />
+                <Image src={item.postThumb} alt="gallery" />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
                 </div>

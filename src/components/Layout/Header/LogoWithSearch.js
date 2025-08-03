@@ -9,7 +9,7 @@ export default function LogoWithSearch() {
           <div className="col-lg-5 col-md-5">
             <div className="logo">
               <Link href="/">
-                <img src="/images/logo/logo-black.png" alt="Logo" />
+                <Image src="/images/logo/logo-black.png" alt="Logo" />
               </Link>
             </div>
           </div>
@@ -26,7 +26,7 @@ export default function LogoWithSearch() {
           <div className="col-lg-2">
             <div className="header-temperature justify-content-end d-none d-lg-flex align-items-center">
               <div className="icon">
-                <img src="/images/temperature-icon.svg" alt="" />
+                <Image src="/images/temperature-icon.svg" alt="" />
               </div>
               <div className="temperature-content text-center">
                 <h5 className="title">

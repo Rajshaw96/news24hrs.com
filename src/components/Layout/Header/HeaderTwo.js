@@ -11,7 +11,7 @@ export default function HeaderTwo({ customClass, className, action }) {
           <div className="col-lg-3">
             <div className="header-logo">
               <Link href="/">
-                <img src="/images/logo-3.png" alt="" />
+                <Image src="/images/logo-3.png" alt="" />
               </Link>
             </div>
           </div>
@@ -28,7 +28,7 @@ export default function HeaderTwo({ customClass, className, action }) {
                       </div>
                       <div className="header-temperature">
                         <div className="icon">
-                          <img src="/images/temperature-icon-2.png" alt="" />
+                          <Image src="/images/temperature-icon-2.png" alt="" />
                         </div>
                         <div className="temperature-content text-center">
                           <h5 className="title">

@@ -88,9 +88,9 @@ export default function TwoPostCarousel({ dark, customClass }) {
               <div className="col" key={i + 1}>
                 <div className="single-play-post-item">
                   {dark ? (
-                    <img src={item.postThumbDark} alt="play" />
+                    <Image src={item.postThumbDark} alt="play" />
                   ) : (
-                    <img src={item.postThumb} alt="play" />
+                    <Image src={item.postThumb} alt="play" />
                   )}
 
                   <div className="single-play-post-content">

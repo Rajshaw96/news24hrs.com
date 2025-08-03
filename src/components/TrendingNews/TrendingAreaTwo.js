@@ -33,7 +33,7 @@ export default function TrendingAreaTwo({ customClass }) {
           <div className="col-lg-4">
             <div className="ad mt-30">
               <a href="#">
-                <img src="/images/ad/ad-3.png" alt="" />
+                <Image src="/images/ad/ad-3.png" alt="" />
               </a>
             </div>
           </div>

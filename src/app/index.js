@@ -77,7 +77,7 @@ export default function HomeOne() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <img src="/images/sports-news.jpg" alt="sports" />
+                          <Image src="/images/sports-news.jpg" alt="sports" />
                         </div>
                         <div className="trending-news-content">
                           <div className="post-meta">
@@ -110,7 +110,7 @@ export default function HomeOne() {
                 </div>
                 <div className="post-add mt-30">
                   <a href="#">
-                    <img src="/images/ads/banner.png" alt="ad" />
+                    <Image src="/images/ads/banner.png" alt="ad" />
                   </a>
                 </div>
                 <BusinessNews />

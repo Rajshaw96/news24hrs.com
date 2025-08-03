@@ -55,7 +55,7 @@ export default function TrendingSingleCarousel() {
       <Slider className="trending-sidebar-slider" {...settings}>
         <div className="trending-news-item">
           <div className="trending-news-thumb">
-            <img src="/images/trending-news-1.jpg" alt="trending" />
+            <Image src="/images/trending-news-1.jpg" alt="trending" />
             <div className="icon">
               <a href="#">
                 <i className="fas fa-bolt"></i>
@@ -84,7 +84,7 @@ export default function TrendingSingleCarousel() {
         </div>
         <div className="trending-news-item">
           <div className="trending-news-thumb">
-            <img src="/images/trending-news-2.jpg" alt="trending" />
+            <Image src="/images/trending-news-2.jpg" alt="trending" />
             <div className="icon">
               <a href="#">
                 <i className="fas fa-bolt"></i>
@@ -114,7 +114,7 @@ export default function TrendingSingleCarousel() {
         </div>
         <div className="trending-news-item">
           <div className="trending-news-thumb">
-            <img src="/images/trending-news-3.jpg" alt="trending" />
+            <Image src="/images/trending-news-3.jpg" alt="trending" />
             <div className="icon">
               <a href="#">
                 <i className="fas fa-bolt"></i>

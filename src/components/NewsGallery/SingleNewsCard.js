@@ -5,7 +5,7 @@ export default function SingleNewsCard() {
   return (
     <div className="post-news-item-2 mt-40">
       <div className="post-news-thumb">
-        <img src="/images/post-news-thumb-1.png" alt="" />
+        <Image src="/images/post-news-thumb-1.png" alt="" />
       </div>
       <div className="post-news-content">
         <h3 className="title">

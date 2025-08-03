@@ -58,7 +58,7 @@ export default function MostViewTwo() {
         <div className="post_gallery_items">
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/1.png" alt="gallery" />
+              <Image src="/images/gallery-post/1.png" alt="gallery" />
               <span>1</span>
             </div>
             <div className="post-gallery-content">
@@ -79,7 +79,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/2.png" alt="gallery" />
+              <Image src="/images/gallery-post/2.png" alt="gallery" />
               <span>2</span>
             </div>
             <div className="post-gallery-content">
@@ -100,7 +100,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/3.png" alt="gallery" />
+              <Image src="/images/gallery-post/3.png" alt="gallery" />
               <span>3</span>
             </div>
             <div className="post-gallery-content">
@@ -121,7 +121,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/4.png" alt="gallery" />
+              <Image src="/images/gallery-post/4.png" alt="gallery" />
               <span>4</span>
             </div>
             <div className="post-gallery-content">
@@ -142,7 +142,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/5.png" alt="gallery" />
+              <Image src="/images/gallery-post/5.png" alt="gallery" />
               <span>5</span>
             </div>
             <div className="post-gallery-content">
@@ -165,7 +165,7 @@ export default function MostViewTwo() {
         <div className="post_gallery_items">
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/1.png" alt="gallery" />
+              <Image src="/images/gallery-post/1.png" alt="gallery" />
               <span>1</span>
             </div>
             <div className="post-gallery-content">
@@ -186,7 +186,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/2.png" alt="gallery" />
+              <Image src="/images/gallery-post/2.png" alt="gallery" />
               <span>2</span>
             </div>
             <div className="post-gallery-content">
@@ -207,7 +207,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/3.png" alt="gallery" />
+              <Image src="/images/gallery-post/3.png" alt="gallery" />
               <span>3</span>
             </div>
             <div className="post-gallery-content">
@@ -228,7 +228,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/4.png" alt="gallery" />
+              <Image src="/images/gallery-post/4.png" alt="gallery" />
               <span>4</span>
             </div>
             <div className="post-gallery-content">
@@ -249,7 +249,7 @@ export default function MostViewTwo() {
           </div>
           <div className="post-gallery-style-2 most-view-style-2">
             <div className="post-gallery-thumb">
-              <img src="/images/gallery-post/5.png" alt="gallery" />
+              <Image src="/images/gallery-post/5.png" alt="gallery" />
               <span>5</span>
             </div>
             <div className="post-gallery-content">

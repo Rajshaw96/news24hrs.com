@@ -49,7 +49,7 @@ export default function HeaderThree({ action }) {
                 </div>
                 <div className="header-temperature">
                   <div className="icon">
-                    <img src="/images/temperature-icon-3.svg" alt="" />
+                    <Image src="/images/temperature-icon-3.svg" alt="" />
                   </div>
                   <div className="temperature-content text-center">
                     <h5 className="title">

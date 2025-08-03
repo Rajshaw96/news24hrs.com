@@ -61,7 +61,7 @@ export default function TrendingNewsCardSlider() {
                 amphitheater and a swimming pond with sandy shower…
               </p>
               <div className="thumb">
-                <img src="/images/international-1.jpg" alt="" />
+                <Image src="/images/international-1.jpg" alt="" />
               </div>
             </div>
             <ul>
@@ -95,7 +95,7 @@ export default function TrendingNewsCardSlider() {
                 amphitheater and a swimming pond with sandy shower…
               </p>
               <div className="thumb">
-                <img src="/images/international-2.jpg" alt="" />
+                <Image src="/images/international-2.jpg" alt="" />
               </div>
             </div>
             <ul>
@@ -129,7 +129,7 @@ export default function TrendingNewsCardSlider() {
                 amphitheater and a swimming pond with sandy shower…
               </p>
               <div className="thumb">
-                <img src="/images/international-2.jpg" alt="" />
+                <Image src="/images/international-2.jpg" alt="" />
               </div>
             </div>
             <ul>

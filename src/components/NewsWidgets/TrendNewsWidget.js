@@ -5,7 +5,7 @@ export default function TrendingNewsWidget() {
     <div className="trending-news-post-items">
       <div className="gallery_item">
         <div className="gallery_item_thumb">
-          <img src="/images/gallery-1.jpg" alt="gallery" />
+          <Image src="/images/gallery-1.jpg" alt="gallery" />
           <div className="icon">
             <i className="fas fa-bolt"></i>
           </div>
@@ -26,7 +26,7 @@ export default function TrendingNewsWidget() {
       </div>
       <div className="gallery_item">
         <div className="gallery_item_thumb">
-          <img src="/images/gallery-2.jpg" alt="gallery" />
+          <Image src="/images/gallery-2.jpg" alt="gallery" />
           <div className="icon">
             <i className="fas fa-bolt"></i>
           </div>
@@ -47,7 +47,7 @@ export default function TrendingNewsWidget() {
       </div>
       <div className="gallery_item">
         <div className="gallery_item_thumb">
-          <img src="/images/gallery-3.jpg" alt="gallery" />
+          <Image src="/images/gallery-3.jpg" alt="gallery" />
           <div className="icon">
             <i className="fas fa-bolt"></i>
           </div>

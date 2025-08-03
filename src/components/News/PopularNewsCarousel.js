@@ -96,7 +96,7 @@ export default function PopularNewsCarousel({ dark }) {
               }`}
             >
               <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="populer" />
+                <Image src={item.postThumb} alt="populer" />
                 <span>{item.id}</span>
               </div>
               <div className="gallery_item_content">
@@ -117,7 +117,7 @@ export default function PopularNewsCarousel({ dark }) {
               }`}
             >
               <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="populer" />
+                <Image src={item.postThumb} alt="populer" />
                 <span>{item.id}</span>
               </div>
               <div className="gallery_item_content">

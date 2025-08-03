@@ -20,7 +20,7 @@ export default function VideoNewsLg() {
             <div className="col-lg-8">
               <div className="video-play-item">
                 <div className="video-play-thumb">
-                  <img src="/images/video-play-thumb.jpg" alt="" />
+                  <Image src="/images/video-play-thumb.jpg" alt="" />
                   <div className="play-btn" onClick={() => setOpen(true)}>
                     <a
                       className="video-popup"
@@ -91,7 +91,7 @@ export default function VideoNewsLg() {
               <div className="video-play-sidebar-items">
                 <div className="post-gallery-style-2">
                   <div className="post-gallery-thumb">
-                    <img src="/images/video-items/1.png" alt="gallery" />
+                    <Image src="/images/video-items/1.png" alt="gallery" />
                   </div>
                   <div className="post-gallery-content">
                     <h5 className="title">
@@ -113,7 +113,7 @@ export default function VideoNewsLg() {
                 </div>
                 <div className="post-gallery-style-2">
                   <div className="post-gallery-thumb">
-                    <img src="/images/video-items/2.png" alt="gallery" />
+                    <Image src="/images/video-items/2.png" alt="gallery" />
                   </div>
                   <div className="post-gallery-content">
                     <h5 className="title">
@@ -135,7 +135,7 @@ export default function VideoNewsLg() {
                 </div>
                 <div className="post-gallery-style-2">
                   <div className="post-gallery-thumb">
-                    <img src="/images/video-items/3.png" alt="gallery" />
+                    <Image src="/images/video-items/3.png" alt="gallery" />
                   </div>
                   <div className="post-gallery-content">
                     <h5 className="title">
@@ -157,7 +157,7 @@ export default function VideoNewsLg() {
                 </div>
                 <div className="post-gallery-style-2">
                   <div className="post-gallery-thumb">
-                    <img src="/images/video-items/4.png" alt="gallery" />
+                    <Image src="/images/video-items/4.png" alt="gallery" />
                   </div>
                   <div className="post-gallery-content">
                     <h5 className="title">
@@ -179,7 +179,7 @@ export default function VideoNewsLg() {
                 </div>
                 <div className="post-gallery-style-2">
                   <div className="post-gallery-thumb">
-                    <img src="/images/video-items/5.png" alt="gallery" />
+                    <Image src="/images/video-items/5.png" alt="gallery" />
                   </div>
                   <div className="post-gallery-content">
                     <h5 className="title">
@@ -201,7 +201,7 @@ export default function VideoNewsLg() {
                 </div>
                 <div className="post-gallery-style-2">
                   <div className="post-gallery-thumb">
-                    <img src="/images/video-items/6.png" alt="gallery" />
+                    <Image src="/images/video-items/6.png" alt="gallery" />
                   </div>
                   <div className="post-gallery-content">
                     <h5 className="title">

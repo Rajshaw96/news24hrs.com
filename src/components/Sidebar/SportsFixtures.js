@@ -18,7 +18,7 @@ export default function SportsFixtures({ dark }) {
           } d-flex align-items-center`}
         >
           <div className="upcoming-matches-flag">
-            <img src="/images/flag/flag-1.png" alt="flag" />
+            <Image src="/images/flag/flag-1.png" alt="flag" />
           </div>
           <div className="upcoming-matches-content">
             <span>
@@ -41,7 +41,7 @@ export default function SportsFixtures({ dark }) {
           } d-flex align-items-center`}
         >
           <div className="upcoming-matches-flag">
-            <img src="/images/flag/flag-2.png" alt="flag" />
+            <Image src="/images/flag/flag-2.png" alt="flag" />
           </div>
           <div className="upcoming-matches-content">
             <span>
@@ -64,7 +64,7 @@ export default function SportsFixtures({ dark }) {
           } d-flex align-items-center`}
         >
           <div className="upcoming-matches-flag">
-            <img src="/images/flag/flag-3.png" alt="flag" />
+            <Image src="/images/flag/flag-3.png" alt="flag" />
           </div>
           <div className="upcoming-matches-content">
             <span>
@@ -87,7 +87,7 @@ export default function SportsFixtures({ dark }) {
           } d-flex align-items-center`}
         >
           <div className="upcoming-matches-flag">
-            <img src="/images/flag/flag-4.png" alt="flag" />
+            <Image src="/images/flag/flag-4.png" alt="flag" />
           </div>
           <div className="upcoming-matches-content">
             <span>
@@ -110,7 +110,7 @@ export default function SportsFixtures({ dark }) {
           } d-flex align-items-center`}
         >
           <div className="upcoming-matches-flag">
-            <img src="/images/flag/flag-5.png" alt="flag" />
+            <Image src="/images/flag/flag-5.png" alt="flag" />
           </div>
           <div className="upcoming-matches-content">
             <span>

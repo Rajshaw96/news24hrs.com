@@ -19,7 +19,7 @@ function Drawer({ drawer, action }) {
                   </a>
                 </div>
                 <div className="offcanvas-brand text-center mb-40">
-                  <img src="/images/logo/logo-black.png" alt="newsprk" />
+                  <Image src="/images/logo/logo-black.png" alt="newsprk" />
                 </div>
                 {data && data.length > 0 && (
                   <div id="menu" className="text-left">

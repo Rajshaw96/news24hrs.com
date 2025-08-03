@@ -90,7 +90,7 @@ export default function SportsNewsCarousel({ dark }) {
             className={`gallery_item ${dark ? 'gallery_item_dark ' : ''}`}
           >
             <div className="gallery_item_thumb">
-              <img src={item.postThumb} alt="sports" />
+              <Image src={item.postThumb} alt="sports" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">
@@ -115,7 +115,7 @@ export default function SportsNewsCarousel({ dark }) {
             className={`gallery_item ${dark ? 'gallery_item_dark ' : ''}`}
           >
             <div className="gallery_item_thumb">
-              <img src={item.postThumb} alt="sports" />
+              <Image src={item.postThumb} alt="sports" />
             </div>
             <div className="gallery_item_content">
               <div className="post-meta">

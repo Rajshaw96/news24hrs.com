@@ -3,7 +3,7 @@ import React from 'react';
 export default function ImageCard() {
   return (
     <div className="trending-image-post mt-40">
-      <img src="/images/trending-image-thumb.jpg" alt="" />
+      <Image src="/images/trending-image-thumb.jpg" alt="" />
       <div className="trending-image-content">
         <div className="post-meta">
           <div className="meta-categories">

@@ -43,7 +43,7 @@ export default function VerticalBusinessNews() {
               place with this epidemic…
             </p>
             <Link href="/post-details-three">
-              LEARN MORE <img src="/images/arrow-2.svg" alt="" />
+              LEARN MORE <Image src="/images/arrow-2.svg" alt="" />
             </Link>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function VerticalBusinessNews() {
               place with this epidemic…
             </p>
             <Link href="/post-details-three">
-              LEARN MORE <img src="/images/arrow-2.svg" alt="" />
+              LEARN MORE <Image src="/images/arrow-2.svg" alt="" />
             </Link>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function VerticalBusinessNews() {
               place with this epidemic…
             </p>
             <Link href="/post-details-three">
-              LEARN MORE <img src="/images/arrow-2.svg" alt="" />
+              LEARN MORE <Image src="/images/arrow-2.svg" alt="" />
             </Link>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function VerticalBusinessNews() {
               place with this epidemic…
             </p>
             <Link href="/post-details-three">
-              LEARN MORE <img src="/images/arrow-2.svg" alt="" />
+              LEARN MORE <Image src="/images/arrow-2.svg" alt="" />
             </Link>
           </div>
         </div>
@@ -199,7 +199,7 @@ export default function VerticalBusinessNews() {
               place with this epidemic…
             </p>
             <Link href="/post-details-three">
-              LEARN MORE <img src="/images/arrow-2.svg" alt="" />
+              LEARN MORE <Image src="/images/arrow-2.svg" alt="" />
             </Link>
           </div>
         </div>
@@ -238,7 +238,7 @@ export default function VerticalBusinessNews() {
               place with this epidemic…
             </p>
             <Link href="/post-details-three">
-              LEARN MORE <img src="/images/arrow-2.svg" alt="" />
+              LEARN MORE <Image src="/images/arrow-2.svg" alt="" />
             </Link>
           </div>
         </div>

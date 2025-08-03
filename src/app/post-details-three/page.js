@@ -55,7 +55,7 @@ export default function PostDetailsThree() {
                     <div className="post-author">
                       <div className="author-info">
                         <div className="thumb">
-                          <img src="/images/author.png" alt="" />
+                          <Image src="/images/author.png" alt="" />
                         </div>
                         <h5 className="title">Subash Chandra</h5>
                         <ul>
@@ -104,7 +104,7 @@ export default function PostDetailsThree() {
                       </div>
                     </div>
                     <div className="thumb">
-                      <img src="/images/post-layout.png" alt="" />
+                      <Image src="/images/post-layout.png" alt="" />
                     </div>
                   </div>
                   <div className="post-text mt-30">
@@ -175,7 +175,7 @@ export default function PostDetailsThree() {
                       </div>
                       <div className="col-lg-6">
                         <div className="text">
-                          <img src="/images/post-thumb-7.png" alt="" />
+                          <Image src="/images/post-thumb-7.png" alt="" />
                           <p className="mt-20">
                             Masks may also help lower the risk of individuals
                             catching the virus through the droplets another
@@ -189,7 +189,7 @@ export default function PostDetailsThree() {
                   </div>
                   <div className="post-text">
                     <div className="play-thumb mt-10 mb-35">
-                      <img src="/images/post-play-thumb.jpg" alt="" />
+                      <Image src="/images/post-play-thumb.jpg" alt="" />
                       <span>
                         I just had a baby - now I’m going to the frontline.
                       </span>
@@ -242,7 +242,7 @@ export default function PostDetailsThree() {
                         pleasure.
                       </p>
                       <div className="user">
-                        <img src="/images/author.png" alt="" />
+                        <Image src="/images/author.png" alt="" />
                         <h5 className="title">Subash Chandra</h5>
                         <span>Founder at Seative Digital</span>
                       </div>
@@ -262,7 +262,7 @@ export default function PostDetailsThree() {
                       whether masks are useful when used by the public.
                     </p>
                     <div className="thumb pt-10 pb-35">
-                      <img src="/images/post-thumb-4.png" alt="" />
+                      <Image src="/images/post-thumb-4.png" alt="" />
                     </div>
                     <p>
                       The next day I came back to my team and said, This is what

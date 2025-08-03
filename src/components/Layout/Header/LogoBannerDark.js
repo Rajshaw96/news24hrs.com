@@ -9,14 +9,14 @@ export default function LogoBannerDark() {
           <div className="col-lg-4">
             <div className="logo">
               <Link href="/">
-                <img src="/images/logo/logo-white.png" alt="Logo" />
+                <Image src="/images/logo/logo-white.png" alt="Logo" />
               </Link>
             </div>
           </div>
           <div className="col-lg-8">
             <div className="header-centerbar-ad">
               <Link href="/">
-                <img src="/images/ads/banner.png" alt="" />
+                <Image src="/images/ads/banner.png" alt="" />
               </Link>
             </div>
           </div>

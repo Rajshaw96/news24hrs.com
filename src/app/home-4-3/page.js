@@ -31,7 +31,7 @@ export default function HomeFour() {
                 <InternationalNews />
                 <div className="ad text-center mt-40">
                   <a href="#">
-                    <img src="assets/images/ad/ad-1.png" alt="" />
+                    <Image src="assets/images/ad/ad-1.png" alt="" />
                   </a>
                 </div>
                 <ScienceNewsCarousel />
@@ -53,7 +53,7 @@ export default function HomeFour() {
                   <CategoryCardTwo />
                   <div className="ad mt-40">
                     <a href="#">
-                      <img src="/images/ads/ad-3.png" alt="" />
+                      <Image src="/images/ads/ad-3.png" alt="" />
                     </a>
                   </div>
                 </div>

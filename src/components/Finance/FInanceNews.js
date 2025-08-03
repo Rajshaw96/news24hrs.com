@@ -10,7 +10,7 @@ export default function FinanceNews() {
       <div className="finance-items">
         <div className="finance-item">
           <div className="finance-thumb">
-            <img src="/images/finance/finance-1.jpg" alt="finance" />
+            <Image src="/images/finance/finance-1.jpg" alt="finance" />
             <div className="finance-date">
               <span>April 26, 2020</span>
             </div>
@@ -46,7 +46,7 @@ export default function FinanceNews() {
         </div>
         <div className="finance-item">
           <div className="finance-thumb">
-            <img src="/images/finance/finance-2.jpg" alt="finance" />
+            <Image src="/images/finance/finance-2.jpg" alt="finance" />
             <div className="finance-date">
               <span>April 26, 2020</span>
             </div>
@@ -82,7 +82,7 @@ export default function FinanceNews() {
         </div>
         <div className="finance-item">
           <div className="finance-thumb">
-            <img src="/images/finance/finance-3.jpg" alt="finance" />
+            <Image src="/images/finance/finance-3.jpg" alt="finance" />
             <div className="finance-date">
               <span>April 26, 2020</span>
             </div>
@@ -118,7 +118,7 @@ export default function FinanceNews() {
         </div>
         <div className="finance-item">
           <div className="finance-thumb">
-            <img src="/images/finance/finance-4.jpg" alt="finance" />
+            <Image src="/images/finance/finance-4.jpg" alt="finance" />
             <div className="finance-date">
               <span>April 26, 2020</span>
             </div>

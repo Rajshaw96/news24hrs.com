@@ -14,56 +14,56 @@ export default function SidebarCategories({ dark }) {
       </div>
       <div className="Categories-item">
         <div className="item">
-          <img src="/images/categories-1.jpg" alt="categories" />
+          <Image src="/images/categories-1.jpg" alt="categories" />
           <div className="Categories-content">
             <Link href="/post-details-three">
               <span>Restaurant</span>
-              <img src="/images/arrow.svg" alt="" />
+              <Image src="/images/arrow.svg" alt="" />
             </Link>
           </div>
         </div>
         <div className="item">
-          <img src="/images/categories-2.jpg" alt="categories" />
+          <Image src="/images/categories-2.jpg" alt="categories" />
           <div className="Categories-content">
             <Link href="/post-details-three">
               <span>Entertainment</span>
-              <img src="/images/arrow.svg" alt="" />
+              <Image src="/images/arrow.svg" alt="" />
             </Link>
           </div>
         </div>
         <div className="item">
-          <img src="/images/categories-3.jpg" alt="categories" />
+          <Image src="/images/categories-3.jpg" alt="categories" />
           <div className="Categories-content">
             <Link href="/post-details-three">
               <span>Financial</span>
-              <img src="/images/arrow.svg" alt="" />
+              <Image src="/images/arrow.svg" alt="" />
             </Link>
           </div>
         </div>
         <div className="item">
-          <img src="/images/categories-4.jpg" alt="categories" />
+          <Image src="/images/categories-4.jpg" alt="categories" />
           <div className="Categories-content">
             <Link href="/post-details-three">
               <span>Business</span>
-              <img src="/images/arrow.svg" alt="" />
+              <Image src="/images/arrow.svg" alt="" />
             </Link>
           </div>
         </div>
         <div className="item">
-          <img src="/images/categories-5.jpg" alt="categories" />
+          <Image src="/images/categories-5.jpg" alt="categories" />
           <div className="Categories-content">
             <Link href="/post-details-three">
               <span>Scientists</span>
-              <img src="/images/arrow.svg" alt="" />
+              <Image src="/images/arrow.svg" alt="" />
             </Link>
           </div>
         </div>
         <div className="item">
-          <img src="/images/categories-6.jpg" alt="categories" />
+          <Image src="/images/categories-6.jpg" alt="categories" />
           <div className="Categories-content">
             <Link href="/post-details-three">
               <span>International’s</span>
-              <img src="/images/arrow.svg" alt="" />
+              <Image src="/images/arrow.svg" alt="" />
             </Link>
           </div>
         </div>

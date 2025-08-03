@@ -42,7 +42,7 @@ export default function Features() {
                     <div className="row">
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-1.png" alt="" />
+                          <Image src="/images/feature/feature-1.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -63,7 +63,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-2.png" alt="" />
+                          <Image src="/images/feature/feature-2.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -84,7 +84,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-3.png" alt="" />
+                          <Image src="/images/feature/feature-3.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -105,7 +105,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-4.png" alt="" />
+                          <Image src="/images/feature/feature-4.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -126,7 +126,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-5.png" alt="" />
+                          <Image src="/images/feature/feature-5.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -147,7 +147,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-6.png" alt="" />
+                          <Image src="/images/feature/feature-6.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -168,7 +168,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-7.png" alt="" />
+                          <Image src="/images/feature/feature-7.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -189,7 +189,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-8.png" alt="" />
+                          <Image src="/images/feature/feature-8.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -210,7 +210,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-1.png" alt="" />
+                          <Image src="/images/feature/feature-1.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -231,7 +231,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-2.png" alt="" />
+                          <Image src="/images/feature/feature-2.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -252,7 +252,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-3.png" alt="" />
+                          <Image src="/images/feature/feature-3.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">
@@ -273,7 +273,7 @@ export default function Features() {
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="trending-image-post feature-item mt-30">
-                          <img src="/images/feature/feature-4.png" alt="" />
+                          <Image src="/images/feature/feature-4.png" alt="" />
                           <div className="trending-image-content">
                             <div className="post-meta">
                               <div className="meta-categories">

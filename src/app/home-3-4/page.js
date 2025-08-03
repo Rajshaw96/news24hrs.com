@@ -50,7 +50,7 @@ export default function HomeThreeFour() {
                   <MostViewTwo />
                   <div className="ad mt-40">
                     <a href="#">
-                      <img src="/images/ads/ad-3.png" alt="" />
+                      <Image src="/images/ads/ad-3.png" alt="" />
                     </a>
                   </div>
                   <FinanceNews />

@@ -9,7 +9,7 @@ export default function OpinionNews() {
       </div>
       <div className="trending-news-item mb-30">
         <div className="trending-news-thumb">
-          <img src="/images/opinion/1.jpg" alt="trending" />
+          <Image src="/images/opinion/1.jpg" alt="trending" />
           <div className="circle-bar">
             <div className="first circle">
               <strong></strong>
@@ -55,7 +55,7 @@ export default function OpinionNews() {
       </div>
       <div className="trending-news-item mb-30">
         <div className="trending-news-thumb">
-          <img src="/images/opinion/2.jpg" alt="trending" />
+          <Image src="/images/opinion/2.jpg" alt="trending" />
           <div className="circle-bar">
             <div className="first circle">
               <strong></strong>
@@ -101,7 +101,7 @@ export default function OpinionNews() {
       </div>
       <div className="trending-news-item mb-30">
         <div className="trending-news-thumb">
-          <img src="/images/opinion/3.jpg" alt="trending" />
+          <Image src="/images/opinion/3.jpg" alt="trending" />
           <div className="circle-bar">
             <div className="first circle">
               <strong></strong>

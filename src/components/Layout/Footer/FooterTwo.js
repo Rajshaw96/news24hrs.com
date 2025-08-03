@@ -10,7 +10,7 @@ export default function FooterTwo() {
               <div className="col-md-6 align-self-center">
                 <div className="footer_logo logo">
                   <a href="index.html">
-                    <img src="/img/logo/footer_logo.png" alt="logo" />
+                    <Image src="/img/logo/footer_logo.png" alt="logo" />
                   </a>
                 </div>
                 <div className="social2">
@@ -312,19 +312,19 @@ export default function FooterTwo() {
                   <h3 className="widget-title2">Newspark news services</h3>
                   <div className="single_fcontact">
                     <div className="fcicon">
-                      <img src="/img/icon/mobile.png" alt="" />
+                      <Image src="/img/icon/mobile.png" alt="" />
                     </div>
                     <a href="#">On your mobile</a>
                   </div>
                   <div className="single_fcontact">
                     <div className="fcicon">
-                      <img src="/img/icon/speacker.png" alt="" />
+                      <Image src="/img/icon/speacker.png" alt="" />
                     </div>
                     <a href="#">On smart speakers</a>
                   </div>
                   <div className="single_fcontact">
                     <div className="fcicon">
-                      <img src="/img/icon/evelope.png" alt="" />
+                      <Image src="/img/icon/evelope.png" alt="" />
                     </div>{' '}
                     <a href="#">Contact Newspark news</a>
                   </div>
