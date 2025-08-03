@@ -13,7 +13,7 @@ import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 
-export default function archive() {
+export default function Archive() {
   const [drawer, drawerAction] = useToggle(false);
   return (
     <Layout>
