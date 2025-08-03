@@ -122,7 +122,7 @@ export default function NewsTabs({ dark }) {
                 className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
               >
                 <div className="gallery_item_thumb">
-                  <Image src={item.postThumb} alt="gallery" />
+                  <img src={item.postThumb} alt="gallery" />
                 </div>
                 <div className="gallery_item_content">
                   <div className="post-meta">
@@ -156,7 +156,7 @@ export default function NewsTabs({ dark }) {
                 className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
               >
                 <div className="gallery_item_thumb">
-                  <Image src={item.postThumb} alt="gallery" />
+                  <img src={item.postThumb} alt="gallery" />
                 </div>
                 <div className="gallery_item_content">
                   <div className="post-meta">
@@ -190,7 +190,7 @@ export default function NewsTabs({ dark }) {
                 className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
               >
                 <div className="gallery_item_thumb">
-                  <Image src={item.postThumb} alt="gallery" />
+                  <img src={item.postThumb} alt="gallery" />
                 </div>
                 <div className="gallery_item_content">
                   <div className="post-meta">

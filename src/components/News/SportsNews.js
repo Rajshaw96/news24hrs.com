@@ -13,7 +13,7 @@ export default function SportsNews() {
         <div className="col-lg-6 col-md-6">
           <div className="trending-news-item mb-30">
             <div className="trending-news-thumb">
-              <Image src="/images/sports-news.jpg" alt="sports" />
+              <img src="/images/sports-news.jpg" alt="sports" />
             </div>
             <div className="trending-news-content">
               <div className="post-meta">

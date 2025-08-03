@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function ImageCard() {
   return (
     <div className="trending-image-post mt-40">
-      <Image src="/images/trending-image-thumb.jpg" alt="" />
+      <img src="/images/trending-image-thumb.jpg" alt="" />
       <div className="trending-image-content">
         <div className="post-meta">
           <div className="meta-categories">

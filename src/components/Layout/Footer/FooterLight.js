@@ -9,7 +9,7 @@ export default function FooterLight() {
           <div className="col-lg-4">
             <div className="widget widget-about">
               <a href="#">
-                <Image src="/images/logo-4.png" alt="" />
+                <img src="/images/logo-4.png" alt="" />
               </a>
               <p>
                 <span>Newspark</span> vitae elementum ros. Pellentesquees Leo
@@ -390,7 +390,7 @@ export default function FooterLight() {
                   <div className="weidget weidget-ad mt-30">
                     <div className="ad">
                       <a href="#">
-                        <Image src="/images/ad/ad-3.png" alt="" />
+                        <img src="/images/ad/ad-3.png" alt="" />
                       </a>
                     </div>
                   </div>

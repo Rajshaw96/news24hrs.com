@@ -10,14 +10,14 @@ export default function LogoBanner() {
           <div className="col-lg-4">
             <div className="logo">
               <Link href="/">
-                <Image src="/images/logo/logo-black.png" alt="" />
+                <img src="/images/logo/logo-black.png" alt="" />
               </Link>
             </div>
           </div>
           <div className="col-lg-8">
             <div className="header-centerbar-ad">
               <Link href="/">
-                <Image src="/images/banner.png" alt="" />
+                <img src="/images/banner.png" alt="" />
               </Link>
             </div>
           </div>

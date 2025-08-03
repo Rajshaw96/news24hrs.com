@@ -9,7 +9,7 @@ export default function FinanceNewsCard() {
       </div>
       <div className="finance-item finance-item-3">
         <div className="finance-thumb">
-          <Image src="/images/finance/finance-1.jpg" alt="finance" />
+          <img src="/images/finance/finance-1.jpg" alt="finance" />
           <div className="finance-date">
             <span>April 26, 2020</span>
           </div>
@@ -45,7 +45,7 @@ export default function FinanceNewsCard() {
       </div>
       <div className="finance-item finance-item-3">
         <div className="finance-thumb">
-          <Image src="/images/finance/finance-1.jpg" alt="finance" />
+          <img src="/images/finance/finance-1.jpg" alt="finance" />
           <div className="finance-date">
             <span>April 26, 2020</span>
           </div>

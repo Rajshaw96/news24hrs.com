@@ -10,7 +10,7 @@ export default function SmallNewsCard() {
       <div className="trending-business-items">
         <div className="gallery_item populer_item-style">
           <div className="gallery_item_thumb">
-            <Image src="/images/trending-business/1.jpg" alt="populer" />
+            <img src="/images/trending-business/1.jpg" alt="populer" />
           </div>
           <div className="gallery_item_content">
             <h4 className="title">
@@ -20,7 +20,7 @@ export default function SmallNewsCard() {
         </div>
         <div className="gallery_item populer_item-style">
           <div className="gallery_item_thumb">
-            <Image src="/images/trending-business/2.jpg" alt="populer" />
+            <img src="/images/trending-business/2.jpg" alt="populer" />
           </div>
           <div className="gallery_item_content">
             <h4 className="title">
@@ -30,7 +30,7 @@ export default function SmallNewsCard() {
         </div>
         <div className="gallery_item populer_item-style">
           <div className="gallery_item_thumb">
-            <Image src="/images/trending-business/3.jpg" alt="populer" />
+            <img src="/images/trending-business/3.jpg" alt="populer" />
           </div>
           <div className="gallery_item_content">
             <h4 className="title">
@@ -40,7 +40,7 @@ export default function SmallNewsCard() {
         </div>
         <div className="gallery_item populer_item-style">
           <div className="gallery_item_thumb">
-            <Image src="/images/trending-business/4.jpg" alt="populer" />
+            <img src="/images/trending-business/4.jpg" alt="populer" />
           </div>
           <div className="gallery_item_content">
             <h4 className="title">
@@ -50,7 +50,7 @@ export default function SmallNewsCard() {
         </div>
         <div className="gallery_item populer_item-style">
           <div className="gallery_item_thumb">
-            <Image src="/images/trending-business/5.jpg" alt="populer" />
+            <img src="/images/trending-business/5.jpg" alt="populer" />
           </div>
           <div className="gallery_item_content">
             <h4 className="title">

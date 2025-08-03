@@ -58,7 +58,7 @@ export default function ScienceNewsCarousel() {
             </h3>
             <div className="post-text-thumb">
               <div className="thumb">
-                <Image src="/images/science-1.jpg" alt="science" />
+                <img src="/images/science-1.jpg" alt="science" />
               </div>
               <div className="text">
                 <p>
@@ -86,65 +86,7 @@ export default function ScienceNewsCarousel() {
             </h3>
             <div className="post-text-thumb">
               <div className="thumb">
-                <Image src="/images/science-2.jpg" alt="science" />
-              </div>
-              <div className="text">
-                <p>
-                  The property, complete with seat screening from room, a
-                  100-seat amphitheater and a swimming pond with…
-                </p>
-              </div>
-            </div>
-            <div className="post-user">
-              <Link href="/post-details-one">
-                <i className="fal fa-bookmark"></i>
-              </Link>
-              <span>
-                By <span>Subash Chandra</span>
-              </span>
-              <p>March 26, 2020</p>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="science-news-item">
-            <h3 className="title">
-              <Link href="/post-details-one">
-                Why clinician spiritual health matters in the covid-19 crisis:
-                you can’t pour from an empty cup…
-              </Link>
-            </h3>
-            <div className="post-text-thumb">
-              <div className="thumb">
-                <Image src="/images/science-3.jpg" alt="science" />
-              </div>
-              <div className="text">
-                <p>
-                  The property, complete with seat screening from room, a
-                  100-seat amphitheater and a swimming pond with…
-                </p>
-              </div>
-            </div>
-            <div className="post-user">
-              <Link href="/post-details-one">
-                <i className="fal fa-bookmark"></i>
-              </Link>
-              <span>
-                By <span>Subash Chandra</span>
-              </span>
-              <p>March 26, 2020</p>
-            </div>
-          </div>
-          <div className="science-news-item">
-            <h3 className="title">
-              <Link href="/post-details-one">
-                Why clinician spiritual health matters in the covid-19 crisis:
-                you can’t pour from an empty cup…
-              </Link>
-            </h3>
-            <div className="post-text-thumb">
-              <div className="thumb">
-                <Image src="/images/science-4.jpg" alt="science" />
+                <img src="/images/science-2.jpg" alt="science" />
               </div>
               <div className="text">
                 <p>
@@ -174,7 +116,7 @@ export default function ScienceNewsCarousel() {
             </h3>
             <div className="post-text-thumb">
               <div className="thumb">
-                <Image src="/images/science-4.jpg" alt="science" />
+                <img src="/images/science-3.jpg" alt="science" />
               </div>
               <div className="text">
                 <p>
@@ -202,7 +144,65 @@ export default function ScienceNewsCarousel() {
             </h3>
             <div className="post-text-thumb">
               <div className="thumb">
-                <Image src="/images/science-1.jpg" alt="science" />
+                <img src="/images/science-4.jpg" alt="science" />
+              </div>
+              <div className="text">
+                <p>
+                  The property, complete with seat screening from room, a
+                  100-seat amphitheater and a swimming pond with…
+                </p>
+              </div>
+            </div>
+            <div className="post-user">
+              <Link href="/post-details-one">
+                <i className="fal fa-bookmark"></i>
+              </Link>
+              <span>
+                By <span>Subash Chandra</span>
+              </span>
+              <p>March 26, 2020</p>
+            </div>
+          </div>
+        </div>
+        <div className="col">
+          <div className="science-news-item">
+            <h3 className="title">
+              <Link href="/post-details-one">
+                Why clinician spiritual health matters in the covid-19 crisis:
+                you can’t pour from an empty cup…
+              </Link>
+            </h3>
+            <div className="post-text-thumb">
+              <div className="thumb">
+                <img src="/images/science-4.jpg" alt="science" />
+              </div>
+              <div className="text">
+                <p>
+                  The property, complete with seat screening from room, a
+                  100-seat amphitheater and a swimming pond with…
+                </p>
+              </div>
+            </div>
+            <div className="post-user">
+              <Link href="/post-details-one">
+                <i className="fal fa-bookmark"></i>
+              </Link>
+              <span>
+                By <span>Subash Chandra</span>
+              </span>
+              <p>March 26, 2020</p>
+            </div>
+          </div>
+          <div className="science-news-item">
+            <h3 className="title">
+              <Link href="/post-details-one">
+                Why clinician spiritual health matters in the covid-19 crisis:
+                you can’t pour from an empty cup…
+              </Link>
+            </h3>
+            <div className="post-text-thumb">
+              <div className="thumb">
+                <img src="/images/science-1.jpg" alt="science" />
               </div>
               <div className="text">
                 <p>

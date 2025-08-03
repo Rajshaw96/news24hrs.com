@@ -11,7 +11,7 @@ export default function MostViewVerticalCard() {
       <div className="finance-items">
         <div className="finance-item">
           <div className="finance-thumb">
-            <Image src="/images/finance/finance-1.jpg" alt="finance" />
+            <img src="/images/finance/finance-1.jpg" alt="finance" />
             <div className="finance-date">
               <span>April 26, 2020</span>
             </div>
@@ -40,7 +40,7 @@ export default function MostViewVerticalCard() {
         </div>
         <div className="finance-item">
           <div className="finance-thumb">
-            <Image src="/images/finance/finance-2.jpg" alt="finance" />
+            <img src="/images/finance/finance-2.jpg" alt="finance" />
             <div className="finance-date">
               <span>April 26, 2020</span>
             </div>
@@ -69,7 +69,7 @@ export default function MostViewVerticalCard() {
         </div>
         <div className="finance-item">
           <div className="finance-thumb">
-            <Image src="/images/finance/finance-3.jpg" alt="finance" />
+            <img src="/images/finance/finance-3.jpg" alt="finance" />
             <div className="finance-date">
               <span>April 26, 2020</span>
             </div>

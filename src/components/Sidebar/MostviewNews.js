@@ -110,7 +110,7 @@ export default function MostviewNews({ dark }) {
               key={item.id}
             >
               <div className="gallery_item_thumb">
-                <Image src={item.postThumb} alt="gallery" />
+                <img src={item.postThumb} alt="gallery" />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
                 </div>
@@ -141,7 +141,7 @@ export default function MostviewNews({ dark }) {
               key={item.id}
             >
               <div className="gallery_item_thumb">
-                <Image src={item.postThumb} alt="gallery" />
+                <img src={item.postThumb} alt="gallery" />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
                 </div>

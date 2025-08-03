@@ -16,7 +16,7 @@ export default function LatestNews() {
           <div className="col-lg-4">
             <div className="trending-news-item mb-30">
               <div className="trending-news-thumb">
-                <Image src="/images/latest-news-1.png" alt="trending" />
+                <img src="/images/latest-news-1.png" alt="trending" />
               </div>
               <div className="trending-news-content">
                 <div className="post-meta">
@@ -42,7 +42,7 @@ export default function LatestNews() {
           <div className="col-lg-4">
             <div className="trending-news-item mb-30">
               <div className="trending-news-thumb">
-                <Image src="/images/latest-news-2.png" alt="trending" />
+                <img src="/images/latest-news-2.png" alt="trending" />
               </div>
               <div className="trending-news-content">
                 <div className="post-meta">
@@ -68,7 +68,7 @@ export default function LatestNews() {
           <div className="col-lg-4">
             <div className="trending-news-item mb-30">
               <div className="trending-news-thumb">
-                <Image src="/images/latest-news-3.png" alt="trending" />
+                <img src="/images/latest-news-3.png" alt="trending" />
               </div>
               <div className="trending-news-content">
                 <div className="post-meta">

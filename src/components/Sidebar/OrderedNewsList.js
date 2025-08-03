@@ -7,7 +7,7 @@ export default function OrderedNewsList() {
     <div className="post_gallery_items">
       <div className="gallery_item gallery_item-style-2">
         <div className="gallery_item_thumb">
-          <Image src="/images/most-post/most-1.jpg" alt="gallery" />
+          <img src="/images/most-post/most-1.jpg" alt="gallery" />
           <div className="icon">
             <i className="fas fa-bolt"></i>
           </div>
@@ -31,7 +31,7 @@ export default function OrderedNewsList() {
       </div>
       <div className="gallery_item gallery_item-style-2">
         <div className="gallery_item_thumb">
-          <Image src="/images/most-post/most-2.jpg" alt="gallery" />
+          <img src="/images/most-post/most-2.jpg" alt="gallery" />
         </div>
         <div className="gallery_item_content">
           <div className="post-meta">
@@ -52,7 +52,7 @@ export default function OrderedNewsList() {
       </div>
       <div className="gallery_item gallery_item-style-2">
         <div className="gallery_item_thumb">
-          <Image src="/images/most-post/most-3.jpg" alt="gallery" />
+          <img src="/images/most-post/most-3.jpg" alt="gallery" />
           <div className="icon">
             <i className="fas fa-bolt"></i>
           </div>
@@ -76,7 +76,7 @@ export default function OrderedNewsList() {
       </div>
       <div className="gallery_item gallery_item-style-2">
         <div className="gallery_item_thumb">
-          <Image src="/images/most-post/most-4.jpg" alt="gallery" />
+          <img src="/images/most-post/most-4.jpg" alt="gallery" />
           <div className="icon">
             <i className="fas fa-bolt"></i>
           </div>
@@ -100,7 +100,7 @@ export default function OrderedNewsList() {
       </div>
       <div className="gallery_item gallery_item-style-2">
         <div className="gallery_item_thumb">
-          <Image src="/images/most-post/most-5.jpg" alt="gallery" />
+          <img src="/images/most-post/most-5.jpg" alt="gallery" />
         </div>
         <div className="gallery_item_content">
           <div className="post-meta">
@@ -121,7 +121,7 @@ export default function OrderedNewsList() {
       </div>
       <div className="gallery_item gallery_item-style-2">
         <div className="gallery_item_thumb">
-          <Image src="/images/most-post/most-6.jpg" alt="gallery" />
+          <img src="/images/most-post/most-6.jpg" alt="gallery" />
         </div>
         <div className="gallery_item_content">
           <div className="post-meta">

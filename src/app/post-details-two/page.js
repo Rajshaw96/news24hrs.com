@@ -32,12 +32,12 @@ export default function PostDetailsTwo() {
               <div className="col-lg-8">
                 <div className="post-layout-top-content post-layout-top-content-2">
                   <div className="thumb">
-                    <Image src="/images/post-thumb-5.png" alt="" />
+                    <img src="/images/post-thumb-5.png" alt="" />
                   </div>
                   <div className="post-author">
                     <div className="author-info">
                       <div className="thumb">
-                        <Image src="/images/author.png" alt="" />
+                        <img src="/images/author.png" alt="" />
                       </div>
                       <h5 className="title">Subash Chandra</h5>
                       <ul>
@@ -211,7 +211,7 @@ export default function PostDetailsTwo() {
                     <div className="row pt-10">
                       <div className="col-lg-6">
                         <div className="post-thumb">
-                          <Image src="/images/post-thumb-6.png" alt="" />
+                          <img src="/images/post-thumb-6.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-6">
@@ -250,7 +250,7 @@ export default function PostDetailsTwo() {
                       whether masks are useful when used by the public.
                     </p>
                     <div className="play-thumb mt-20 mb-35">
-                      <Image src="/images/post-play-thumb.jpg" alt="" />
+                      <img src="/images/post-play-thumb.jpg" alt="" />
                       <span>
                         I just had a baby - now I’m going to the frontline.
                       </span>
@@ -292,7 +292,7 @@ export default function PostDetailsTwo() {
                         pleasure.
                       </p>
                       <div className="user">
-                        <Image src="/images/author.png" alt="" />
+                        <img src="/images/author.png" alt="" />
                         <h5 className="title">Subash Chandra</h5>
                         <span>Founder at Seative Digital</span>
                       </div>
@@ -319,7 +319,7 @@ export default function PostDetailsTwo() {
                     </p>
                     <div className="add pt-10 pb-35">
                       <a href="#">
-                        <Image src="/images/ad/ad-1.png" alt="" />
+                        <img src="/images/ad/ad-1.png" alt="" />
                       </a>
                     </div>
                     <p>

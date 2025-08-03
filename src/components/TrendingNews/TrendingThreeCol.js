@@ -9,7 +9,7 @@ export default function TrendingThreeCol() {
         <div className="row">
           <div className="col-lg-4 col-md-6">
             <div className="trending-image-post mt-30">
-              <Image src="/images/trending-image-post-1.jpg" alt="" />
+              <img src="/images/trending-image-post-1.jpg" alt="" />
               <div className="trending-image-content">
                 <div className="post-meta">
                   <div className="meta-categories">
@@ -30,7 +30,7 @@ export default function TrendingThreeCol() {
           </div>
           <div className="col-lg-4 col-md-6">
             <div className="trending-image-post mt-30">
-              <Image src="/images/trending-image-post-2.jpg" alt="" />
+              <img src="/images/trending-image-post-2.jpg" alt="" />
               <div className="trending-image-content">
                 <div className="post-meta">
                   <div className="meta-categories">
@@ -51,7 +51,7 @@ export default function TrendingThreeCol() {
           </div>
           <div className="col-lg-4 col-md-6">
             <div className="trending-image-post mt-30">
-              <Image src="/images/trending-image-post-1.jpg" alt="" />
+              <img src="/images/trending-image-post-1.jpg" alt="" />
               <div className="trending-image-content">
                 <div className="post-meta">
                   <div className="meta-categories">

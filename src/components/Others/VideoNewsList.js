@@ -8,7 +8,7 @@ export default function VideoNewsList({ customClass }) {
         <div className="row no-gutters">
           <div className="col-lg-8">
             <div className="post-play-item">
-              <Image src="/images/post-play.jpg" alt="" />
+              <img src="/images/post-play.jpg" alt="" />
               <div className="post-play-content">
                 <h3 className="title">
                   <a href="#">

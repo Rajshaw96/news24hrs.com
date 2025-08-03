@@ -10,7 +10,7 @@ export default function SportsNewsVerticalCard() {
       </div>
       <div className="post-sports-item">
         <div className="post-sports-thumb">
-          <Image src="/images/post-sports-1.jpg" alt="" />
+          <img src="/images/post-sports-1.jpg" alt="" />
         </div>
         <div className="post-sports-content">
           <h3 className="title">
@@ -39,7 +39,7 @@ export default function SportsNewsVerticalCard() {
       <div className="post_gallery_items">
         <div className="post-gallery-style-2">
           <div className="post-gallery-thumb">
-            <Image src="/images/gallery-post/1.png" alt="gallery" />
+            <img src="/images/gallery-post/1.png" alt="gallery" />
           </div>
           <div className="post-gallery-content">
             <h5 className="title">
@@ -63,7 +63,7 @@ export default function SportsNewsVerticalCard() {
         </div>
         <div className="post-gallery-style-2">
           <div className="post-gallery-thumb">
-            <Image src="/images/gallery-post/2.png" alt="gallery" />
+            <img src="/images/gallery-post/2.png" alt="gallery" />
           </div>
           <div className="post-gallery-content">
             <h5 className="title">
@@ -87,7 +87,7 @@ export default function SportsNewsVerticalCard() {
         </div>
         <div className="post-gallery-style-2">
           <div className="post-gallery-thumb">
-            <Image src="/images/gallery-post/3.png" alt="gallery" />
+            <img src="/images/gallery-post/3.png" alt="gallery" />
           </div>
           <div className="post-gallery-content">
             <h5 className="title">
@@ -111,7 +111,7 @@ export default function SportsNewsVerticalCard() {
         </div>
         <div className="post-gallery-style-2">
           <div className="post-gallery-thumb">
-            <Image src="/images/gallery-post/4.png" alt="gallery" />
+            <img src="/images/gallery-post/4.png" alt="gallery" />
           </div>
           <div className="post-gallery-content">
             <h5 className="title">
@@ -135,7 +135,7 @@ export default function SportsNewsVerticalCard() {
         </div>
         <div className="post-gallery-style-2">
           <div className="post-gallery-thumb">
-            <Image src="/images/gallery-post/5.png" alt="gallery" />
+            <img src="/images/gallery-post/5.png" alt="gallery" />
           </div>
           <div className="post-gallery-content">
             <h5 className="title">

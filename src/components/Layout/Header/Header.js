@@ -58,7 +58,7 @@ export default function Header({ customClass, className, action, dark }) {
                   </div>
                   <div className="header-temperature">
                     <div className="icon">
-                      <Image src="/images/temperature-icon.svg" alt="" />
+                      <img src="/images/temperature-icon.svg" alt="" />
                     </div>
                     <div className="temperature-content text-center">
                       <h5 className="title">

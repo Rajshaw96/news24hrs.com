@@ -60,13 +60,13 @@ export default function PostDetailsOne() {
                       shower…
                     </p>
                     <div className="thumb">
-                      <Image src="/images/post-layout.png" alt="" />
+                      <img src="/images/post-layout.png" alt="" />
                     </div>
                   </div>
                   <div className="post-author">
                     <div className="author-info">
                       <div className="thumb">
-                        <Image src="/images/author.png" alt="" />
+                        <img src="/images/author.png" alt="" />
                       </div>
                       <h5 className="title">Subash Chandra</h5>
                       <ul>
@@ -197,7 +197,7 @@ export default function PostDetailsOne() {
                     <div className="row pt-10">
                       <div className="col-lg-6">
                         <div className="post-thumb">
-                          <Image src="/images/post-thumb-2.png" alt="" />
+                          <img src="/images/post-thumb-2.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-6">
@@ -265,7 +265,7 @@ export default function PostDetailsOne() {
                       whether masks are useful when used by the public.
                     </p>
                     <div className="thumb pt-20 pb-35">
-                      <Image src="/images/post-thumb-3.jpg" alt="" />
+                      <img src="/images/post-thumb-3.jpg" alt="" />
                       <span>
                         I just had a baby - now I’m going to the frontline.
                       </span>
@@ -291,10 +291,10 @@ export default function PostDetailsOne() {
                   </div>
                   <div className="post-quote d-block d-md-flex align-items-center">
                     <div className="thumb">
-                      <Image src="/images/post-quote.jpg" alt="" />
+                      <img src="/images/post-quote.jpg" alt="" />
                     </div>
                     <div className="post-quote-content">
-                      <Image src="/images/quote-icon.png" alt="" />
+                      <img src="/images/quote-icon.png" alt="" />
                       <p>
                         I must explain to you how all this mistake idea
                         denouncing pleasure and praising pain was born and I
@@ -305,7 +305,7 @@ export default function PostDetailsOne() {
                         pleasure.
                       </p>
                       <div className="user">
-                        <Image src="/images/author.png" alt="" />
+                        <img src="/images/author.png" alt="" />
                         <h5 className="title">Subash Chandra</h5>
                         <span>Founder at Seative Digital</span>
                       </div>
@@ -331,7 +331,7 @@ export default function PostDetailsOne() {
                       Companies in South Korea said would tests.
                     </p>
                     <div className="thumb pt-10 pb-35">
-                      <Image src="/images/post-thumb-4.png" alt="" />
+                      <img src="/images/post-thumb-4.png" alt="" />
                     </div>
                     <p>
                       In global terms the US has the most Covid-19 cases - more

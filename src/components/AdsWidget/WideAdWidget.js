@@ -6,7 +6,7 @@ export default function WideAdWidget() {
   return (
     <div className="add-area text-center">
       <Link href="/">
-        <Image src="/images/ads/banner.png" alt="" />
+        <img src="/images/ads/banner.png" alt="" />
       </Link>
     </div>
   );

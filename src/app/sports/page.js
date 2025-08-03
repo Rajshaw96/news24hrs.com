@@ -130,7 +130,7 @@ export default function Sports() {
                         <div class="col-md-6" key={i + 1}>
                           <div class="feature-news-item">
                             <div class="feature-news-thumb">
-                              <Image src={item.postThumb} alt="feature" />
+                              <img src={item.postThumb} alt="feature" />
                               <div class="meta-categores">
                                 <span>{item.postTag}</span>
                               </div>

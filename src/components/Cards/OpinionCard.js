@@ -10,7 +10,7 @@ export default function OpinionCard() {
       </div>
       <div className="opinion-post-item">
         <div className="opinion-post-thumb">
-          <Image src="/images/opinion-post-thumb.jpg" alt="" />
+          <img src="/images/opinion-post-thumb.jpg" alt="" />
           <div className="circle-bar">
             <div className="first circle">
               <strong></strong>

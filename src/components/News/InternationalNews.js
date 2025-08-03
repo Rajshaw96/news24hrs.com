@@ -11,7 +11,7 @@ export default function InternationalNews() {
       <div className="international-news-items">
         <div className="international-news-item">
           <div className="international-news-thumb">
-            <Image src="/images/international-post/1.jpg" alt="" />
+            <img src="/images/international-post/1.jpg" alt="" />
           </div>
           <div className="international-news-content">
             <div className="international-meta">
@@ -52,7 +52,7 @@ export default function InternationalNews() {
         </div>
         <div className="international-news-item">
           <div className="international-news-thumb">
-            <Image src="/images/international-post/2.jpg" alt="" />
+            <img src="/images/international-post/2.jpg" alt="" />
           </div>
           <div className="international-news-content">
             <div className="international-meta">
@@ -93,7 +93,7 @@ export default function InternationalNews() {
         </div>
         <div className="international-news-item">
           <div className="international-news-thumb">
-            <Image src="/images/international-post/3.jpg" alt="" />
+            <img src="/images/international-post/3.jpg" alt="" />
           </div>
           <div className="international-news-content">
             <div className="international-meta">
@@ -135,7 +135,7 @@ export default function InternationalNews() {
         </div>
         <div className="international-news-item">
           <div className="international-news-thumb">
-            <Image src="/images/international-post/4.jpg" alt="" />
+            <img src="/images/international-post/4.jpg" alt="" />
           </div>
           <div className="international-news-content">
             <div className="international-meta">
@@ -176,7 +176,7 @@ export default function InternationalNews() {
         </div>
         <div className="international-news-item">
           <div className="international-news-thumb">
-            <Image src="/images/international-post/5.jpg" alt="" />
+            <img src="/images/international-post/5.jpg" alt="" />
           </div>
           <div className="international-news-content">
             <div className="international-meta">

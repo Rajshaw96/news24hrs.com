@@ -57,9 +57,9 @@ export default function EntertainmentNews({ dark }) {
             >
               <div className="trending-news-thumb">
                 {dark ? (
-                  <Image src={item.postThumbDark} alt="trending" />
+                  <img src={item.postThumbDark} alt="trending" />
                 ) : (
-                  <Image src={item.postThumb} alt="trending" />
+                  <img src={item.postThumb} alt="trending" />
                 )}
 
                 <div className="circle-bar">

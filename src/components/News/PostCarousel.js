@@ -99,7 +99,7 @@ export default function PostCarousel({ dark }) {
                 }`}
               >
                 <div className="post-thumb">
-                  <Image src={item.postThumb} alt="post" />
+                  <img src={item.postThumb} alt="post" />
                 </div>
                 <div className="post-content">
                   <h4 className="title">

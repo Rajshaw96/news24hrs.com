@@ -87,7 +87,7 @@ export default function VerticalTabTwo() {
           <div className="post-style-items">
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/1.png" alt="gallery" />
+                <img src="/images/tab-post/1.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -106,7 +106,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/2.png" alt="gallery" />
+                <img src="/images/tab-post/2.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -125,7 +125,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/3.png" alt="gallery" />
+                <img src="/images/tab-post/3.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -144,7 +144,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/4.png" alt="gallery" />
+                <img src="/images/tab-post/4.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -163,7 +163,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/5.png" alt="gallery" />
+                <img src="/images/tab-post/5.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -198,7 +198,7 @@ export default function VerticalTabTwo() {
           <div className="post-style-items">
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/1.png" alt="gallery" />
+                <img src="/images/tab-post/1.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -217,7 +217,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/2.png" alt="gallery" />
+                <img src="/images/tab-post/2.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -236,7 +236,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/3.png" alt="gallery" />
+                <img src="/images/tab-post/3.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -255,7 +255,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/4.png" alt="gallery" />
+                <img src="/images/tab-post/4.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -274,7 +274,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/5.png" alt="gallery" />
+                <img src="/images/tab-post/5.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -309,7 +309,7 @@ export default function VerticalTabTwo() {
           <div className="post-style-items">
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/1.png" alt="gallery" />
+                <img src="/images/tab-post/1.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -328,7 +328,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/2.png" alt="gallery" />
+                <img src="/images/tab-post/2.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -347,7 +347,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/3.png" alt="gallery" />
+                <img src="/images/tab-post/3.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -366,7 +366,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/4.png" alt="gallery" />
+                <img src="/images/tab-post/4.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">
@@ -385,7 +385,7 @@ export default function VerticalTabTwo() {
             </div>
             <div className="post-gallery-style-2 most-view-style-2">
               <div className="post-gallery-thumb">
-                <Image src="/images/tab-post/5.png" alt="gallery" />
+                <img src="/images/tab-post/5.png" alt="gallery" />
               </div>
               <div className="post-gallery-content">
                 <h5 className="title">

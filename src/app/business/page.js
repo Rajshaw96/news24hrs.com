@@ -121,7 +121,7 @@ export default function Business() {
                           <div className="row">
                             <div className="col-lg-6 col-md-6">
                               <div className="business-post-thumb">
-                                <Image src={item.postThumb} alt="business" />
+                                <img src={item.postThumb} alt="business" />
                               </div>
                             </div>
                             <div className="col-lg-6 col-md-6">

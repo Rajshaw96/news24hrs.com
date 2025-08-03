@@ -54,7 +54,7 @@ export default function FeatureNewsCarouselTwo() {
       <div className="col">
         <div className="feature-news-item">
           <div className="feature-news-thumb">
-            <Image src="/images/feature/feature-news-1.jpg" alt="feature" />
+            <img src="/images/feature/feature-news-1.jpg" alt="feature" />
             <div className="meta-categores">
               <span>TECHNOLOGY</span>
             </div>
@@ -70,7 +70,7 @@ export default function FeatureNewsCarouselTwo() {
       <div className="col">
         <div className="feature-news-item">
           <div className="feature-news-thumb">
-            <Image src="/images/feature/feature-news-2.jpg" alt="feature" />
+            <img src="/images/feature/feature-news-2.jpg" alt="feature" />
             <div className="meta-categores">
               <span>TECHNOLOGY</span>
             </div>
@@ -86,7 +86,7 @@ export default function FeatureNewsCarouselTwo() {
       <div className="col">
         <div className="feature-news-item">
           <div className="feature-news-thumb">
-            <Image src="/images/feature/feature-news-3.jpg" alt="feature" />
+            <img src="/images/feature/feature-news-3.jpg" alt="feature" />
             <div className="meta-categores">
               <span>TECHNOLOGY</span>
             </div>
@@ -102,7 +102,7 @@ export default function FeatureNewsCarouselTwo() {
       <div className="col">
         <div className="feature-news-item">
           <div className="feature-news-thumb">
-            <Image src="/images/feature/feature-news-2.jpg" alt="feature" />
+            <img src="/images/feature/feature-news-2.jpg" alt="feature" />
             <div className="meta-categores">
               <span>TECHNOLOGY</span>
             </div>

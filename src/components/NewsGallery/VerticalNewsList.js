@@ -7,7 +7,7 @@ export default function VerticalNewsList() {
     <div className="post-news-list mt-40">
       <div className="gallery_item populer_item-style">
         <div className="gallery_item_thumb">
-          <Image src="/images/post-news/1.jpg" alt="populer" />
+          <img src="/images/post-news/1.jpg" alt="populer" />
         </div>
         <div className="gallery_item_content">
           <h4 className="title">
@@ -20,7 +20,7 @@ export default function VerticalNewsList() {
       </div>
       <div className="gallery_item populer_item-style">
         <div className="gallery_item_thumb">
-          <Image src="/images/post-news/2.jpg" alt="populer" />
+          <img src="/images/post-news/2.jpg" alt="populer" />
         </div>
         <div className="gallery_item_content">
           <h4 className="title">
@@ -33,7 +33,7 @@ export default function VerticalNewsList() {
       </div>
       <div className="gallery_item populer_item-style">
         <div className="gallery_item_thumb">
-          <Image src="/images/post-news/3.jpg" alt="populer" />
+          <img src="/images/post-news/3.jpg" alt="populer" />
         </div>
         <div className="gallery_item_content">
           <h4 className="title">
@@ -46,7 +46,7 @@ export default function VerticalNewsList() {
       </div>
       <div className="gallery_item populer_item-style">
         <div className="gallery_item_thumb">
-          <Image src="/images/post-news/4.jpg" alt="populer" />
+          <img src="/images/post-news/4.jpg" alt="populer" />
         </div>
         <div className="gallery_item_content">
           <h4 className="title">
@@ -59,7 +59,7 @@ export default function VerticalNewsList() {
       </div>
       <div className="gallery_item populer_item-style">
         <div className="gallery_item_thumb">
-          <Image src="/images/post-news/5.jpg" alt="populer" />
+          <img src="/images/post-news/5.jpg" alt="populer" />
         </div>
         <div className="gallery_item_content">
           <h4 className="title">

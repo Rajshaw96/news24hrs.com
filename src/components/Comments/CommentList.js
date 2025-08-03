@@ -13,7 +13,7 @@ export default function CommentList() {
             <div className="post-comments-list">
               <div className="post-comments-item">
                 <div className="thumb">
-                  <Image src="/images/comments-1.png" alt="comments" />
+                  <img src="/images/comments-1.png" alt="comments" />
                 </div>
                 <div className="post">
                   <a href="#">Reply</a>
@@ -27,7 +27,7 @@ export default function CommentList() {
               </div>
               <div className="post-comments-item">
                 <div className="thumb">
-                  <Image src="/images/comments-2.png" alt="comments" />
+                  <img src="/images/comments-2.png" alt="comments" />
                 </div>
                 <div className="post">
                   <a href="#">Reply</a>
@@ -41,7 +41,7 @@ export default function CommentList() {
               </div>
               <div className="post-comments-item ml-30">
                 <div className="thumb">
-                  <Image src="/images/comments-3.png" alt="comments" />
+                  <img src="/images/comments-3.png" alt="comments" />
                 </div>
                 <div className="post">
                   <a href="#">Reply</a>
@@ -55,7 +55,7 @@ export default function CommentList() {
               </div>
               <div className="post-comments-item">
                 <div className="thumb">
-                  <Image src="/images/comments-4.png" alt="comments" />
+                  <img src="/images/comments-4.png" alt="comments" />
                 </div>
                 <div className="post">
                   <a href="#">Reply</a>

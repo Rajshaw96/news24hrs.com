@@ -70,7 +70,7 @@ export default function TrendingCarousel({ dark }) {
           }`}
         >
           <div className="trending-news-thumb">
-            <Image src="/images/trending-news-1.jpg" alt="trending" />
+            <img src="/images/trending-news-1.jpg" alt="trending" />
             <div className="icon">
               <Link href="/post-details-three">
                 <i className="fas fa-bolt"></i>
@@ -105,7 +105,7 @@ export default function TrendingCarousel({ dark }) {
           }`}
         >
           <div className="trending-news-thumb">
-            <Image src="/images/trending-news-2.jpg" alt="trending" />
+            <img src="/images/trending-news-2.jpg" alt="trending" />
             <div className="icon">
               <Link href="/post-details-three">
                 <i className="fas fa-bolt"></i>
@@ -141,7 +141,7 @@ export default function TrendingCarousel({ dark }) {
           }`}
         >
           <div className="trending-news-thumb">
-            <Image src="/images/trending-news-3.jpg" alt="trending" />
+            <img src="/images/trending-news-3.jpg" alt="trending" />
             <div className="icon">
               <Link href="/post-details-three">
                 <i className="fas fa-bolt"></i>
