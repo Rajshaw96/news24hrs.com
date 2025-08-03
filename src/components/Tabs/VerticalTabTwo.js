@@ -2,6 +2,8 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import Image from 'next/image';
+
 export default function VerticalTabTwo() {
   const [activeTab, setActiveTab] = useState('home');
 

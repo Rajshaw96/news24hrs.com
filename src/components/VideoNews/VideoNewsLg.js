@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
+import Image from 'next/image';
 
 export default function VideoNewsLg() {
   const [isOpen, setOpen] = useState(false);

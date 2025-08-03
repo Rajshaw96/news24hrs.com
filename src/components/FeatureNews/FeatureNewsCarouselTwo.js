@@ -1,6 +1,8 @@
 "use client"
 import React from 'react';
 import Slider from 'react-slick';
+import Image from 'next/image';
+
 function PrevArrow(props) {
   const { onClick } = props;
   return (

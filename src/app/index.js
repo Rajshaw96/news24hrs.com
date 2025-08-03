@@ -23,6 +23,7 @@ import TrendingNewsArea from '@/components/TrendingNews/TrendingNewsArea';
 import useToggle from '@/Hooks/useToggle';
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 export default function HomeOne() {
   const [drawer, drawerAction] = useToggle(false);

@@ -27,6 +27,7 @@ import TrendingNewPost from '@/components/TrendingNews/TrendingNewPost';
 import useToggle from '@/Hooks/useToggle';
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 export default function HomeOneThree() {
   const [drawer, drawerAction] = useToggle(false);

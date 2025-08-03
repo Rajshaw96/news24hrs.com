@@ -2,6 +2,7 @@ import React from 'react';
 import Topbar from './Topbar';
 import LogoBanner from './LogoBanner';
 import NavigationBar from './NavigationBar';
+import Image from 'next/image';
 
 export default function Header({ customClass, className, action, dark }) {
   return (

@@ -24,6 +24,7 @@ import WidgetOne from '@/components/SocialMediaWidgets/WidgetOne';
 import TrendingNewPost from '@/components/TrendingNews/TrendingNewPost';
 import useToggle from '@/Hooks/useToggle';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import React from 'react';
 

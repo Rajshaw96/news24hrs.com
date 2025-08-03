@@ -2,6 +2,7 @@ import React from 'react';
 import LogoBannerDark from './LogoBannerDark';
 import NavigationBar from './NavigationBar';
 import Topbar from './Topbar';
+import Image from 'next/image';
 
 export default function HeaderThree({ action }) {
   return (

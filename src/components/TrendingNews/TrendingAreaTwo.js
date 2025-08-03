@@ -4,6 +4,7 @@ import SmallNewsCard from '../News/SmallNewsCard';
 import TrendingNewsCard from '../News/TrendingNewsCard';
 import LargePostSlider from './LargePostSlider';
 import TrendingNewsCardSlider from './TrendingNewsCardSlider';
+import Image from 'next/image';
 
 export default function TrendingAreaTwo({ customClass }) {
   return (

@@ -17,6 +17,7 @@ import VerticalTab from '@/components/Tabs/VerticalTab';
 import TrendingAreaTwo from '@/components/TrendingNews/TrendingAreaTwo';
 import TrendingThreeCol from '@/components/TrendingNews/TrendingThreeCol';
 import useToggle from '@/Hooks/useToggle';
+import Image from 'next/image';
 
 export default function HomeFour() {
   const [drawer, drawerAction] = useToggle(false);

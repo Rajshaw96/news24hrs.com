@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import NavigationBar from './NavigationBar';
 import TopbarFour from './TopbarFour';
+import Image from 'next/image';
 
 export default function HeaderTwo({ customClass, className, action }) {
   return (

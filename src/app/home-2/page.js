@@ -24,6 +24,7 @@ import SportsFixtures from '@/components/Sidebar/SportsFixtures';
 import WidgetOne from '@/components/SocialMediaWidgets/WidgetOne';
 import TrendingNewPost from '@/components/TrendingNews/TrendingNewPost';
 import useToggle from '@/Hooks/useToggle';
+import Image from 'next/image';
 
 import Link from 'next/link';
 

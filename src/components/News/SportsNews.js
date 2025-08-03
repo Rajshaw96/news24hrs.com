@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import SportsNewsCarousel from './SportsNewsCarousel';
+import Image from 'next/image';
 
 export default function SportsNews() {
   return (
