@@ -116,8 +116,8 @@ export default function Business() {
                 <div className="about-post-items">
                   <div className="row">
                     <div className="col-lg-12">
-                      {postData.map((item) => (
-                        <div className="business-post-item mb-40">
+                      {postData.map((item, index) => (
+                        <div key={item.id || index} className="business-post-item mb-40">
                           <div className="row">
                             <div className="col-lg-6 col-md-6">
                               <div className="business-post-thumb">
