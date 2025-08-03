@@ -115,13 +115,13 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
               <div className="feature-post">
                 <div className="feature-post-thumb">
                   {dark ? (
-                    <img
+                    <Image 
                       src={item.postThumbDark}
                       className="img-fluid"
                       alt="feature"
                     />
                   ) : (
-                    <img
+                    <Image 
                       src={item.postThumb}
                       className="img-fluid"
                       alt="feature"
