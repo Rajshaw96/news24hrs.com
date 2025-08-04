@@ -12,7 +12,6 @@ import TrendingSingleCarousel from '@/components/TrendingNews/TrendingSingleCaro
 import useToggle from '@/Hooks/useToggle';
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 
 const postData = [
   {
@@ -98,8 +97,8 @@ export default function Technology() {
                   <div className="about-post-items">
                     <div className="row">
                       <div className="col-lg-12">
-                        {postData.map((item, index) => (
-                          <div key={item.id || index} className="trending-news-item technology-item">
+                        {postData.map((item, i) => (
+                          <div className="trending-news-item technology-item">
                             <div className="trending-news-thumb">
                               <img src={item.postThumb} alt="trending" />
                               <div className="icon">

@@ -17,7 +17,6 @@ import NewsTabs from '@/components/Sidebar/NewsTabs';
 import WidgetOne from '@/components/SocialMediaWidgets/WidgetOne';
 import TrendingSingleCarousel from '@/components/TrendingNews/TrendingSingleCarousel';
 import useToggle from '@/Hooks/useToggle';
-import Image from 'next/image';
 
 export default function PostDetailsOne() {
   const [drawer, drawerAction] = useToggle(false);

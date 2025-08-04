@@ -21,7 +21,6 @@ import VerticalTabTwo from '@/components/Tabs/VerticalTabTwo';
 import VideoNewsLg from '@/components/VideoNews/VideoNewsLg';
 import useToggle from '@/Hooks/useToggle';
 import React from 'react';
-import Image from 'next/image';
 
 export default function HomeThreeOne() {
   const [drawer, drawerAction] = useToggle(false);

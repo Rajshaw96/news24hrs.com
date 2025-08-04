@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import ModalVideo from 'react-modal-video';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const galleryData = [
   {

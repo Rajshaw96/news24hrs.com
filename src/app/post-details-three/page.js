@@ -18,7 +18,6 @@ import WidgetOne from '@/components/SocialMediaWidgets/WidgetOne';
 import TrendingSingleCarousel from '@/components/TrendingNews/TrendingSingleCarousel';
 import useToggle from '@/Hooks/useToggle';
 import React from 'react';
-import Image from 'next/image';
 
 export default function PostDetailsThree() {
   const [drawer, drawerAction] = useToggle(false);

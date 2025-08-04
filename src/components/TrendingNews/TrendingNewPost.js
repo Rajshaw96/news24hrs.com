@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
-
 const newPostData = [
   {
     postThumb: '/images/gallery-1.jpg',

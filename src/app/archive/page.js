@@ -11,9 +11,8 @@ import NewsTabs from '@/components/Sidebar/NewsTabs';
 import useToggle from '@/Hooks/useToggle';
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 
-export default function Archive() {
+export default function archive() {
   const [drawer, drawerAction] = useToggle(false);
   return (
     <Layout>
@@ -175,7 +174,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-1.jpg"
                             alt="trending"
                           />
@@ -206,7 +205,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-2.jpg"
                             alt="trending"
                           />
@@ -237,7 +236,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-3.jpg"
                             alt="trending"
                           />
@@ -268,7 +267,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-4.jpg"
                             alt="trending"
                           />
@@ -299,7 +298,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-5.jpg"
                             alt="trending"
                           />
@@ -330,7 +329,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-6.jpg"
                             alt="trending"
                           />
@@ -361,7 +360,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-7.jpg"
                             alt="trending"
                           />
@@ -392,7 +391,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-1.jpg"
                             alt="trending"
                           />
@@ -423,7 +422,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-2.jpg"
                             alt="trending"
                           />
@@ -454,7 +453,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-3.jpg"
                             alt="trending"
                           />
@@ -485,7 +484,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-4.jpg"
                             alt="trending"
                           />
@@ -516,7 +515,7 @@ export default function Archive() {
                     <div className="col-lg-6 col-md-6">
                       <div className="trending-news-item mb-30">
                         <div className="trending-news-thumb">
-                          <Image
+                          <img
                             src="/images/entertainment-dark-5.jpg"
                             alt="trending"
                           />

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import Slider from 'react-slick';
-import Image from 'next/image';
 
 const postData = [
   {
@@ -115,13 +114,13 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
               <div className="feature-post">
                 <div className="feature-post-thumb">
                   {dark ? (
-                    <Image 
+                    <img
                       src={item.postThumbDark}
                       className="img-fluid"
                       alt="feature"
                     />
                   ) : (
-                    <Image 
+                    <img
                       src={item.postThumb}
                       className="img-fluid"
                       alt="feature"

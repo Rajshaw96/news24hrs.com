@@ -1,7 +1,6 @@
 import Layout from '@/components/Layout/Layout';
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 
 export default function Custom404() {
   return (

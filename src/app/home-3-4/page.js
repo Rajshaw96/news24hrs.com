@@ -23,7 +23,6 @@ import WidgetTwo from '@/components/SocialMediaWidgets/WidgetTwo';
 import VerticalTabTwo from '@/components/Tabs/VerticalTabTwo';
 import VideoNewsLg from '@/components/VideoNews/VideoNewsLg';
 import useToggle from '@/Hooks/useToggle';
-import Image from 'next/image';
 
 import React from 'react';
 export default function HomeThreeFour() {

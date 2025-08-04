@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
-import Image from 'next/image';
 
 export default function VideoNews({ dark }) {
   const [isOpen, setOpen] = useState(false);

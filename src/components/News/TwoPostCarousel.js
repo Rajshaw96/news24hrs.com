@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import ModalVideo from 'react-modal-video';
-import Image from 'next/image';
 
 const postData = [
   {

@@ -12,7 +12,6 @@ import LatestNews from '@/components/Others/LatestNews';
 import NewsTabs from '@/components/Sidebar/NewsTabs';
 import useToggle from '@/Hooks/useToggle';
 import React from 'react';
-import Image from 'next/image';
 
 export default function PostDetailsTwo() {
   const [drawer, drawerAction] = useToggle(false);

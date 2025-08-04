@@ -16,7 +16,6 @@ import WidgetTwo from '@/components/SocialMediaWidgets/WidgetTwo';
 import VerticalTab from '@/components/Tabs/VerticalTab';
 import TrendingAreaTwo from '@/components/TrendingNews/TrendingAreaTwo';
 import useToggle from '@/Hooks/useToggle';
-import Image from 'next/image';
 
 export default function HomeFour() {
   const [drawer, drawerAction] = useToggle(false);

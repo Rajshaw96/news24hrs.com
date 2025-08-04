@@ -13,7 +13,6 @@ import NewsTabs from '@/components/Sidebar/NewsTabs';
 import TrendingSingleCarousel from '@/components/TrendingNews/TrendingSingleCarousel';
 import useToggle from '@/Hooks/useToggle';
 import React from 'react';
-import Image from 'next/image';
 
 const postData = [
   {

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 
 export default function VerticalBusinessNews() {
   return (
@@ -11,7 +10,7 @@ export default function VerticalBusinessNews() {
       <div className="bussiness-items">
         <div className="bussiness-post-item">
           <div className="bussiness-post-thumb">
-            <Image 
+            <img
               src="/images/business-post/business-post-1.jpg"
               alt="business"
             />
@@ -50,7 +49,7 @@ export default function VerticalBusinessNews() {
         </div>
         <div className="bussiness-post-item">
           <div className="bussiness-post-thumb">
-            <Image 
+            <img
               src="/images/business-post/business-post-2.jpg"
               alt="business"
             />
@@ -89,7 +88,7 @@ export default function VerticalBusinessNews() {
         </div>
         <div className="bussiness-post-item">
           <div className="bussiness-post-thumb">
-            <Image 
+            <img
               src="/images/business-post/business-post-3.jpg"
               alt="business"
             />
@@ -128,7 +127,7 @@ export default function VerticalBusinessNews() {
         </div>
         <div className="bussiness-post-item">
           <div className="bussiness-post-thumb">
-            <Image 
+            <img
               src="/images/business-post/business-post-4.jpg"
               alt="business"
             />
@@ -167,7 +166,7 @@ export default function VerticalBusinessNews() {
         </div>
         <div className="bussiness-post-item">
           <div className="bussiness-post-thumb">
-            <Image 
+            <img
               src="/images/business-post/business-post-5.jpg"
               alt="business"
             />
@@ -206,7 +205,7 @@ export default function VerticalBusinessNews() {
         </div>
         <div className="bussiness-post-item">
           <div className="bussiness-post-thumb">
-            <Image 
+            <img
               src="/images/business-post/business-post-6.jpg"
               alt="business"
             />

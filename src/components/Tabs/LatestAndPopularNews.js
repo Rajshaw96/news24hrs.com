@@ -1,6 +1,5 @@
 import React from 'react';
 import Pagination from '../Others/Pagination';
-import Image from 'next/image';
 
 export default function LatestAndPopularNews() {
   return (
@@ -45,7 +44,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-1.jpg"
                       alt="trending"
                     />
@@ -75,7 +74,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-2.jpg"
                       alt="trending"
                     />
@@ -105,7 +104,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-3.jpg"
                       alt="trending"
                     />
@@ -135,7 +134,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-4.jpg"
                       alt="trending"
                     />
@@ -165,7 +164,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-5.jpg"
                       alt="trending"
                     />
@@ -195,7 +194,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-6.jpg"
                       alt="trending"
                     />
@@ -225,7 +224,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-7.jpg"
                       alt="trending"
                     />
@@ -255,7 +254,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-1.jpg"
                       alt="trending"
                     />
@@ -285,7 +284,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-2.jpg"
                       alt="trending"
                     />
@@ -315,7 +314,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-3.jpg"
                       alt="trending"
                     />
@@ -345,7 +344,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-4.jpg"
                       alt="trending"
                     />
@@ -375,7 +374,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-5.jpg"
                       alt="trending"
                     />
@@ -451,7 +450,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-1.jpg"
                       alt="trending"
                     />
@@ -481,7 +480,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-2.jpg"
                       alt="trending"
                     />
@@ -511,7 +510,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-3.jpg"
                       alt="trending"
                     />
@@ -541,7 +540,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-4.jpg"
                       alt="trending"
                     />
@@ -571,7 +570,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-5.jpg"
                       alt="trending"
                     />
@@ -601,7 +600,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-6.jpg"
                       alt="trending"
                     />
@@ -631,7 +630,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-7.jpg"
                       alt="trending"
                     />
@@ -661,7 +660,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-1.jpg"
                       alt="trending"
                     />
@@ -691,7 +690,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-2.jpg"
                       alt="trending"
                     />
@@ -721,7 +720,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-3.jpg"
                       alt="trending"
                     />
@@ -751,7 +750,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-4.jpg"
                       alt="trending"
                     />
@@ -781,7 +780,7 @@ export default function LatestAndPopularNews() {
               <div className="col-lg-6 col-md-6">
                 <div className="trending-news-item mb-30">
                   <div className="trending-news-thumb">
-                    <Image 
+                    <img
                       src="/images/entertainment-dark-5.jpg"
                       alt="trending"
                     />

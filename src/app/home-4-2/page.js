@@ -15,7 +15,7 @@ import CategoryCardTwo from '@/components/Sidebar/CategoryCardTwo';
 import WidgetTwo from '@/components/SocialMediaWidgets/WidgetTwo';
 import VerticalTab from '@/components/Tabs/VerticalTab';
 import TrendingAreaTwo from '@/components/TrendingNews/TrendingAreaTwo';
-import Image from 'next/image';
+
 import useToggle from '@/Hooks/useToggle';
 
 export default function HomeFour() {

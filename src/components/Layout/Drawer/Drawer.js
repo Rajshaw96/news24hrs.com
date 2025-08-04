@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import data  from '@/data/navigation';
-import Image from 'next/image';
 
 function Drawer({ drawer, action }) {
   return (
