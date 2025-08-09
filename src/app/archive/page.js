@@ -12,7 +12,7 @@ import useToggle from '@/Hooks/useToggle';
 import Link from 'next/link';
 import React from 'react';
 
-export default function archive() {
+export default function Archive() {
   const [drawer, drawerAction] = useToggle(false);
   return (
     <Layout>

@@ -89,7 +89,7 @@ const postData = [
   },
 ];
 
-export default function business() {
+export default function Business() {
   const [drawer, drawerAction] = useToggle(false);
   return (
     <Layout title="Business">
