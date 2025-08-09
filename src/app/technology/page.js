@@ -97,8 +97,8 @@ export default function Technology() {
                   <div className="about-post-items">
                     <div className="row">
                       <div className="col-lg-12">
-                        {postData.map((item, i) => (
-                          <div className="trending-news-item technology-item">
+                        {postData.map((item, index) => (
+                          <div className="trending-news-item technology-item" key={item.id || index} >
                             <div className="trending-news-thumb">
                               <img src={item.postThumb} alt="trending" />
                               <div className="icon">
