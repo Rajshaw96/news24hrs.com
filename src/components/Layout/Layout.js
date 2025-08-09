@@ -11,14 +11,14 @@ export default function Layout({ children, title }) {
         </title>
         <link rel="icon" href="/images/icon/fabicon.png" />
         {/* Google tag (gtag.js)*/}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTSJEPSVL8"></script>
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTSJEPSVL8"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments)}
           gtag('js', new Date());
 
           gtag('config', 'G-HTSJEPSVL8');
-        </script>
+        </script> */}
       </Head>
       {children}
     </>
