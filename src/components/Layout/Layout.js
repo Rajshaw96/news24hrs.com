@@ -14,7 +14,7 @@ export default function Layout({ children, title }) {
         <link rel="icon" href="/images/icon/fabicon.png" />
       </Head>
 
-      {/* Google tag (gtag.js) */}
+      {/* Google Analytics */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-HTSJEPSVL8"
         strategy="afterInteractive"
@@ -25,6 +25,21 @@ export default function Layout({ children, title }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-HTSJEPSVL8');
+        `}
+      </Script>
+
+      {/* Google Tag Manager */}
+      <Script id="gtm-script" strategy="afterInteractive">
+        {`
+          (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-KZ4QZ5FV');
         `}
       </Script>
 
