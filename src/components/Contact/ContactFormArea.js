@@ -13,11 +13,13 @@ export default function ContactFormArea() {
 
   const [status, setStatus] = useState(""); 
 
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // from env
+  // ✅ Use env variable or fallback
+  const API_BASE_URL =
+    process.env.REACT_APP_API_BASE_URL || "https://api.news24hrs.com";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
