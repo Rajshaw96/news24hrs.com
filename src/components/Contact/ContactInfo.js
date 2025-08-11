@@ -12,8 +12,8 @@ export default function ContactInfo() {
                 <i className="fas fa-map-marker-alt"></i> LOCATION:
               </span>
               <ul>
-                <li>44 Canal Center Plaza #200</li>
-                <li>Alexandria, VA 22314, USA</li>
+                <li>NH-58, Raj Nagar Extension, 
+                    Ghaziabad, Uttar Pradesh 201003</li>
               </ul>
             </div>
           </div>
@@ -24,8 +24,8 @@ export default function ContactInfo() {
                 <i className="fas fa-phone"></i> CALL NOW:
               </span>
               <ul>
-                <li>+41 27 966 26690</li>
-                <li>+880 1945 381758</li>
+                <li><a href="tel:+916204970866">+91 6204 97 0866</a></li>
+                <li><a href="tel:+919708493575">+91 9708 49 3575</a></li>
               </ul>
             </div>
           </div>
@@ -36,8 +36,8 @@ export default function ContactInfo() {
                 <i className="fas fa-envelope"></i> EMAIL:
               </span>
               <ul>
-                <li>hello@newspark.com</li>
-                <li>adsales@@newspark.com</li>
+                <li><a href="mailto:support@news24hrs.com">support@news24hrs.com</a></li>
+                <li><a href="mailto:connect@news24hrs.com">connect@news24hrs.com</a></li>
               </ul>
             </div>
           </div>
@@ -46,9 +46,9 @@ export default function ContactInfo() {
           <div className="col-lg-12">
             <div className="map-area">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9198.688804852873!2d90.4003856461435!3d23.80073745243844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605153382124!5m2!1sen!2sbd"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2874.832410188776!2d77.4511875!3d28.719437499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf159bcb70f09%3A0xba63feeac84f8e5c!2sNilaya%20Greens!5e1!3m2!1sen!2sin!4v1754933382757!5m2!1sen!2sin"
                 width="600"
-                height="450"
+                height="350"
                 style={{ border: 0 }}
                 allowfullscreen=""
                 aria-hidden="false"
