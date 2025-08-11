@@ -13,7 +13,7 @@ export default function ContactFormArea() {
 
   const [status, setStatus] = useState(""); 
 
-  const API_BASE_URL = process.env.API_BASE_URL; // from env
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // from env
 
   const handleChange = (e) => {
     const { name, value } = e.target;
