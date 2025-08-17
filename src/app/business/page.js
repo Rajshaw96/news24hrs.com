@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import AdWidgetTwo from '@/components/AdsWidget/AdWidgetTwo';
 import Drawer from '@/components/Layout/Drawer/Drawer';
 import Footer from '@/components/Layout/Footer/Footer';
@@ -12,85 +12,43 @@ import Pagination from '@/components/Others/Pagination';
 import NewsTabs from '@/components/Sidebar/NewsTabs';
 import TrendingSingleCarousel from '@/components/TrendingNews/TrendingSingleCarousel';
 import useToggle from '@/Hooks/useToggle';
-import React from 'react';
-
-const postData = [
-  {
-    postThumb: '/images/business-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-4.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-4.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'There may be no consoles in the future eaexec says',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-];
+import React, { useEffect, useState } from 'react';
+import { format } from 'date-fns'; // Import date-fns for formatting
 
 export default function Business() {
   const [drawer, drawerAction] = useToggle(false);
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBusinessNews = async () => {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const response = await fetch(`${apiUrl}/news?category=business`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}, Message: ${await response.text()}`);
+        }
+        const data = await response.json();
+        setNewsData(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error('Error fetching business news:', error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBusinessNews();
+  }, []);
+
+  // Function to format publishedAt date and time
+  const formatDateTime = (publishedAt) => {
+    try {
+      return format(new Date(publishedAt), 'MMMM d, yyyy, h:mm a'); // e.g., August 16, 2025, 11:39 PM
+    } catch (error) {
+      return 'Unknown Date';
+    }
+  };
+
   return (
     <Layout title="Business">
       <Drawer drawer={drawer} action={drawerAction.toggle} />
@@ -115,36 +73,62 @@ export default function Business() {
                 <div className="about-post-items">
                   <div className="row">
                     <div className="col-lg-12">
-                      {postData.map((item, index) => (
-                        <div className="business-post-item mb-40" key={item.id || index}>
-                          <div className="row">
-                            <div className="col-lg-6 col-md-6">
-                              <div className="business-post-thumb">
-                                <img src={item.postThumb} alt="business" />
+                      {loading ? (
+                        <p>Loading...</p>
+                      ) : newsData.length === 0 ? (
+                        <p>No business news found.</p>
+                      ) : (
+                        newsData.map((item, index) => (
+                          <div className="business-post-item mb-40" key={item.id || index}>
+                            <div className="row">
+                              <div className="col-lg-6 col-md-6">
+                                <div className="business-post-thumb">
+                                  <img
+                                    src={item.image || '/images/default-news.jpg'}
+                                    alt={item.title || 'business'}
+                                  />
+                                </div>
                               </div>
-                            </div>
-                            <div className="col-lg-6 col-md-6">
-                              <div className="trending-news-item">
-                                <div className="trending-news-content">
-                                  <div className="post-meta">
-                                    <div className="meta-categories">
-                                      <a href="#">{item.postTag}</a>
+                              <div className="col-lg-6 col-md-6">
+                                <div className="trending-news-item">
+                                  <div className="trending-news-content">
+                                    <div className="post-meta">
+                                      <div className="meta-categories">
+                                        <a href="#">
+                                          {item.category
+                                            ? item.category.toUpperCase()
+                                            : 'BUSINESS'}
+                                        </a>
+                                      </div>
+                                      <div className="meta-date">
+                                        <span>
+                                          {item.publishedAt
+                                            ? formatDateTime(item.publishedAt)
+                                            : 'Unknown Date'}
+                                        </span>
+                                      </div>
                                     </div>
-                                    <div className="meta-date">
-                                      <span>{item.postDate}</span>
-                                    </div>
+                                    <h3 className="title">
+                                      <a
+                                        href={item.url || '#'}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                      >
+                                        {item.title || 'No Title'}
+                                      </a>
+                                    </h3>
+                                    <p className="text">
+                                      {item.description ||
+                                        'No description available.'}
+                                    </p>
+                                    <a href={item.url || '#'}>Read more</a>
                                   </div>
-                                  <h3 className="title">
-                                    <a href="#">{item.postTitle}</a>
-                                  </h3>
-                                  <p className="text">{item.postDesc}</p>
-                                  <a href="#">Read more</a>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))
+                      )}
                     </div>
                     <div className="col-lg-12">
                       <Pagination />

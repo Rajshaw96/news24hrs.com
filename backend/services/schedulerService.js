@@ -4,7 +4,7 @@ import { scrapeFullContent } from "./scrapeService.js";
 import News from "../models/News.js";
 
 // Categories you want to fetch daily
-const queries = ["sports", "technology", "business", "world"];
+const queries = ["sports", "technology", "business", "world", "entertainment", "health"];
 
 cron.schedule("0 0 * * *", async () => {
   console.log("🕛 Running daily news fetch job...");

@@ -148,29 +148,29 @@
         }
       ]
     },
-    {
-      "id": 3,
-      "linkText": "Posts",
-      "child": true,
-      "icon": "angle-down",
-      "submenu": [
-        {
-          "id": 31,
-          "linkText": "Post 1",
-          "link": "/post-details-one"
-        },
-        {
-          "id": 32,
-          "linkText": "Post 2",
-          "link": "/post-details-two"
-        },
-        {
-          "id": 33,
-          "linkText": "Post 3",
-          "link": "/post-details-three"
-        }
-      ]
-    },
+    // {
+    //   "id": 3,
+    //   "linkText": "Posts",
+    //   "child": true,
+    //   "icon": "angle-down",
+    //   "submenu": [
+    //     {
+    //       "id": 31,
+    //       "linkText": "Post 1",
+    //       "link": "/post-details-one"
+    //     },
+    //     {
+    //       "id": 32,
+    //       "linkText": "Post 2",
+    //       "link": "/post-details-two"
+    //     },
+    //     {
+    //       "id": 33,
+    //       "linkText": "Post 3",
+    //       "link": "/post-details-three"
+    //     }
+    //   ]
+    // },
     {
       "id": 4,
       "linkText": "Categories",

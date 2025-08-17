@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Drawer from '@/components/Layout/Drawer/Drawer';
 import Footer from '@/components/Layout/Footer/Footer';
 import FooterCopyright from '@/components/Layout/Footer/FooterCopyright';
@@ -11,67 +11,43 @@ import NewsTabs from '@/components/Sidebar/NewsTabs';
 import TrendingSingleCarousel from '@/components/TrendingNews/TrendingSingleCarousel';
 import useToggle from '@/Hooks/useToggle';
 import Link from 'next/link';
-import React from 'react';
-
-const postData = [
-  {
-    postThumb: '/images/trending-news-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle:
-      'Miami woman deliver her powerful winds kept help from home nuture to currently sell one multi million dollar home',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/technology-item-2.png',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle:
-      'Miami woman deliver her powerful winds kept help from home nuture to currently sell one multi million dollar home',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/trending-news-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle:
-      'Miami woman deliver her powerful winds kept help from home nuture to currently sell one multi million dollar home',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/technology-item-2.png',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle:
-      'Miami woman deliver her powerful winds kept help from home nuture to currently sell one multi million dollar home',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/trending-news-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle:
-      'Miami woman deliver her powerful winds kept help from home nuture to currently sell one multi million dollar home',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/technology-item-2.png',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle:
-      'Miami woman deliver her powerful winds kept help from home nuture to currently sell one multi million dollar home',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-];
+import React, { useEffect, useState } from 'react';
+import { format } from 'date-fns'; // Import date-fns for formatting
 
 export default function Technology() {
   const [drawer, drawerAction] = useToggle(false);
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTechnologyNews = async () => {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const response = await fetch(`${apiUrl}/news?category=technology`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}, Message: ${await response.text()}`);
+        }
+        const data = await response.json();
+        setNewsData(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error('Error fetching technology news:', error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTechnologyNews();
+  }, []);
+
+  // Function to format publishedAt date and time
+  const formatDateTime = (publishedAt) => {
+    try {
+      return format(new Date(publishedAt), 'MMMM d, yyyy, h:mm a'); // e.g., August 17, 2025, 12:00 AM
+    } catch (error) {
+      return 'Unknown Date';
+    }
+  };
+
   return (
     <Layout>
       <div className="home-1-bg">
@@ -97,36 +73,53 @@ export default function Technology() {
                   <div className="about-post-items">
                     <div className="row">
                       <div className="col-lg-12">
-                        {postData.map((item, index) => (
-                          <div className="trending-news-item technology-item" key={item.id || index} >
-                            <div className="trending-news-thumb">
-                              <img src={item.postThumb} alt="trending" />
-                              <div className="icon">
-                                <Link href="/post-details-one">
-                                  <i className="fas fa-bolt"></i>
-                                </Link>
-                              </div>
-                            </div>
-                            <div className="trending-news-content">
-                              <div className="post-meta">
-                                <div className="meta-categories">
-                                  <Link href="/post-details-one">
-                                    {item.postTag}
+                        {loading ? (
+                          <p>Loading...</p>
+                        ) : newsData.length === 0 ? (
+                          <p>No technology news found.</p>
+                        ) : (
+                          newsData.map((item, index) => (
+                            <div className="trending-news-item technology-item" key={item.id || index}>
+                              <div className="trending-news-thumb">
+                                <img
+                                  src={item.image || '/images/default-news.jpg'}
+                                  alt={item.title || 'technology'}
+                                />
+                                <div className="icon">
+                                  <Link href={item.url || '/post-details-one'}>
+                                    <i className="fas fa-bolt"></i>
                                   </Link>
                                 </div>
-                                <div className="meta-date">
-                                  <span>{item.postDate}</span>
-                                </div>
                               </div>
-                              <h3 className="title">
-                                <Link href="/post-details-one">
-                                  {item.postTitle}
-                                </Link>
-                              </h3>
-                              <p className="text">{item.postDesc}</p>
+                              <div className="trending-news-content">
+                                <div className="post-meta">
+                                  <div className="meta-categories">
+                                    <Link href={item.url || '/post-details-one'}>
+                                      {item.category
+                                        ? item.category.toUpperCase()
+                                        : 'TECHNOLOGY'}
+                                    </Link>
+                                  </div>
+                                  <div className="meta-date">
+                                    <span>
+                                      {item.publishedAt
+                                        ? formatDateTime(item.publishedAt)
+                                        : 'Unknown Date'}
+                                    </span>
+                                  </div>
+                                </div>
+                                <h3 className="title">
+                                  <Link href={item.url || '/post-details-one'}>
+                                    {item.title || 'No Title'}
+                                  </Link>
+                                </h3>
+                                <p className="text">
+                                  {item.description || 'No description available.'}
+                                </p>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))
+                        )}
                       </div>
                       <div className="col-lg-12">
                         <div className="bussiness-btn">
