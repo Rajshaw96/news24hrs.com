@@ -11,6 +11,7 @@ export default function Layout({ children, title }) {
             ? `${title} | News Magazine Template`
             : 'Newspark - News Magazine Template'}
         </title>
+        <meta name='impact-site-verification' value='85432183-104b-4074-b7e4-273da078a6de'></meta>
         <link rel="icon" href="/images/icon/fabicon.png" />
       </Head>
 
