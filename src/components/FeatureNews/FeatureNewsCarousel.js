@@ -1,44 +1,8 @@
-import Link from 'next/link';
-import React from 'react';
-import Slider from 'react-slick';
-
-const postData = [
-  {
-    postThumb: '/images/feature-1.jpg',
-    postThumbDark: '/images/feature-dark-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Best garden wing supplies for the horticu ltural',
-  },
-  {
-    postThumb: '/images/feature-2.jpg',
-    postThumbDark: '/images/feature-dark-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Best garden wing supplies for the horticu ltural',
-  },
-  {
-    postThumb: '/images/feature-3.jpg',
-    postThumbDark: '/images/feature-dark-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Best garden wing supplies for the horticu ltural',
-  },
-  {
-    postThumb: '/images/feature-4.jpg',
-    postThumbDark: '/images/feature-dark-4.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Best garden wing supplies for the horticu ltural',
-  },
-  {
-    postThumb: '/images/feature-2.jpg',
-    postThumbDark: '/images/feature-dark-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Best garden wing supplies for the horticu ltural',
-  },
-];
+"use client";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -48,6 +12,7 @@ function PrevArrow(props) {
     </span>
   );
 }
+
 function NextArrow(props) {
   const { onClick } = props;
   return (
@@ -58,6 +23,20 @@ function NextArrow(props) {
 }
 
 export default function FeatureNewsCarousel({ customClass, dark }) {
+  const [featureNews, setFeatureNews] = useState([]);
+
+  useEffect(() => {
+    async function loadFeatureNews() {
+      try {
+        const data = await fetchTodayNews("featured"); // <-- adjust category if needed
+        setFeatureNews(data.slice(0, 8)); // Limit to 8 news
+      } catch (error) {
+        console.error("Error fetching feature news:", error);
+      }
+    }
+    loadFeatureNews();
+  }, []);
+
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -72,72 +51,62 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
     responsive: [
       {
         breakpoint: 1140,
-        settings: {
-          slidesToShow: 3,
-        },
+        settings: { slidesToShow: 3 },
       },
       {
         breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToShow: 2,
-        },
+        settings: { arrows: false, slidesToShow: 2 },
       },
       {
         breakpoint: 576,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-        },
+        settings: { arrows: false, slidesToShow: 1 },
       },
     ],
   };
+
   return (
     <section className={`feature-area ${customClass}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className={`section-title ${dark ? 'section-title-2' : ''}`}>
+            <div className={`section-title ${dark ? "section-title-2" : ""}`}>
               <h3 className="title">Feature News</h3>
             </div>
           </div>
         </div>
         <Slider className="row feature-post-slider" {...settings}>
-          {postData.map((item, i) => (
-            <div className="col" key={i + 1}>
+          {featureNews.map((item, i) => (
+            <div className="col" key={item.id || i}>
               <div className="feature-post">
                 <div className="feature-post-thumb">
-                  {dark ? (
-                    <img
-                      src={item.postThumbDark}
-                      className="img-fluid"
-                      alt="feature"
-                    />
-                  ) : (
-                    <img
-                      src={item.postThumb}
-                      className="img-fluid"
-                      alt="feature"
-                    />
-                  )}
+                  <img
+                    src={item.urlToImage || "/images/placeholder.jpg"}
+                    className="img-fluid"
+                    alt={item.title}
+                    style={{ width: "100%", height: "200px", objectFit: "cover" }}
+                  />
                 </div>
                 <div className="feature-post-content">
                   <div className="post-meta">
                     <div className="meta-categories">
-                      <Link href="/post-details-two">{item.postTag}</Link>
+                      <Link href="#">
+                        {item.source?.name || "News"}
+                      </Link>
                     </div>
                     <div className="meta-date">
-                      <span>{item.postDate}</span>
+                      <span>
+                        {item.date
+                          ? new Date(item.date).toLocaleDateString()
+                          : ""}
+                      </span>
                     </div>
                   </div>
                   <h4 className="title">
-                    <Link href="/post-details-two">{item.postTitle}</Link>
+                    <Link href={`/news/${item.id}`}>{item.title}</Link>
                   </h4>
                 </div>
               </div>

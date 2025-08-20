@@ -1,6 +1,8 @@
-"use client"
-import React from 'react';
-import Slider from 'react-slick';
+"use client";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import { fetchTodayNews } from "@/lib/newsApi"; // Adjust the path if needed
+
 function PrevArrow(props) {
   const { onClick } = props;
   return (
@@ -19,6 +21,21 @@ function NextArrow(props) {
 }
 
 export default function TrendingSingleCarousel() {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    async function getTrendingNews() {
+      try {
+        const data = await fetchTodayNews("trending"); // Directly call the function
+        setNews(data);
+      } catch (error) {
+        console.error("Error fetching trending news:", error);
+      }
+    }
+
+    getTrendingNews();
+  }, []);
+
   const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -47,101 +64,51 @@ export default function TrendingSingleCarousel() {
       },
     ],
   };
+
   return (
     <div className="trending-sidebar mt-40">
       <div className="section-title">
         <h3 className="title">Trending News</h3>
       </div>
       <Slider className="trending-sidebar-slider" {...settings}>
-        <div className="trending-news-item">
-          <div className="trending-news-thumb">
-            <img src="/images/trending-news-1.jpg" alt="trending" />
-            <div className="icon">
-              <a href="#">
-                <i className="fas fa-bolt"></i>
-              </a>
-            </div>
-          </div>
-          <div className="trending-news-content">
-            <div className="post-meta">
-              <div className="meta-categories">
-                <a href="#">TECHNOLOGY</a>
-              </div>
-              <div className="meta-date">
-                <span>March 26, 2020</span>
+        {news.map((item, index) => (
+          <div className="trending-news-item" key={index}>
+            <div className="trending-news-thumb">
+              <img
+                src={item.urlToImage || "/images/trending-news-1.jpg"}
+                alt="trending"
+                style={{ width: "700px", height: "200px" }}
+              />
+              <div className="icon">
+                <a href="#">
+                  <i className="fas fa-bolt"></i>
+                </a>
               </div>
             </div>
-            <h3 className="title">
-              <a href="#">
-                There may be no consoles in the future ea exec says
-              </a>
-            </h3>
-            <p className="text">
-              The property, complete with 30-seat screening from room, a
-              100-seat amphitheater and a swimming pond with sandy shower…
-            </p>
-          </div>
-        </div>
-        <div className="trending-news-item">
-          <div className="trending-news-thumb">
-            <img src="/images/trending-news-2.jpg" alt="trending" />
-            <div className="icon">
-              <a href="#">
-                <i className="fas fa-bolt"></i>
-              </a>
+            <div className="trending-news-content">
+              <div className="post-meta">
+                <div className="meta-categories">
+                  <a href="#">{item.source.name}</a>
+                </div>
+                <div className="meta-date">
+                  <span>{new Date(item.publishedAt).toDateString()}</span>
+                </div>
+              </div>
+              <h3 className="title">
+                <a href={item.url} target="_blank">
+                  {item.title?.split(" ").slice(0, 8).join(" ")}
+                  {item.title?.split(" ").length > 8 ? "..." : ""}
+                </a>
+              </h3>
+              <p className="text">
+                {item.description
+                  ? item.description.split(" ").slice(0, 12).join(" ") +
+                    (item.description.split(" ").length > 12 ? "..." : "")
+                  : "No description available."}
+              </p>
             </div>
           </div>
-          <div className="trending-news-content">
-            <div className="post-meta">
-              <div className="meta-categories">
-                <a href="#">TECHNOLOGY</a>
-              </div>
-              <div className="meta-date">
-                <span>March 26, 2020</span>
-              </div>
-            </div>
-            <h3 className="title">
-              <a href="#">
-                Japan’s virus success has puzzled the world. Is its luck running
-                out?
-              </a>
-            </h3>
-            <p className="text">
-              The property, complete with 30-seat screening from room, a
-              100-seat amphitheater and a swimming pond with sandy shower…
-            </p>
-          </div>
-        </div>
-        <div className="trending-news-item">
-          <div className="trending-news-thumb">
-            <img src="/images/trending-news-3.jpg" alt="trending" />
-            <div className="icon">
-              <a href="#">
-                <i className="fas fa-bolt"></i>
-              </a>
-            </div>
-          </div>
-          <div className="trending-news-content">
-            <div className="post-meta">
-              <div className="meta-categories">
-                <a href="#">TECHNOLOGY</a>
-              </div>
-              <div className="meta-date">
-                <span>March 26, 2020</span>
-              </div>
-            </div>
-            <h3 className="title">
-              <a href="#">
-                Japan’s virus success has puzzled the world. Is its luck running
-                out?
-              </a>
-            </h3>
-            <p className="text">
-              The property, complete with 30-seat screening from room, a
-              100-seat amphitheater and a swimming pond with sandy shower…
-            </p>
-          </div>
-        </div>
+        ))}
       </Slider>
     </div>
   );

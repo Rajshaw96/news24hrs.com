@@ -1,39 +1,8 @@
-import Link from 'next/link';
-import React from 'react';
-import Slider from 'react-slick';
-
-const postData = [
-  {
-    postThumb: '/images/sports/sports-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Copa America: Luis Suarez from devastated US',
-  },
-  {
-    postThumb: '/images/sports/sports-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Nancy Zhang a Chinese busy woman and Dhaka',
-  },
-  {
-    postThumb: '/images/sports/sports-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'U.S. Response subash says he will label regions by risk of…',
-  },
-  {
-    postThumb: '/images/sports/sports-4.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Venezuela elan govt and opposit the property collect',
-  },
-  {
-    postThumb: '/images/sports/sports-5.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Cheap smartphone sensor could help you old food safe',
-  },
-];
+"use client";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -53,6 +22,20 @@ function NextArrow(props) {
 }
 
 export default function SportsNewsCarousel({ dark }) {
+  const [sportsNews, setSportsNews] = useState([]);
+
+  useEffect(() => {
+    async function loadSportsNews() {
+      try {
+        const data = await fetchTodayNews("sports");
+        setSportsNews(data.slice(0, 10)); // limit total items to avoid overcrowding
+      } catch (error) {
+        console.error("Error fetching sports news:", error);
+      }
+    }
+    loadSportsNews();
+  }, []);
+
   const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -65,74 +48,70 @@ export default function SportsNewsCarousel({ dark }) {
     nextArrow: <NextArrow />,
     speed: 1000,
     responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 768, settings: { arrows: false, slidesToShow: 1 } },
+      { breakpoint: 576, settings: { arrows: false, slidesToShow: 1 } },
     ],
   };
+
   return (
     <Slider {...settings} className="trending-sidebar-slider">
-      <div className="post_gallery_items">
-        {postData.map((item, i) => (
-          <div
-            key={i + 1}
-            className={`gallery_item ${dark ? 'gallery_item_dark ' : ''}`}
-          >
-            <div className="gallery_item_thumb">
-              <img src={item.postThumb} alt="sports" />
-            </div>
-            <div className="gallery_item_content">
-              <div className="post-meta">
-                <div className="meta-categories">
-                  <Link href="/post-details-two">{item.postTag}</Link>
+      {/* Split into groups of 5 items per slide like original */}
+      {Array.from({ length: Math.ceil(sportsNews.length / 5) }).map(
+        (_, groupIndex) => (
+          <div className="post_gallery_items" key={groupIndex}>
+            {sportsNews
+              .slice(groupIndex * 5, groupIndex * 5 + 5)
+              .map((item, i) => (
+                <div
+                  key={item.id || i}
+                  className={`gallery_item ${dark ? "gallery_item_dark" : ""}`}
+                >
+                  <div className="gallery_item_thumb">
+                    <img
+                      src={
+                        item.urlToImage ||
+                        `/images/sports/sports-${(i % 5) + 1}.jpg`
+                      }
+                      alt={item.title}
+                      style={{
+                        width: "100px",
+                        height: "77px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+                  <div className="gallery_item_content">
+                    <div className="post-meta">
+                      <div className="meta-categories">
+                        <Link href={`/news/${item.id}`}>
+                          {item.category || "Sports"}
+                        </Link>
+                      </div>
+                      <div className="meta-date">
+                        <span>
+                          {item.publishedAt
+                            ? new Date(item.publishedAt).toLocaleDateString()
+                            : ""}
+                        </span>
+                      </div>
+                    </div>
+                    <h4 className="title">
+                      <Link href={`/news/${item.id}`}>
+                        {item.title
+                          ? item.title
+                              .split(" ")
+                              .slice(0, 8)
+                              .join(" ") +
+                            (item.title.split(" ").length > 8 ? "..." : "")
+                          : ""}
+                      </Link>
+                    </h4>
+                  </div>
                 </div>
-                <div className="meta-date">
-                  <span>{item.postDate}</span>
-                </div>
-              </div>
-              <h4 className="title">
-                <Link href="/post-details-two">{item.postTitle}</Link>
-              </h4>
-            </div>
+              ))}
           </div>
-        ))}
-      </div>
-      <div className="post_gallery_items">
-        {postData.map((item, i) => (
-          <div
-            key={i + 1}
-            className={`gallery_item ${dark ? 'gallery_item_dark ' : ''}`}
-          >
-            <div className="gallery_item_thumb">
-              <img src={item.postThumb} alt="sports" />
-            </div>
-            <div className="gallery_item_content">
-              <div className="post-meta">
-                <div className="meta-categories">
-                  <Link href="/post-details-two">{item.postTag}</Link>
-                </div>
-                <div className="meta-date">
-                  <span>{item.postDate}</span>
-                </div>
-              </div>
-              <h4 className="title">
-                <Link href="/post-details-two">{item.postTitle}</Link>
-              </h4>
-            </div>
-          </div>
-        ))}
-      </div>
+        )
+      )}
     </Slider>
   );
 }

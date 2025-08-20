@@ -1,211 +1,128 @@
-"use client"
-import Link from 'next/link';
-import React, { useState } from 'react';
-import classnames from 'classnames';
+"use client";
 
-const postData = [
-  {
-    postThumb: '/images/gallery-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Copa America: Luis Suarez from devastated US',
-  },
-  {
-    postThumb: '/images/gallery-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Nancy Zhang a Chinese busy woman and Dhaka',
-  },
-  {
-    postThumb: '/images/gallery-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'U.S. Response subash says he will label regions by risk of…',
-  },
-  {
-    postThumb: '/images/gallery-4.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Venezuela elan govt and opposit the property collect',
-  },
-  {
-    postThumb: '/images/gallery-5.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Cheap smartphone sensor could help you old food safe',
-  },
-];
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import classnames from "classnames";
+import { useSearchParams } from "next/navigation";
+import { fetchTodayNews } from "@/lib/newsApi";
+
 export default function NewsTabs({ dark }) {
-  const [activeTab, setActiveTab] = useState('trendy');
+  const [activeTab, setActiveTab] = useState("trendy");
+  const [trendyNews, setTrendyNews] = useState([]);
+  const [latestNews, setLatestNews] = useState([]);
+  const [popularNews, setPopularNews] = useState([]);
+
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category") || "general";
 
   const toggleTab = (tab) => {
-    if (activeTab !== tab) {
-      setActiveTab(tab);
-    }
+    if (activeTab !== tab) setActiveTab(tab);
   };
+
+  useEffect(() => {
+    async function loadNews() {
+      try {
+        const articles = await fetchTodayNews(category);
+
+        // Separate based on tab type (you can adjust logic as needed)
+        setTrendyNews(articles.slice(0, 5)); // First 5 popular
+        setLatestNews(
+          [...articles]
+            .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+            .slice(0, 5)
+        );
+        setPopularNews(
+          [...articles]
+            .sort((a, b) => b.source.name.localeCompare(a.source.name))
+            .slice(0, 5)
+        ); // example sort
+      } catch (error) {
+        console.error("News fetch error:", error);
+      }
+    }
+
+    loadNews();
+  }, [category]);
+
+  const renderNewsItems = (newsArray) =>
+    newsArray.map((item, i) => (
+      <div
+        key={i}
+        className={`gallery_item ${dark ? "gallery_item_dark" : ""}`}
+      >
+        <div className="gallery_item_thumb">
+          <img src={item.urlToImage || "/images/default.jpg"} alt="news" />
+        </div>
+        <div className="gallery_item_content">
+          <div className="post-meta">
+            <div className="meta-categories">
+              <a href="#">{item.source.name}</a>
+            </div>
+            <div className="meta-date">
+              <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
+            </div>
+          </div>
+          <h4 className="title">
+            <Link href={item.url} target="_blank">
+              {item.title.split(" ").slice(0, 8).join(" ")}
+              {item.title.split(" ").length > 8 ? "..." : ""}
+            </Link>
+          </h4>
+        </div>
+      </div>
+    ));
 
   return (
     <>
       <ul className="nav nav-pills" id="pills-tab" role="tablist">
-        <li className="nav-item">
-          <a
-            className={classnames('nav-link', {
-              active: activeTab === 'trendy',
-            })}
-            id="pills-trendy-tab"
-            data-toggle="pill"
-            href="#pills-trendy"
-            role="tab"
-            aria-controls="pills-trendy"
-            aria-selected={activeTab === 'trendy'}
-            onClick={(e) => {
-              e.preventDefault();
-              toggleTab('trendy');
-            }}
-          >
-            TRENDY
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className={classnames('nav-link', {
-              active: activeTab === 'latest',
-            })}
-            id="pills-latest-tab"
-            data-toggle="pill"
-            href="#pills-latest"
-            role="tab"
-            aria-controls="pills-latest"
-            aria-selected={activeTab === 'latest'}
-            onClick={(e) => {
-              e.preventDefault();
-              toggleTab('latest');
-            }}
-          >
-            LATEST
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className={classnames('nav-link', {
-              active: activeTab === 'contact',
-            })}
-            id="pills-contact-tab"
-            data-toggle="pill"
-            href="#pills-contact"
-            role="tab"
-            aria-controls="pills-contact"
-            aria-selected={activeTab === 'contact'}
-            onClick={(e) => {
-              e.preventDefault();
-              toggleTab('contact');
-            }}
-          >
-            POPULAR
-          </a>
-        </li>
+        {["trendy", "latest", "popular"].map((tab) => (
+          <li className="nav-item" key={tab}>
+            <a
+              className={classnames("nav-link", { active: activeTab === tab })}
+              data-toggle="pill"
+              href={`#pills-${tab}`}
+              role="tab"
+              aria-selected={activeTab === tab}
+              onClick={(e) => {
+                e.preventDefault();
+                toggleTab(tab);
+              }}
+            >
+              {tab.toUpperCase()}
+            </a>
+          </li>
+        ))}
       </ul>
+
       <div className="tab-content" id="pills-tabContent">
         <div
-          className={classnames('tab-pane', 'fade', 'show', {
-            active: activeTab === 'trendy',
-          })}
+          className={`tab-pane fade show ${
+            activeTab === "trendy" ? "active" : ""
+          }`}
           id="pills-trendy"
-          role="tabpanel"
-          aria-labelledby="pills-trendy-tab"
         >
           <div className="post_gallery_items">
-            {postData.map((item, i) => (
-              <div
-                key={i + 1}
-                className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
-              >
-                <div className="gallery_item_thumb">
-                  <img src={item.postThumb} alt="gallery" />
-                </div>
-                <div className="gallery_item_content">
-                  <div className="post-meta">
-                    <div className="meta-categories">
-                      <a href="#">{item.postTag}</a>
-                    </div>
-                    <div className="meta-date">
-                      <span>{item.postDate}</span>
-                    </div>
-                  </div>
-                  <h4 className="title">
-                    <Link href="/post-details-two">{item.postTitle}</Link>
-                  </h4>
-                </div>
-              </div>
-            ))}
+            {renderNewsItems(trendyNews)}
           </div>
         </div>
         <div
-          className={classnames('tab-pane', 'fade', 'show', {
-            active: activeTab === 'latest',
-          })}
+          className={`tab-pane fade show ${
+            activeTab === "latest" ? "active" : ""
+          }`}
           id="pills-latest"
-          role="tabpanel"
-          aria-labelledby="pills-latest-tab"
         >
           <div className="post_gallery_items">
-            {postData.map((item, i) => (
-              <div
-                key={i + 1}
-                className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
-              >
-                <div className="gallery_item_thumb">
-                  <img src={item.postThumb} alt="gallery" />
-                </div>
-                <div className="gallery_item_content">
-                  <div className="post-meta">
-                    <div className="meta-categories">
-                      <a href="#">{item.postTag}</a>
-                    </div>
-                    <div className="meta-date">
-                      <span>{item.postDate}</span>
-                    </div>
-                  </div>
-                  <h4 className="title">
-                    <Link href="/post-details-two">{item.postTitle}</Link>
-                  </h4>
-                </div>
-              </div>
-            ))}
+            {renderNewsItems(latestNews)}
           </div>
         </div>
         <div
-          className={classnames('tab-pane', 'fade', 'show', {
-            active: activeTab === 'contact',
-          })}
-          id="pills-contact"
-          role="tabpanel"
-          aria-labelledby="pills-contact-tab"
+          className={`tab-pane fade show ${
+            activeTab === "popular" ? "active" : ""
+          }`}
+          id="pills-popular"
         >
           <div className="post_gallery_items">
-            {postData.map((item, i) => (
-              <div
-                key={i + 1}
-                className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
-              >
-                <div className="gallery_item_thumb">
-                  <img src={item.postThumb} alt="gallery" />
-                </div>
-                <div className="gallery_item_content">
-                  <div className="post-meta">
-                    <div className="meta-categories">
-                      <a href="#">{item.postTag}</a>
-                    </div>
-                    <div className="meta-date">
-                      <span>{item.postDate}</span>
-                    </div>
-                  </div>
-                  <h4 className="title">
-                    <Link href="/post-details-two">{item.postTitle}</Link>
-                  </h4>
-                </div>
-              </div>
-            ))}
+            {renderNewsItems(popularNews)}
           </div>
         </div>
       </div>

@@ -1,95 +1,72 @@
 import Link from 'next/link';
-import React from 'react';
-const newPostData = [
-  {
-    postThumb: '/images/gallery-1.jpg',
-    postCategory: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Nancy zhang a chinese busy woman and dhaka',
-  },
-  {
-    postThumb: '/images/gallery-2.jpg',
-    postCategory: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'The billionaire Philan thropist read to learn',
-  },
-  {
-    postThumb: '/images/gallery-3.jpg',
-    postCategory: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Cheap smartphone sensor could help you old food safe',
-  },
-];
-
+import React, { useEffect, useState } from 'react';
+import { fetchTodayNews } from "@/lib/newsApi";
 export default function TrendingNewPost({ dark }) {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    async function loadNews() {
+      try {
+        const data = await fetchTodayNews('general'); // fetch 6 posts
+        // console.log("TrendingNewsPost :",data);
+        
+        setNews(data || []);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    }
+    loadNews();
+  }, []);
+
+  // Split into two equal columns
+  const firstHalf = news.slice(0, 3);
+  // console.log("First Half :",firstHalf);
+  
+  const secondHalf = news.slice(3, 6);
+  // console.log("First Half :",secondHalf);
+
+  const renderPosts = (posts) =>
+    posts.map((item, i) => (
+      <div
+        className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
+        key={i}
+      >
+        <div className="gallery_item_thumb" style={{ width: '100px', height: '77px', overflow: 'hidden' }}>
+          <img
+            src={item.urlToImage || '/images/placeholder.jpg'}
+            alt={item.title}
+            style={{ width: '100px', height: '77px', objectFit: 'cover' }}
+          />
+          <div className="icon">
+            <i className="fas fa-bolt"></i>
+          </div>
+        </div>
+        <div className="gallery_item_content">
+          <div className="post-meta">
+            <div className="meta-categories">
+              <Link href={item.url || '/'}>{item.source?.name || 'NEWS'}</Link>
+            </div>
+            <div className="meta-date">
+              <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
+            </div>
+          </div>
+          <h4 className="title">
+            <Link href={item.url || '/'}>{item.title}</Link>
+          </h4>
+        </div>
+      </div>
+    ));
+
   return (
     <div className="row">
       <div className="col-lg-6 col-md-6">
-        <div
-          className={`trending-news-post-items ${
-            dark ? 'trending-news-post-items-dark' : ''
-          }`}
-        >
-          {newPostData.map((item, i) => (
-            <div
-              className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
-              key={i + 1}
-            >
-              <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="gallery" />
-                <div className="icon">
-                  <i className="fas fa-bolt"></i>
-                </div>
-              </div>
-              <div className="gallery_item_content">
-                <div className="post-meta">
-                  <div className="meta-categories">
-                    <Link href="/post-details-three">{item.postCategory}</Link>
-                  </div>
-                  <div className="meta-date">
-                    <span>{item.postDate}</span>
-                  </div>
-                </div>
-                <h4 className="title">
-                  <Link href="/post-details-three">{item.postTitle}</Link>
-                </h4>
-              </div>
-            </div>
-          ))}
+        <div className={`trending-news-post-items ${dark ? 'trending-news-post-items-dark' : ''}`}>
+          {renderPosts(firstHalf)}
         </div>
       </div>
       <div className="col-lg-6 col-md-6">
-        <div
-          className={`trending-news-post-items ${
-            dark ? 'trending-news-post-items-dark' : ''
-          }`}
-        >
-          {newPostData.map((item, i) => (
-            <div
-              className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
-              key={i + 1}
-            >
-              <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="gallery" />
-                <div className="icon">
-                  <i className="fas fa-bolt"></i>
-                </div>
-              </div>
-              <div className="gallery_item_content">
-                <div className="post-meta">
-                  <div className="meta-categories">
-                    <Link href="/post-details-three">{item.postCategory}</Link>
-                  </div>
-                  <div className="meta-date">
-                    <span>{item.postDate}</span>
-                  </div>
-                </div>
-                <h4 className="title">
-                  <Link href="/post-details-two">{item.postTitle}</Link>
-                </h4>
-              </div>
-            </div>
-          ))}
+        <div className={`trending-news-post-items ${dark ? 'trending-news-post-items-dark' : ''}`}>
+          {renderPosts(secondHalf)}
         </div>
       </div>
     </div>

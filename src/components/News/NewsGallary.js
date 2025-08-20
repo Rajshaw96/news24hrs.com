@@ -1,92 +1,9 @@
-"use client"
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import ModalVideo from 'react-modal-video';
-import Link from 'next/link';
-
-const galleryData = [
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-  {
-    postCategory: 'TECHNOLOGY',
-    postTitle:
-      'Japan’s virus success has puzzled the world. Is its luck running out?',
-    postDate: 'March 26, 2020  ',
-    postDesc:
-      'The property, complete with a 30-seat screening room, a 100-seat amphitheater and a swimming pond with sandy beach and outdoor shower…',
-  },
-];
-
+"use client";
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import ModalVideo from "react-modal-video";
+import Link from "next/link";
+import { fetchTodayNews } from "@/lib/newsApi";
 function PrevArrow(props) {
   const { onClick } = props;
   return (
@@ -95,6 +12,7 @@ function PrevArrow(props) {
     </span>
   );
 }
+
 function NextArrow(props) {
   const { onClick } = props;
   return (
@@ -108,6 +26,20 @@ export default function NewsGallary({ customClass, dark }) {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   const [isOpen, setOpen] = useState(false);
+  const [galleryData, setGalleryData] = useState([]);
+
+  // Fetch news on mount
+  useEffect(() => {
+    async function loadNews() {
+      try {
+        const data = await fetchTodayNews("general"); // category can be dynamic
+        setGalleryData(data || []);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    }
+    loadNews();
+  }, []);
 
   const settings = {
     slidesToShow: 1,
@@ -124,7 +56,7 @@ export default function NewsGallary({ customClass, dark }) {
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-    centerPadding: '0',
+    centerPadding: "0",
     focusOnSelect: true,
     responsive: [
       {
@@ -155,24 +87,29 @@ export default function NewsGallary({ customClass, dark }) {
         {galleryData.map((item, i) => (
           <div
             className={`post_gallery_play d-flex ${
-              dark ? 'post_gallery_play_dark' : ''
+              dark ? "post_gallery_play_dark" : ""
             }`}
-            key={i + 1}
+            key={i}
           >
-            <div className="bg-image"></div>
+            <div
+              className="bg-image"
+              style={{
+                backgroundImage: `url(${item.urlToImage || "/images/default.jpg"})`,
+              }}
+            ></div>
             <div className="post__gallery_play_content">
               <div className="post-meta">
                 <div className="meta-categories">
-                  <a href="#">{item.postCategory}</a>
+                  <a href="#">{item.source.name || "News"}</a>
                 </div>
                 <div className="meta-date">
-                  <span>{item.postDate}</span>
+                  <span>{item.publishedAt || ""}</span>
                 </div>
               </div>
               <h2 className="title">
-                <Link href="/post-details-three">{item.postTitle}</Link>
+                <Link href={item.url || "/"}>{item.title}</Link>
               </h2>
-              <p>{item.postDesc}</p>
+              <p>{item.description || ""}</p>
             </div>
             <div className="post_play_btn" onClick={() => setOpen(true)}>
               <a className="#" onClick={(e) => e.preventDefault()} href="/">
@@ -182,43 +119,20 @@ export default function NewsGallary({ customClass, dark }) {
           </div>
         ))}
       </Slider>
+
       <Slider
         {...settingsInner}
         asNavFor={nav1}
         ref={(slider2) => setNav2(slider2)}
         className="post_gallery_inner_slider"
       >
-        <div className="item">
-          <img src="/images/gallery-post/item-1.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-2.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-3.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-4.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-5.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-6.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-7.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-2.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-3.jpg" alt="" />
-        </div>
-        <div className="item">
-          <img src="/images/gallery-post/item-4.jpg" alt="" />
-        </div>
+        {galleryData.map((item, i) => (
+          <div className="item" key={i}>
+            <img src={item.urlToImage || "/images/default-thumb.jpg"} alt="" />
+          </div>
+        ))}
       </Slider>
+
       <ModalVideo
         channel="youtube"
         autoplay
