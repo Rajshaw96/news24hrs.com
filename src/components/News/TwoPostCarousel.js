@@ -1,32 +1,9 @@
-"use client"
-import Link from 'next/link';
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import ModalVideo from 'react-modal-video';
-
-const postData = [
-  {
-    postThumb: '/images/play-post-1.jpg',
-    postThumbDark: '/images/play-post-dark-1.jpg',
-    postCategory: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Success is not a good food failure makes you humble',
-  },
-  {
-    postThumb: '/images/play-post-2.jpg',
-    postThumbDark: '/images/play-post-1.jpg',
-    postCategory: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Success is not a good food failure makes you humble',
-  },
-  {
-    postThumb: '/images/play-post-1.jpg',
-    postThumbDark: '/images/play-post-2.jpg',
-    postCategory: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Success is not a good food failure makes you humble',
-  },
-];
+"use client";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import ModalVideo from "react-modal-video";
+import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -36,6 +13,7 @@ function PrevArrow(props) {
     </span>
   );
 }
+
 function NextArrow(props) {
   const { onClick } = props;
   return (
@@ -47,6 +25,20 @@ function NextArrow(props) {
 
 export default function TwoPostCarousel({ dark, customClass }) {
   const [isOpen, setOpen] = useState(false);
+  const [popularNews, setPopularNews] = useState([]);
+
+  useEffect(() => {
+    async function loadPopularNews() {
+      try {
+        const data = await fetchTodayNews("popular");
+        setPopularNews(data.slice(0, 6)); // Limit to first 6
+      } catch (error) {
+        console.error("Error fetching popular news:", error);
+      }
+    }
+    loadPopularNews();
+  }, []);
+
   const settings = {
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -75,37 +67,47 @@ export default function TwoPostCarousel({ dark, customClass }) {
       },
     ],
   };
+
   return (
     <section
       className={`single-play-post-area mt-10 ${customClass} ${
-        dark ? 'single-play-post-dark-area' : ''
+        dark ? "single-play-post-dark-area" : ""
       } `}
     >
       <div className="container custom-container">
         <div className="single-play-box">
           <Slider {...settings} className="row single-play-post-slider">
-            {postData.map((item, i) => (
-              <div className="col" key={i + 1}>
+            {popularNews.map((item, i) => (
+              <div className="col" key={item.id || i}>
                 <div className="single-play-post-item">
-                  {dark ? (
-                    <img src={item.postThumbDark} alt="play" />
-                  ) : (
-                    <img src={item.postThumb} alt="play" />
-                  )}
+                  <img
+                    src={item.urlToImage || "/images/placeholder.jpg"}
+                    alt={item.title}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      objectFit: "cover",
+                    }}
+                  />
 
                   <div className="single-play-post-content">
                     <div className="post-meta">
                       <div className="meta-categories">
-                        <a href="#">{item.postCategory}</a>
+                        <a href="#">{item.source.name || "Popular"}</a>
                       </div>
                       <div className="meta-date">
-                        <span>{item.postDate}</span>
+                        <span>
+                          {item.date
+                            ? new Date(item.date).toLocaleDateString()
+                            : ""}
+                        </span>
                       </div>
                     </div>
                     <h3 className="title">
-                      <Link href="/post-details-two">{item.postTitle}</Link>
+                      <Link href={`/news/${item.id}`}>{item.title}</Link>
                     </h3>
                   </div>
+
                   <div className="play-btn">
                     <a
                       className="video-popup"
@@ -119,6 +121,7 @@ export default function TwoPostCarousel({ dark, customClass }) {
               </div>
             ))}
           </Slider>
+
           <ModalVideo
             channel="youtube"
             autoplay

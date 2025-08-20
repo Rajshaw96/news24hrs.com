@@ -3,8 +3,9 @@
     {
       "id": 1,
       "linkText": "Home",
-      "child": true,
+      "child": false,
       "icon": "angle-down",
+      "link": "/",
       "submenu": [
         {
           "id": 11,
@@ -122,8 +123,9 @@
     },
     {
       "id": 2,
-      "linkText": "Pages",
-      "child": true,
+      "linkText": "About",
+      "child": false,
+      "link": "/about",
       "icon": "angle-down",
       "submenu": [
         {
@@ -148,29 +150,29 @@
         }
       ]
     },
-    // {
-    //   "id": 3,
-    //   "linkText": "Posts",
-    //   "child": true,
-    //   "icon": "angle-down",
-    //   "submenu": [
-    //     {
-    //       "id": 31,
-    //       "linkText": "Post 1",
-    //       "link": "/post-details-one"
-    //     },
-    //     {
-    //       "id": 32,
-    //       "linkText": "Post 2",
-    //       "link": "/post-details-two"
-    //     },
-    //     {
-    //       "id": 33,
-    //       "linkText": "Post 3",
-    //       "link": "/post-details-three"
-    //     }
-    //   ]
-    // },
+    {
+      "id": 3,
+      "linkText": "Blogs",
+      "child": true,
+      "icon": "angle-down",
+      "submenu": [
+        {
+          "id": 31,
+          "linkText": "Post 1",
+          "link": "/post-details-one"
+        },
+        // {
+        //   "id": 32,
+        //   "linkText": "Post 2",
+        //   "link": "/post-details-two"
+        // },
+        // {
+        //   "id": 33,
+        //   "linkText": "Post 3",
+        //   "link": "/post-details-three"
+        // }
+      ]
+    },
     {
       "id": 4,
       "linkText": "Categories",
@@ -212,7 +214,7 @@
     {
       "id": 5,
       "linkText": "World",
-      "link": "/trending",
+      "link": "/world",
       "child": false
     },
     {

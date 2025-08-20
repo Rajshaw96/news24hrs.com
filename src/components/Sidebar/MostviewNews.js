@@ -1,51 +1,7 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-
-const postData = [
-  {
-    id: 1,
-    postThumb: '/images/most-post/most-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Nancy zhang a chinese busy woman and dhaka',
-  },
-  {
-    id: 2,
-    postThumb: '/images/most-post/most-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'The billionaire Philan thropist read to learn',
-  },
-  {
-    id: 3,
-    postThumb: '/images/most-post/most-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Cheap smartphone sensor could help you old food safe',
-  },
-  {
-    id: 4,
-    postThumb: '/images/most-post/most-4.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Nancy zhang a chinese busy woman and dhaka',
-  },
-  {
-    id: 5,
-    postThumb: '/images/most-post/most-5.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Class property employ ancho red multi',
-  },
-  {
-    id: 6,
-    postThumb: '/images/most-post/most-6.jpg',
-    postTag: 'TECHNOLOGY',
-    postDate: 'March 26, 2020',
-    postTitle: 'Ratiffe to be Director of nation talent Trump ignored',
-  },
-];
+import { fetchTodayNews } from '@/lib/newsApi';
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -55,6 +11,7 @@ function PrevArrow(props) {
     </span>
   );
 }
+
 function NextArrow(props) {
   const { onClick } = props;
   return (
@@ -63,7 +20,26 @@ function NextArrow(props) {
     </span>
   );
 }
+
 export default function MostviewNews({ dark }) {
+  const [newsData, setNewsData] = useState([]);
+  const [newsData2, setNewsData2] = useState([]);
+
+  useEffect(() => {
+    async function loadNews() {
+      try {
+        const data = await fetchTodayNews();
+        setNewsData(data.slice(0,7) || []);
+        setNewsData2(data.slice(7,14) || []);
+        
+        
+      } catch (error) {
+        console.error('Error fetching most viewed news:', error);
+      }
+    }
+    loadNews();
+  }, []);
+
   const setting = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -92,6 +68,8 @@ export default function MostviewNews({ dark }) {
       },
     ],
   };
+  // console.log("2ndMost View: ",newsData);
+  
   return (
     <>
       <div className="trending-most-view mt-25">
@@ -99,17 +77,20 @@ export default function MostviewNews({ dark }) {
           <h3 className="title">Most View</h3>
         </div>
       </div>
+
       <Slider {...setting} className="trending-sidebar-slider">
         <div className="post_gallery_items">
-          {postData.map((item, i) => (
+          {newsData.map((item, i) => (
             <div
-              className={`gallery_item gallery_item-style-2 ${
-                dark ? 'gallery_item_dark' : ''
-              }`}
-              key={item.id}
+              className={`gallery_item gallery_item-style-2 ${dark ? 'gallery_item_dark' : ''}`}
+              key={i}
             >
-              <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="gallery" />
+              <div className="gallery_item_thumb" style={{ width: '80px', height: '64px', overflow: 'hidden' }}>
+                <img
+                  src={item.urlToImage || '/images/placeholder.jpg'}
+                  alt={item.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
                 </div>
@@ -117,30 +98,35 @@ export default function MostviewNews({ dark }) {
               <div className="gallery_item_content">
                 <div className="post-meta">
                   <div className="meta-categories">
-                    <Link href="/post-details-one">{item.postTag}</Link>
+                    <Link href={`/category/${item.category || 'news'}`}>
+                      {item.category || 'NEWS'}
+                    </Link>
                   </div>
                   <div className="meta-date">
-                    <span>{item.postDate}</span>
+                    <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
                   </div>
                 </div>
                 <h4 className="title">
-                  <Link href="/post-details-one">{item.postTitle}</Link>
+                  <Link href={`/post/${item.article_id}`}>
+                    {item.title}
+                  </Link>
                 </h4>
-                <span>{item.id}</span>
               </div>
             </div>
           ))}
         </div>
         <div className="post_gallery_items">
-          {postData.map((item, i) => (
+          {newsData2.map((item, i) => (
             <div
-              className={`gallery_item gallery_item-style-2 ${
-                dark ? 'gallery_item_dark' : ''
-              }`}
-              key={item.id}
+              className={`gallery_item gallery_item-style-2 ${dark ? 'gallery_item_dark' : ''}`}
+              key={i}
             >
-              <div className="gallery_item_thumb">
-                <img src={item.postThumb} alt="gallery" />
+              <div className="gallery_item_thumb" style={{ width: '80px', height: '64px', overflow: 'hidden' }}>
+                <img
+                  src={item.urlToImage || '/images/placeholder.jpg'}
+                  alt={item.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
                 </div>
@@ -148,16 +134,19 @@ export default function MostviewNews({ dark }) {
               <div className="gallery_item_content">
                 <div className="post-meta">
                   <div className="meta-categories">
-                    <Link href="/post-details-one">{item.postTag}</Link>
+                    <Link href={`/category/${item.category || 'news'}`}>
+                      {item.category || 'NEWS'}
+                    </Link>
                   </div>
                   <div className="meta-date">
-                    <span>{item.postDate}</span>
+                    <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
                   </div>
                 </div>
                 <h4 className="title">
-                  <Link href="/post-details-one">{item.postTitle}</Link>
+                  <Link href={`/post/${item.article_id}`}>
+                    {item.title}
+                  </Link>
                 </h4>
-                <span>{item.id}</span>
               </div>
             </div>
           ))}

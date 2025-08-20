@@ -1,60 +1,52 @@
-import Link from 'next/link';
-import React from 'react';
-
-const postData = [
-  {
-    postThumb: '/images/business-1.jpg',
-    postTag: 'TECHNOLOGY',
-    postTitle: 'There may be no consoles in the future ea exec says',
-    postDate: 'March 26, 2020',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-2.jpg',
-    postTag: 'TECHNOLOGY',
-    postTitle: 'There may be no consoles in the future ea exec says',
-    postDate: 'March 26, 2020',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-3.jpg',
-    postTag: 'TECHNOLOGY',
-    postTitle: 'There may be no consoles in the future ea exec says',
-    postDate: 'March 26, 2020',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-  {
-    postThumb: '/images/business-4.jpg',
-    postTag: 'TECHNOLOGY',
-    postTitle: 'There may be no consoles in the future ea exec says',
-    postDate: 'March 26, 2020',
-    postDesc:
-      'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
-  },
-];
+"use client";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { fetchTodayNews } from "@/lib/newsApi";
 
 export default function BusinessNews({ dark }) {
+  const [businessNews, setBusinessNews] = useState([]);
+
+  useEffect(() => {
+    async function loadBusinessNews() {
+      try {
+        const data = await fetchTodayNews("business");
+        setBusinessNews(data.slice(0, 4)); // limit to 4 items
+      } catch (error) {
+        console.error("Error fetching business news:", error);
+      }
+    }
+    loadBusinessNews();
+  }, []);
+
   return (
     <div className="business-news-post pt-40">
       <div className="section-title d-flex justify-content-between align-items-center">
         <h3 className="title">Business News</h3>
-        <Link href="/post-details-one"> SEE ALL </Link>
+        <Link href="/business-news">SEE ALL</Link>
       </div>
+
       <div className="business-post">
-        {postData.map((item, i) => (
+        {businessNews.map((item, i) => (
           <div
-            key={i + 1}
-            className={`business-post-item mb-40  ${
-              dark ? 'business-post-item-dark' : ''
+            key={item.id || i}
+            className={`business-post-item mb-40 ${
+              dark ? "business-post-item-dark" : ""
             }`}
           >
             <div className="row">
               <div className="col-lg-6 col-md-6">
                 <div className="business-post-thumb">
-                  <img src={item.postThumb} alt="business" />
+                  <img
+                    src={
+                      item.urlToImage || `/images/business/business-${i + 1}.jpg`
+                    }
+                    alt={item.title}
+                    style={{
+                      width: "350px",
+                      height: "250px",
+                      objectFit: "cover",
+                    }}
+                  />
                 </div>
               </div>
               <div className="col-lg-6 col-md-6">
@@ -62,17 +54,33 @@ export default function BusinessNews({ dark }) {
                   <div className="trending-news-content">
                     <div className="post-meta">
                       <div className="meta-categories">
-                        <Link href="/post-details-one">{item.postTag}</Link>
+                        <Link href={`/news/${item.id}`}>
+                          {item.category || "Business"}
+                        </Link>
                       </div>
                       <div className="meta-date">
-                        <span>{item.postDate}</span>
+                        <span>
+                          {item.publishedAt
+                            ? new Date(item.publishedAt).toLocaleDateString()
+                            : ""}
+                        </span>
                       </div>
                     </div>
                     <h3 className="title">
-                      <Link href="/post-details-one">{item.postTitle}</Link>
+                      <Link href={`/news/${item.id}`}>
+                        {item.title || ""}
+                      </Link>
                     </h3>
-                    <p className="text">{item.postDesc}</p>
-                    <Link href="/post-details-one">Read more</Link>
+                    <p className="text">
+                      {item.description
+                        ? item.description
+                            .split(" ")
+                            .slice(0, 20)
+                            .join(" ") +
+                          (item.description.split(" ").length > 20 ? "..." : "")
+                        : ""}
+                    </p>
+                    <Link href={`/news/${item.id}`}>Read more</Link>
                   </div>
                 </div>
               </div>
