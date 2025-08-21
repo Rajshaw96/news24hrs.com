@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -24,19 +23,25 @@ function NextArrow(props) {
 
 export default function TrendingCarousel({ dark }) {
   const [trendingData, setTrendingData] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadNews() {
       try {
-        // Fetch trending/popular news - adjust category if needed
-        const data = await fetchTodayNews("popular");
-        setTrendingData(data || []);
+        // Fetch "popular" or "trending" from backend
+        const res = await fetch(`${host}/api/news?category=trendy`);
+        const data = await res.json();
+
+        // Defensive fallback
+        const articles = Array.isArray(data) ? data : data.articles || [];
+
+        setTrendingData(articles.slice(0, 8)); // limit to 8 trending news
       } catch (error) {
         console.error("Error fetching trending news:", error);
       }
     }
     loadNews();
-  }, []);
+  }, [host]);
 
   const settings = {
     slidesToShow: 2,
@@ -60,16 +65,19 @@ export default function TrendingCarousel({ dark }) {
   return (
     <Slider {...settings} className="row trending-news-slider">
       {trendingData.map((item, i) => (
-        <div className="col" key={i}>
+        <div className="col" key={item._id || item.id || i}>
           <div
             className={`trending-news-item ${
               dark ? "trending-news-item-dark" : ""
             }`}
           >
             <div className="trending-news-thumb">
-              <img src={item.urlToImage || "/images/default-thumb.jpg"} alt="trending" />
+              <img
+                src={item.urlToImage || item.image || "/images/default-thumb.jpg"}
+                alt={item.title || "trending"}
+              />
               <div className="icon">
-                <Link href={item.url || "#"}>
+                <Link href={item.url || "#"} target="_blank">
                   <i className="fas fa-bolt"></i>
                 </Link>
               </div>
@@ -77,14 +85,22 @@ export default function TrendingCarousel({ dark }) {
             <div className="trending-news-content">
               <div className="post-meta">
                 <div className="meta-categories">
-                  <Link href={item.url || "#"}>{item.source?.name || "News"}</Link>
+                  <Link href={item.source?.url || "#"} target="_blank">
+                    {item.source?.name || "News"}
+                  </Link>
                 </div>
                 <div className="meta-date">
-                  <span>{item.publishedAt || ""}</span>
+                  <span>
+                    {item.publishedAt
+                      ? new Date(item.publishedAt).toLocaleDateString()
+                      : ""}
+                  </span>
                 </div>
               </div>
               <h3 className="title">
-                <Link href={item.url || "#"}>{item.title}</Link>
+                <Link href={item.url || "#"} target="_blank">
+                  {item.title}
+                </Link>
               </h3>
               <p className="text">{item.description || ""}</p>
             </div>

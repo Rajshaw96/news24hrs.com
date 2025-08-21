@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
 import Link from "next/link";
-import { fetchTodayNews } from "@/lib/newsApi";
+
 function PrevArrow(props) {
   const { onClick } = props;
   return (
@@ -23,6 +23,9 @@ function NextArrow(props) {
 }
 
 export default function NewsGallary({ customClass, dark }) {
+  const host = process.env.NEXT_PUBLIC_API_URL;
+  console.log("API Host:", host);
+
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   const [isOpen, setOpen] = useState(false);
@@ -32,7 +35,9 @@ export default function NewsGallary({ customClass, dark }) {
   useEffect(() => {
     async function loadNews() {
       try {
-        const data = await fetchTodayNews("general"); // category can be dynamic
+        const res = await fetch(`${host}/api/news/`);
+        const data = await res.json();
+        // console.log("Fetched news data:", data);
         setGalleryData(data || []);
       } catch (error) {
         console.error("Error fetching news:", error);
@@ -78,6 +83,7 @@ export default function NewsGallary({ customClass, dark }) {
 
   return (
     <>
+      {/* Main Gallery */}
       <Slider
         {...settings}
         asNavFor={nav2}
@@ -89,25 +95,33 @@ export default function NewsGallary({ customClass, dark }) {
             className={`post_gallery_play d-flex ${
               dark ? "post_gallery_play_dark" : ""
             }`}
-            key={i}
+            key={item._id || i}
           >
             <div
               className="bg-image"
               style={{
-                backgroundImage: `url(${item.urlToImage || "/images/default.jpg"})`,
+                backgroundImage: `url(${item.image || "/images/default.jpg"})`,
               }}
             ></div>
             <div className="post__gallery_play_content">
               <div className="post-meta">
                 <div className="meta-categories">
-                  <a href="#">{item.source.name || "News"}</a>
+                  <a href={item.source?.url || "#"} target="_blank">
+                    {item.source?.name || "News"}
+                  </a>
                 </div>
                 <div className="meta-date">
-                  <span>{item.publishedAt || ""}</span>
+                  <span>
+                    {item.publishedAt
+                      ? new Date(item.publishedAt).toLocaleDateString()
+                      : ""}
+                  </span>
                 </div>
               </div>
               <h2 className="title">
-                <Link href={item.url || "/"}>{item.title}</Link>
+                <Link href={item.url || "/"} target="_blank">
+                  {item.title}
+                </Link>
               </h2>
               <p>{item.description || ""}</p>
             </div>
@@ -120,6 +134,7 @@ export default function NewsGallary({ customClass, dark }) {
         ))}
       </Slider>
 
+      {/* Thumbnails */}
       <Slider
         {...settingsInner}
         asNavFor={nav1}
@@ -127,12 +142,13 @@ export default function NewsGallary({ customClass, dark }) {
         className="post_gallery_inner_slider"
       >
         {galleryData.map((item, i) => (
-          <div className="item" key={i}>
-            <img src={item.urlToImage || "/images/default-thumb.jpg"} alt="" />
+          <div className="item" key={item._id || i}>
+            <img src={item.image || "/images/default-thumb.jpg"} alt="" />
           </div>
         ))}
       </Slider>
 
+      {/* Modal Video */}
       <ModalVideo
         channel="youtube"
         autoplay

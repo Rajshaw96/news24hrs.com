@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import { fetchTodayNews } from '@/lib/newsApi';
+"use client";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -24,21 +24,25 @@ function NextArrow(props) {
 export default function MostviewNews({ dark }) {
   const [newsData, setNewsData] = useState([]);
   const [newsData2, setNewsData2] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadNews() {
       try {
-        const data = await fetchTodayNews();
-        setNewsData(data.slice(0,7) || []);
-        setNewsData2(data.slice(7,14) || []);
-        
-        
+        const res = await fetch(`${host}/api/news`);
+        const data = await res.json();
+
+        // Defensive fallback (array or object with `articles`)
+        const articles = Array.isArray(data) ? data : data.articles || [];
+
+        setNewsData(articles.slice(0, 5));
+        setNewsData2(articles.slice(5, 10));
       } catch (error) {
-        console.error('Error fetching most viewed news:', error);
+        console.error("Error fetching most viewed news:", error);
       }
     }
     loadNews();
-  }, []);
+  }, [host]);
 
   const setting = {
     slidesToShow: 1,
@@ -52,28 +56,15 @@ export default function MostviewNews({ dark }) {
     nextArrow: <NextArrow />,
     speed: 1000,
     responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 768, settings: { arrows: false, slidesToShow: 1 } },
+      { breakpoint: 576, settings: { arrows: false, slidesToShow: 1 } },
     ],
   };
-  // console.log("2ndMost View: ",newsData);
-  
+
   return (
     <>
       <div className="trending-most-view mt-25">
-        <div className={`section-title ${dark ? 'section-title-2' : ''}`}>
+        <div className={`section-title ${dark ? "section-title-2" : ""}`}>
           <h3 className="title">Most View</h3>
         </div>
       </div>
@@ -82,14 +73,19 @@ export default function MostviewNews({ dark }) {
         <div className="post_gallery_items">
           {newsData.map((item, i) => (
             <div
-              className={`gallery_item gallery_item-style-2 ${dark ? 'gallery_item_dark' : ''}`}
-              key={i}
+              className={`gallery_item gallery_item-style-2 ${
+                dark ? "gallery_item_dark" : ""
+              }`}
+              key={item._id || item.id || i}
             >
-              <div className="gallery_item_thumb" style={{ width: '80px', height: '64px', overflow: 'hidden' }}>
+              <div
+                className="gallery_item_thumb"
+                style={{ width: "80px", height: "64px", overflow: "hidden" }}
+              >
                 <img
-                  src={item.urlToImage || '/images/placeholder.jpg'}
+                  src={item.urlToImage || item.image || "/images/placeholder.jpg"}
                   alt={item.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
@@ -98,16 +94,23 @@ export default function MostviewNews({ dark }) {
               <div className="gallery_item_content">
                 <div className="post-meta">
                   <div className="meta-categories">
-                    <Link href={`/category/${item.category || 'news'}`}>
-                      {item.category || 'NEWS'}
+                    <Link href={item.source?.url || "#"} target="_blank">
+                      {item.category || item.source?.name || "NEWS"}
                     </Link>
                   </div>
                   <div className="meta-date">
-                    <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
+                    <span>
+                      {item.publishedAt
+                        ? new Date(item.publishedAt).toLocaleDateString()
+                        : ""}
+                    </span>
                   </div>
                 </div>
                 <h4 className="title">
-                  <Link href={`/post/${item.article_id}`}>
+                  <Link
+                    href={item.url || `/post/${item._id || item.id || "#"}`}
+                    target="_blank"
+                  >
                     {item.title}
                   </Link>
                 </h4>
@@ -115,17 +118,23 @@ export default function MostviewNews({ dark }) {
             </div>
           ))}
         </div>
+
         <div className="post_gallery_items">
           {newsData2.map((item, i) => (
             <div
-              className={`gallery_item gallery_item-style-2 ${dark ? 'gallery_item_dark' : ''}`}
-              key={i}
+              className={`gallery_item gallery_item-style-2 ${
+                dark ? "gallery_item_dark" : ""
+              }`}
+              key={item._id || item.id || i}
             >
-              <div className="gallery_item_thumb" style={{ width: '80px', height: '64px', overflow: 'hidden' }}>
+              <div
+                className="gallery_item_thumb"
+                style={{ width: "80px", height: "64px", overflow: "hidden" }}
+              >
                 <img
-                  src={item.urlToImage || '/images/placeholder.jpg'}
+                  src={item.urlToImage || item.image || "/images/placeholder.jpg"}
                   alt={item.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
                 <div className="icon">
                   <i className="fas fa-bolt"></i>
@@ -134,16 +143,23 @@ export default function MostviewNews({ dark }) {
               <div className="gallery_item_content">
                 <div className="post-meta">
                   <div className="meta-categories">
-                    <Link href={`/category/${item.category || 'news'}`}>
-                      {item.category || 'NEWS'}
+                    <Link href={item.source?.url || "#"} target="_blank">
+                      {item.category || item.source?.name || "NEWS"}
                     </Link>
                   </div>
                   <div className="meta-date">
-                    <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
+                    <span>
+                      {item.publishedAt
+                        ? new Date(item.publishedAt).toLocaleDateString()
+                        : ""}
+                    </span>
                   </div>
                 </div>
                 <h4 className="title">
-                  <Link href={`/post/${item.article_id}`}>
+                  <Link
+                    href={item.url || `/post/${item._id || item.id || "#"}`}
+                    target="_blank"
+                  >
                     {item.title}
                   </Link>
                 </h4>

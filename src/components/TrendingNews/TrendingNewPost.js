@@ -1,41 +1,46 @@
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { fetchTodayNews } from "@/lib/newsApi";
+"use client";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+
 export default function TrendingNewPost({ dark }) {
   const [news, setNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadNews() {
       try {
-        const data = await fetchTodayNews('general'); // fetch 6 posts
-        // console.log("TrendingNewsPost :",data);
-        
-        setNews(data || []);
+        const res = await fetch(`${host}/api/news`);
+        const data = await res.json();
+
+        // Defensive fallback like in FeatureNewsCarousel
+        const articles = Array.isArray(data) ? data : data.articles || [];
+
+        setNews(articles.slice(0, 6)); // only 6 posts for Trending
       } catch (error) {
-        console.error('Error fetching news:', error);
+        console.error("Error fetching news:", error);
       }
     }
     loadNews();
-  }, []);
+  }, [host]);
 
   // Split into two equal columns
   const firstHalf = news.slice(0, 3);
-  // console.log("First Half :",firstHalf);
-  
   const secondHalf = news.slice(3, 6);
-  // console.log("First Half :",secondHalf);
 
   const renderPosts = (posts) =>
     posts.map((item, i) => (
       <div
-        className={`gallery_item ${dark ? 'gallery_item_dark' : ''}`}
-        key={i}
+        className={`gallery_item ${dark ? "gallery_item_dark" : ""}`}
+        key={item._id || item.id || i}
       >
-        <div className="gallery_item_thumb" style={{ width: '100px', height: '77px', overflow: 'hidden' }}>
+        <div
+          className="gallery_item_thumb"
+          style={{ width: "100px", height: "77px", overflow: "hidden" }}
+        >
           <img
-            src={item.urlToImage || '/images/placeholder.jpg'}
+            src={item.urlToImage || item.image || "/images/placeholder.jpg"}
             alt={item.title}
-            style={{ width: '100px', height: '77px', objectFit: 'cover' }}
+            style={{ width: "100px", height: "77px", objectFit: "cover" }}
           />
           <div className="icon">
             <i className="fas fa-bolt"></i>
@@ -44,14 +49,25 @@ export default function TrendingNewPost({ dark }) {
         <div className="gallery_item_content">
           <div className="post-meta">
             <div className="meta-categories">
-              <Link href={item.url || '/'}>{item.source?.name || 'NEWS'}</Link>
+              <Link href={item.source?.url || "#"} target="_blank">
+                {item.source?.name || "News"}
+              </Link>
             </div>
             <div className="meta-date">
-              <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
+              <span>
+                {item.publishedAt
+                  ? new Date(item.publishedAt).toLocaleDateString()
+                  : ""}
+              </span>
             </div>
           </div>
           <h4 className="title">
-            <Link href={item.url || '/'}>{item.title}</Link>
+            <Link
+              href={item.url || `/news/${item._id || item.id || "#"}`}
+              target="_blank"
+            >
+              {item.title}
+            </Link>
           </h4>
         </div>
       </div>
@@ -60,12 +76,20 @@ export default function TrendingNewPost({ dark }) {
   return (
     <div className="row">
       <div className="col-lg-6 col-md-6">
-        <div className={`trending-news-post-items ${dark ? 'trending-news-post-items-dark' : ''}`}>
+        <div
+          className={`trending-news-post-items ${
+            dark ? "trending-news-post-items-dark" : ""
+          }`}
+        >
           {renderPosts(firstHalf)}
         </div>
       </div>
       <div className="col-lg-6 col-md-6">
-        <div className={`trending-news-post-items ${dark ? 'trending-news-post-items-dark' : ''}`}>
+        <div
+          className={`trending-news-post-items ${
+            dark ? "trending-news-post-items-dark" : ""
+          }`}
+        >
           {renderPosts(secondHalf)}
         </div>
       </div>

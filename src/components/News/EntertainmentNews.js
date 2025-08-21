@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 export default function EntertainmentNews({ dark }) {
   const [entertainmentNews, setEntertainmentNews] = useState([]);
@@ -9,8 +8,10 @@ export default function EntertainmentNews({ dark }) {
   useEffect(() => {
     async function loadEntertainmentNews() {
       try {
-        const data = await fetchTodayNews("entertainment");
-        setEntertainmentNews(data.slice(0, 4)); // Limit to 4 items
+        const host = process.env.NEXT_PUBLIC_API_URL;
+        const res = await fetch(`${host}/api/news?category=technology`);
+        const data = await res.json();
+        setEntertainmentNews(data.slice(0, 4)); // ✅ Limit to 4 items
       } catch (error) {
         console.error("Error fetching entertainment news:", error);
       }
@@ -36,8 +37,8 @@ export default function EntertainmentNews({ dark }) {
                   <img
                     src={
                       dark
-                        ? item.urlToImage || "/images/entertainment-dark-1.jpg"
-                        : item.urlToImage || "/images/entertainment-1.jpg"
+                        ? item.image || "/images/entertainment-dark-1.jpg"
+                        : item.image || "/images/entertainment-1.jpg"
                     }
                     alt={item.title}
                     style={{

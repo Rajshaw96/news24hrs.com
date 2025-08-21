@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -26,18 +25,24 @@ function NextArrow(props) {
 export default function TwoPostCarousel({ dark, customClass }) {
   const [isOpen, setOpen] = useState(false);
   const [popularNews, setPopularNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadPopularNews() {
       try {
-        const data = await fetchTodayNews("popular");
-        setPopularNews(data.slice(0, 6)); // Limit to first 6
+        const res = await fetch(`${host}/api/news?category=popular`);
+        const data = await res.json();
+
+        // Defensive fallback
+        
+
+        setPopularNews(data); // Limit to first 6
       } catch (error) {
         console.error("Error fetching popular news:", error);
       }
     }
     loadPopularNews();
-  }, []);
+  }, [host]);
 
   const settings = {
     slidesToShow: 2,
@@ -78,10 +83,10 @@ export default function TwoPostCarousel({ dark, customClass }) {
         <div className="single-play-box">
           <Slider {...settings} className="row single-play-post-slider">
             {popularNews.map((item, i) => (
-              <div className="col" key={item.id || i}>
+              <div className="col" key={item._id || item.id || i}>
                 <div className="single-play-post-item">
                   <img
-                    src={item.urlToImage || "/images/placeholder.jpg"}
+                    src={item.urlToImage || item.image || "/images/placeholder.jpg"}
                     alt={item.title}
                     style={{
                       width: "100%",
@@ -93,18 +98,22 @@ export default function TwoPostCarousel({ dark, customClass }) {
                   <div className="single-play-post-content">
                     <div className="post-meta">
                       <div className="meta-categories">
-                        <a href="#">{item.source.name || "Popular"}</a>
+                        <Link href={item.source?.url || "#"} target="_blank">
+                          {item.source?.name || "Popular"}
+                        </Link>
                       </div>
                       <div className="meta-date">
                         <span>
-                          {item.date
-                            ? new Date(item.date).toLocaleDateString()
+                          {item.publishedAt
+                            ? new Date(item.publishedAt).toLocaleDateString()
                             : ""}
                         </span>
                       </div>
                     </div>
                     <h3 className="title">
-                      <Link href={`/news/${item.id}`}>{item.title}</Link>
+                      <Link href={item.url || `/news/${item._id || item.id || "#"}`} target="_blank">
+                        {item.title}
+                      </Link>
                     </h3>
                   </div>
 

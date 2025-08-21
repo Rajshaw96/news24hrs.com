@@ -17,6 +17,7 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
   : [
       "http://127.0.0.1:3000",
       "https://news24hrs.com",
+      "http://localhost:3000"
     ];
 
 const corsOptions = {

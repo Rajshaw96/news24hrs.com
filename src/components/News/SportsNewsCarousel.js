@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -23,18 +22,28 @@ function NextArrow(props) {
 
 export default function SportsNewsCarousel({ dark }) {
   const [sportsNews, setSportsNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadSportsNews() {
       try {
-        const data = await fetchTodayNews("sports");
-        setSportsNews(data.slice(0, 10)); // limit total items to avoid overcrowding
+        const res = await fetch(`${host}/api/news?category=sports`);
+        const data = await res.json();
+
+        // Defensive fallback
+        if (!Array.isArray(data)) {
+          console.warn("Unexpected API response:", data);
+          setSportsNews([]);
+          return;
+        }
+
+        setSportsNews(data.slice(0, 10)); // limit to 10 news
       } catch (error) {
         console.error("Error fetching sports news:", error);
       }
     }
     loadSportsNews();
-  }, []);
+  }, [host]);
 
   const settings = {
     slidesToShow: 1,
@@ -55,7 +64,7 @@ export default function SportsNewsCarousel({ dark }) {
 
   return (
     <Slider {...settings} className="trending-sidebar-slider">
-      {/* Split into groups of 5 items per slide like original */}
+      {/* Split into groups of 5 items per slide */}
       {Array.from({ length: Math.ceil(sportsNews.length / 5) }).map(
         (_, groupIndex) => (
           <div className="post_gallery_items" key={groupIndex}>
@@ -63,13 +72,14 @@ export default function SportsNewsCarousel({ dark }) {
               .slice(groupIndex * 5, groupIndex * 5 + 5)
               .map((item, i) => (
                 <div
-                  key={item.id || i}
+                  key={item._id || item.id || i}
                   className={`gallery_item ${dark ? "gallery_item_dark" : ""}`}
                 >
                   <div className="gallery_item_thumb">
                     <img
                       src={
                         item.urlToImage ||
+                        item.image ||
                         `/images/sports/sports-${(i % 5) + 1}.jpg`
                       }
                       alt={item.title}
@@ -83,7 +93,7 @@ export default function SportsNewsCarousel({ dark }) {
                   <div className="gallery_item_content">
                     <div className="post-meta">
                       <div className="meta-categories">
-                        <Link href={`/news/${item.id}`}>
+                        <Link href={item.url || `/news/${item._id || item.id}`}>
                           {item.category || "Sports"}
                         </Link>
                       </div>
@@ -96,7 +106,7 @@ export default function SportsNewsCarousel({ dark }) {
                       </div>
                     </div>
                     <h4 className="title">
-                      <Link href={`/news/${item.id}`}>
+                      <Link href={item.url || `/news/${item._id || item.id}`}>
                         {item.title
                           ? item.title
                               .split(" ")

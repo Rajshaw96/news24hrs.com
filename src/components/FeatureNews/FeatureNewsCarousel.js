@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -24,18 +23,24 @@ function NextArrow(props) {
 
 export default function FeatureNewsCarousel({ customClass, dark }) {
   const [featureNews, setFeatureNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadFeatureNews() {
       try {
-        const data = await fetchTodayNews("featured"); // <-- adjust category if needed
-        setFeatureNews(data.slice(0, 8)); // Limit to 8 news
+        const res = await fetch(`${host}/api/news`);
+        const data = await res.json();
+
+        // Defensive fallback in case API response differs
+        const articles = Array.isArray(data) ? data : data.articles || [];
+
+        setFeatureNews(articles.slice(0, 8)); // limit to 8
       } catch (error) {
         console.error("Error fetching feature news:", error);
       }
     }
     loadFeatureNews();
-  }, []);
+  }, [host]);
 
   const settings = {
     slidesToShow: 4,
@@ -49,22 +54,10 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
     nextArrow: <NextArrow />,
     speed: 1000,
     responsive: [
-      {
-        breakpoint: 1140,
-        settings: { slidesToShow: 3 },
-      },
-      {
-        breakpoint: 992,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768,
-        settings: { arrows: false, slidesToShow: 2 },
-      },
-      {
-        breakpoint: 576,
-        settings: { arrows: false, slidesToShow: 1 },
-      },
+      { breakpoint: 1140, settings: { slidesToShow: 3 } },
+      { breakpoint: 992, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { arrows: false, slidesToShow: 2 } },
+      { breakpoint: 576, settings: { arrows: false, slidesToShow: 1 } },
     ],
   };
 
@@ -80,11 +73,11 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
         </div>
         <Slider className="row feature-post-slider" {...settings}>
           {featureNews.map((item, i) => (
-            <div className="col" key={item.id || i}>
+            <div className="col" key={item._id || item.id || i}>
               <div className="feature-post">
                 <div className="feature-post-thumb">
                   <img
-                    src={item.urlToImage || "/images/placeholder.jpg"}
+                    src={item.urlToImage || item.image || "/images/placeholder.jpg"}
                     className="img-fluid"
                     alt={item.title}
                     style={{ width: "100%", height: "200px", objectFit: "cover" }}
@@ -93,20 +86,22 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
                 <div className="feature-post-content">
                   <div className="post-meta">
                     <div className="meta-categories">
-                      <Link href="#">
+                      <Link href={item.source?.url || "#"} target="_blank">
                         {item.source?.name || "News"}
                       </Link>
                     </div>
                     <div className="meta-date">
                       <span>
-                        {item.date
-                          ? new Date(item.date).toLocaleDateString()
+                        {item.publishedAt
+                          ? new Date(item.publishedAt).toLocaleDateString()
                           : ""}
                       </span>
                     </div>
                   </div>
                   <h4 className="title">
-                    <Link href={`/news/${item.id}`}>{item.title}</Link>
+                    <Link href={item.url || `/news/${item._id || item.id || "#"}`} target="_blank">
+                      {item.title}
+                    </Link>
                   </h4>
                 </div>
               </div>

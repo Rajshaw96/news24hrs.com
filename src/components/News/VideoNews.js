@@ -2,25 +2,27 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import ModalVideo from "react-modal-video";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 export default function VideoNews({ dark }) {
   const [isOpen, setOpen] = useState(false);
   const [videoNews, setVideoNews] = useState(null);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadVideoNews() {
       try {
-        const data = await fetchTodayNews("video");
-        if (data.length > 0) {
-          setVideoNews(data[0]); // Only showing the first video news item
+        const res = await fetch(`${host}/api/news`);
+        const data = await res.json();
+
+        if (Array.isArray(data) && data.length > 0) {
+          setVideoNews(data[0]); // ✅ Only showing the first video news item
         }
       } catch (error) {
         console.error("Error fetching video news:", error);
       }
     }
     loadVideoNews();
-  }, []);
+  }, [host]);
 
   return (
     <div className="video-news-post">
@@ -32,7 +34,7 @@ export default function VideoNews({ dark }) {
         channel="youtube"
         autoplay
         isOpen={isOpen}
-        videoId="eEzD-Y97ges" // Replace with dynamic videoId if available from API
+        videoId="eEzD-Y97ges" // ✅ Replace with API-provided videoId if available
         onClose={() => setOpen(false)}
       />
 
@@ -44,7 +46,7 @@ export default function VideoNews({ dark }) {
         >
           <div className="video-news-post-thumb">
             <img
-              src={videoNews.urlToImage || "/images/placeholder.jpg"}
+              src={videoNews.urlToImage || videoNews.image || "/images/placeholder.jpg"}
               alt={videoNews.title}
               style={{ width: "100%", height: "auto", objectFit: "cover" }}
             />
@@ -62,21 +64,23 @@ export default function VideoNews({ dark }) {
           <div className="video-news-post-content">
             <div className="post-meta">
               <div className="meta-categories">
-                <Link href={`/news/${videoNews.id}`}>
+                <Link href={`/news/${videoNews._id || videoNews.id}`}>
                   {videoNews.category || "Video"}
                 </Link>
               </div>
               <div className="meta-date">
                 <span>
-                  {videoNews.date
-                    ? new Date(videoNews.date).toLocaleDateString()
+                  {videoNews.publishedAt
+                    ? new Date(videoNews.publishedAt).toLocaleDateString()
                     : ""}
                 </span>
               </div>
             </div>
 
             <h3 className="title">
-              <Link href={`/news/${videoNews.id}`}>{videoNews.title}</Link>
+              <Link href={`/news/${videoNews._id || videoNews.id}`}>
+                {videoNews.title}
+              </Link>
             </h3>
           </div>
         </div>

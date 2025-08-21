@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -24,18 +23,22 @@ function NextArrow(props) {
 
 export default function PopularNewsCarousel({ dark }) {
   const [popularNews, setPopularNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadPopularNews() {
       try {
-        const data = await fetchTodayNews("popular");
-        setPopularNews(data);
+        const res = await fetch(`${host}/api/news?category=popular`);
+        const data = await res.json();
+        if (Array.isArray(data)) {
+          setPopularNews(data);
+        }
       } catch (error) {
         console.error("Error fetching popular news:", error);
       }
     }
     loadPopularNews();
-  }, []);
+  }, [host]);
 
   const settings = {
     slidesToShow: 1,
@@ -62,7 +65,6 @@ export default function PopularNewsCarousel({ dark }) {
 
       <Slider {...settings} className="trending-sidebar-slider">
         {popularNews.length > 0 &&
-          // Group items in sets of 5 like your original
           Array.from({ length: Math.ceil(popularNews.length / 5) }).map(
             (_, groupIndex) => (
               <div className="populer-post-slider" key={groupIndex}>
@@ -70,7 +72,7 @@ export default function PopularNewsCarousel({ dark }) {
                   .slice(groupIndex * 5, groupIndex * 5 + 5)
                   .map((item, i) => (
                     <div
-                      key={item.id || i}
+                      key={item._id || item.id || i}
                       className={`gallery_item populer_item-style ${
                         dark ? "gallery_item_dark" : ""
                       }`}
@@ -79,23 +81,22 @@ export default function PopularNewsCarousel({ dark }) {
                         <img
                           src={
                             item.urlToImage ||
+                            item.image ||
                             "/images/populer/populer-post-3.jpg"
                           }
                           alt={item.title}
                           style={{ width: "100px", height: "57px" }}
                         />
-                        <span>{item.id}</span>
                       </div>
                       <div className="gallery_item_content">
                         <h4 className="title">
-                          <Link href={`/news/${item.id}`}>
+                          <Link href={`/news/${item._id || item.id}`}>
                             {item.title
                               ? item.title.split(" ").slice(0, 8).join(" ") +
                                 (item.title.split(" ").length > 8 ? "..." : "")
                               : ""}
                           </Link>
                         </h4>
-
                         <span>{item.category || "General"}</span>
                       </div>
                     </div>
