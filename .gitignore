@@ -41,6 +41,7 @@ backend/node_modules/
 # Backend environment files
 backend/.env
 backend/.env.*
+.env
 
 # Backend build / logs
 backend/dist/

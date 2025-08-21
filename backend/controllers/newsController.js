@@ -6,8 +6,20 @@ import APIFeatures from "../utils/apiFeatures.js";
 // Fetch & Store News from GNews
 export const fetchAndStoreNews = async (req, res) => {
   try {
-    const queries = req.query.q ? [req.query.q] : ["sports", "technology", "business", "world"];
-    
+    const queries = req.query.q
+      ? [req.query.q]
+      : [
+          "sports",
+          "technology",
+          "business",
+          "world",
+          "entertainment",
+          "health",
+          "trendy",
+          "latest",
+          "popular",
+        ];
+
     for (let query of queries) {
       const articles = await fetchGNewsArticles(query);
 
@@ -25,8 +37,8 @@ export const fetchAndStoreNews = async (req, res) => {
               image: a.image,
               publishedAt: a.publishedAt,
               source: a.source,
-              category: query 
-            }
+              category: query,
+            },
           },
           { upsert: true }
         );
@@ -63,7 +75,9 @@ export const getNewsById = async (req, res) => {
 };
 
 export const updateNews = async (req, res) => {
-  const news = await News.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  const news = await News.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
   res.json(news);
 };
 
@@ -74,7 +88,14 @@ export const deleteNews = async (req, res) => {
 
 export const getNews = async (req, res) => {
   try {
-    let { page = 1, limit = 10, sortBy = "publishedAt", sortOrder = "desc", search, category } = req.query;
+    let {
+      page = 1,
+      limit = 10,
+      sortBy = "publishedAt",
+      sortOrder = "desc",
+      search,
+      category,
+    } = req.query;
     page = parseInt(page);
     limit = parseInt(limit);
     const skip = (page - 1) * limit;
@@ -105,12 +126,10 @@ export const getNews = async (req, res) => {
       page,
       totalPages: Math.ceil(total / limit),
       totalItems: total,
-      items: articles
+      items: articles,
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
-
-

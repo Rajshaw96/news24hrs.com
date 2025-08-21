@@ -27,29 +27,28 @@ import { fetchTodayNews } from "@/lib/newsApi";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-
-
 export default function HomeOneOne() {
+  const host = process.env.NEXT_PUBLIC_API_URL;
   const [drawer, drawerAction] = useToggle(false);
   const [topSportsNews, setTopSportsNews] = useState(null);
-  const [popularNews, setPopularNews]= useState(null);
+  const [newsData, setNewsData] = useState(null);
   useEffect(() => {
-    async function loadSportsNews() {
+    async function loadNews() {
       try {
-        // Fetch sports news and pick the most popular (or just first)
-        // console.log("ONe sports :");
-        const data = await fetchTodayNews("sports");
-        const data2 = await fetchTodayNews("popularity");
-        if (data.length > 0) {
-          // console.log("ONe sports :",data[0]);
-          setPopularNews(data2[0]);
-          setTopSportsNews(data[0]); // You can sort/filter by popularity if API supports it
-        }
+        const res = await fetch(`${host}/api/news/`);
+        const res2 = await fetch(`${host}/api/news?category=sports`);
+
+        const data = await res.json();
+        const data2 = await res2.json();
+
+        // console.log("Fetched news data:", data);
+        setTopSportsNews(data2 || []);
+        setNewsData(data || []);
       } catch (error) {
-        console.error("Error fetching sports news:", error);
+        console.error("Error fetching news:", error);
       }
     }
-    loadSportsNews();
+    loadNews();
   }, []);
   return (
     <Layout>
@@ -122,7 +121,7 @@ export default function HomeOneOne() {
                           <div className="trending-news-thumb">
                             <img
                               src={
-                                topSportsNews.urlToImage ||
+                                topSportsNews[0].image ||
                                 "/images/sports-news.jpg"
                               }
                               alt={topSportsNews.title || "sports"}
@@ -138,32 +137,32 @@ export default function HomeOneOne() {
                               <div className="meta-categories">
                                 <Link
                                   href={`/category/${
-                                    topSportsNews.category || "sports"
+                                    topSportsNews[0].category || "sports"
                                   }`}
                                 >
-                                  {topSportsNews.category || "Sports"}
+                                  {topSportsNews[0].category || "Sports"}
                                 </Link>
                               </div>
                               <div className="meta-date">
                                 <span>
-                                  {topSportsNews.publishedAt
+                                  {topSportsNews[0].publishedAt
                                     ? new Date(
-                                        topSportsNews.publishedAt
+                                        topSportsNews[0].publishedAt
                                       ).toLocaleDateString()
                                     : ""}
                                 </span>
                               </div>
                             </div>
                             <h3 className="title">
-                              <Link href={`/news/${topSportsNews.id}`}>
-                                {topSportsNews.title}
+                              <Link href={`/news/${topSportsNews[0].id}`}>
+                                {topSportsNews[0].title}
                               </Link>
                             </h3>
                             <p className="text">
-                              {topSportsNews.description ||
+                              {topSportsNews[0].description ||
                                 "No description available for this news item."}
                             </p>
-                            <Link href={`/news/${topSportsNews.id}`}>
+                            <Link href={`/news/${topSportsNews[0].id}`}>
                               Read more
                             </Link>
                           </div>
@@ -179,18 +178,23 @@ export default function HomeOneOne() {
                   </div>
                 </div>
                 <div className="post-add mt-30">
-                  <a href={popularNews?.url}>
-                    <img src={popularNews? popularNews.urlToImage:"/images/ads/banner.png"} alt="ad" />
+                  <a href={"#"}>
+                    <img
+                      src={
+                        newsData ? newsData[0].image : "/images/ads/banner.png"
+                      }
+                      alt="ad"
+                    />
                   </a>
                 </div>
-                <BusinessNews />
+                {/* <BusinessNews /> */}
               </div>
               <div className="col-lg-4">
-                <MostShare />
+                {/* <MostShare /> */}
                 <SportsFixtures />
                 <NewsLetter />
-                <SidebarCategories />
-                <AdOne />
+                {/* <SidebarCategories /> */}
+                {/* <AdOne /> */}
               </div>
             </div>
           </div>
