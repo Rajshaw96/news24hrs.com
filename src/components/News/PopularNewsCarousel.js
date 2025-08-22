@@ -28,7 +28,7 @@ export default function PopularNewsCarousel({ dark }) {
   useEffect(() => {
     async function loadPopularNews() {
       try {
-        const res = await fetch(`${host}/api/news?category=popular`);
+        const res = await fetch(`${host}/api/news?category=business`);
         const data = await res.json();
         if (Array.isArray(data)) {
           setPopularNews(data);

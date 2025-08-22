@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 // Layout and other component imports
 import useToggle from "@/Hooks/useToggle";
@@ -25,23 +24,30 @@ export default function CategoryContent() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [drawer, drawerAction] = useToggle(false);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     if (!category) return;
 
     async function getNews() {
       try {
-        const data = await fetchTodayNews(category);
-        // console.log(data) // ✅ call directly
-        setArticles(data.slice(0, 15));
+        const res = await fetch(`${host}/api/news?category=${category}`);
+        const data = await res.json();
+
+        if (Array.isArray(data)) {
+          setArticles(data.slice(0, 15));
+        } else {
+          setArticles([]);
+        }
       } catch (err) {
         console.error("Failed to fetch news:", err);
+        setArticles([]);
       } finally {
         setLoading(false);
       }
     }
     getNews();
-  }, [category]);
+  }, [category, host]);
 
   return (
     <Layout title={category}>
@@ -76,7 +82,14 @@ export default function CategoryContent() {
                             <div className="row">
                               <div className="col-lg-6 col-md-6">
                                 <div className="business-post-thumb">
-                                  <img src={item.urlToImage} alt={category} />
+                                  <img
+                                    src={
+                                      item.urlToImage ||
+                                      item.image ||
+                                      "/images/gallery-1.jpg"
+                                    }
+                                    alt={category}
+                                  />
                                 </div>
                               </div>
                               <div className="col-lg-6 col-md-6">
@@ -84,17 +97,17 @@ export default function CategoryContent() {
                                   <div className="trending-news-content">
                                     <div className="post-meta">
                                       <div className="meta-categories">
-                                        <a href={item.url}>{category}</a>
+                                        <a href={`/news/${item._id || item.id}`}>{category}</a>
                                       </div>
                                       <div className="meta-date">
                                         <span>{item.publishedAt}</span>
                                       </div>
                                     </div>
                                     <h3 className="title">
-                                      <a href={item.url}>{item.title}</a>
+                                      <a href={`/news/${item._id || item.id}`}>{item.title}</a>
                                     </h3>
                                     <p className="text">{item.description}</p>
-                                    <a href={item.url}>Read more</a>
+                                    <a href={`/news/${item._id || item.id}`}>Read more</a>
                                   </div>
                                 </div>
                               </div>

@@ -23,7 +23,6 @@ import SportsFixtures from "@/components/Sidebar/SportsFixtures";
 import WidgetOne from "@/components/SocialMediaWidgets/WidgetOne";
 import TrendingNewPost from "@/components/TrendingNews/TrendingNewPost";
 import useToggle from "@/Hooks/useToggle";
-import { fetchTodayNews } from "@/lib/newsApi";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -136,8 +135,8 @@ export default function HomeOneOne() {
                             <div className="post-meta">
                               <div className="meta-categories">
                                 <Link
-                                  href={`/category/${
-                                    topSportsNews[0].category || "sports"
+                                  href={`/news/${
+                                    topSportsNews[0]._id || "sports"
                                   }`}
                                 >
                                   {topSportsNews[0].category || "Sports"}
@@ -154,7 +153,7 @@ export default function HomeOneOne() {
                               </div>
                             </div>
                             <h3 className="title">
-                              <Link href={`/news/${topSportsNews[0].id}`}>
+                              <Link href={`/news/${topSportsNews[0]._id}`}>
                                 {topSportsNews[0].title}
                               </Link>
                             </h3>
@@ -178,7 +177,7 @@ export default function HomeOneOne() {
                   </div>
                 </div>
                 <div className="post-add mt-30">
-                  <a href={"#"}>
+                  <a href={`/news/${newsData ? newsData[0]._id : "#"}`}>
                     <img
                       src={
                         newsData ? newsData[0].image : "/images/ads/banner.png"
@@ -187,14 +186,14 @@ export default function HomeOneOne() {
                     />
                   </a>
                 </div>
-                {/* <BusinessNews /> */}
+                <BusinessNews />
               </div>
               <div className="col-lg-4">
-                {/* <MostShare /> */}
+                <MostShare />
                 <SportsFixtures />
                 <NewsLetter />
-                {/* <SidebarCategories /> */}
-                {/* <AdOne /> */}
+                <SidebarCategories />
+                <AdOne />
               </div>
             </div>
           </div>

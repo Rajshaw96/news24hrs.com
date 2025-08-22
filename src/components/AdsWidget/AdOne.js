@@ -1,24 +1,29 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 export default function AdOne() {
   const [popularNews, setPopularNews] = useState(null);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadPopularNews() {
       try {
-        // Fetch news sorted by popularity (adjust API call as needed)
-        const data = await fetchTodayNews("popular");
-        if (data.length > 0) {
-          setPopularNews(data[0]); // Take the top article
+        // Fetch news sorted by popularity
+        const res = await fetch(`${host}/api/news?category=world`);
+        const data = await res.json();
+
+        if (Array.isArray(data) && data.length > 0) {
+          setPopularNews(data[data.length - 1]); // Take the top article
+        } else {
+          setPopularNews(null);
         }
       } catch (error) {
         console.error("Error fetching popular news:", error);
+        setPopularNews(null);
       }
     }
     loadPopularNews();
-  }, []);
+  }, [host]);
 
   if (!popularNews) {
     return (
@@ -31,12 +36,12 @@ export default function AdOne() {
   return (
     <div className="sidebar-add pt-35">
       <a
-        href={popularNews.url || "#"}
+        href={`/news/${popularNews._id || popularNews.id}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         <img
-          src={popularNews.urlToImage || "/images/ads/ad-2.jpg"}
+          src={popularNews.urlToImage || popularNews.image || "/images/ads/ad-2.jpg"}
           alt={popularNews.title || "Popular news"}
           style={{ width: "780px", height: "624px", objectFit: "cover" }}
         />

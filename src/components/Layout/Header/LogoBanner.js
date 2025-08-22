@@ -9,7 +9,7 @@ export default function LogoBanner() {
           <div className="col-lg-4">
             <div className="logo">
               <Link href="/">
-                <img src="/images/logo/logo-black.png" alt="" />
+                <img src="/images/logo/logo-color.png" alt="News 24 Logo" width={300} />
               </Link>
             </div>
           </div>

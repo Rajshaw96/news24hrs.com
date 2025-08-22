@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -25,22 +24,25 @@ function NextArrow(props) {
 export default function MostShare({ customClass, dark }) {
   const [firstNewsGroup, setFirstNewsGroup] = useState([]);
   const [secondNewsGroup, setSecondNewsGroup] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadMostShared() {
       try {
-        // Example: fetch two categories or two different endpoints
-        const data1 = await fetchTodayNews("business");
-        const data2 = await fetchTodayNews("technology");
+        const res1 = await fetch(`${host}/api/news?category=business`);
+        const res2 = await fetch(`${host}/api/news?category=technology`);
 
-        setFirstNewsGroup(data1.slice(0, 4)); // First 4 from category/business
-        setSecondNewsGroup(data2.slice(0, 4)); // First 4 from category/technology
+        const data1 = await res1.json();
+        const data2 = await res2.json();
+
+        setFirstNewsGroup(Array.isArray(data1) ? data1.slice(0, 4) : []);
+        setSecondNewsGroup(Array.isArray(data2) ? data2.slice(0, 4) : []);
       } catch (error) {
         console.error("Error fetching most shared news:", error);
       }
     }
     loadMostShared();
-  }, []);
+  }, [host]);
 
   const settings = {
     slidesToShow: 1,
@@ -66,11 +68,11 @@ export default function MostShare({ customClass, dark }) {
           className={`most-share-post-item ${
             dark ? "most-share-post-item-dark" : ""
           }`}
-          key={item.id || i}
+          key={item._id || item.id || i}
         >
           <div className="post-meta">
             <div className="meta-categories">
-              <Link href={`/news/${item.id}`}>
+              <Link href={item.url || `/news/${item._id || item.id}`}>
                 {item.category || "Business"}
               </Link>
             </div>
@@ -83,7 +85,7 @@ export default function MostShare({ customClass, dark }) {
             </div>
           </div>
           <h3 className="title">
-            <Link href={`/news/${item.id}`}>
+            <Link href={`/news/${item._id || item.id}`}>
               {item.title
                 ? item.title.split(" ").slice(0, 10).join(" ") +
                   (item.title.split(" ").length > 10 ? "..." : "")

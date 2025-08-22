@@ -10,13 +10,13 @@ export default function SidebarCategories({ dark }) {
         }`}
       >
         <h3 className="title">Categories</h3>
-        <Link href="/post-details-three">SEE ALL </Link>
+        <Link href="/business">SEE ALL </Link>
       </div>
       <div className="Categories-item">
         <div className="item">
           <img src="/images/categories-1.jpg" alt="categories" />
           <div className="Categories-content">
-            <Link href="/post-details-three">
+            <Link href="/business">
               <span>Restaurant</span>
               <img src="/images/arrow.svg" alt="" />
             </Link>
@@ -25,7 +25,7 @@ export default function SidebarCategories({ dark }) {
         <div className="item">
           <img src="/images/categories-2.jpg" alt="categories" />
           <div className="Categories-content">
-            <Link href="/post-details-three">
+            <Link href="/business">
               <span>Entertainment</span>
               <img src="/images/arrow.svg" alt="" />
             </Link>
@@ -34,7 +34,7 @@ export default function SidebarCategories({ dark }) {
         <div className="item">
           <img src="/images/categories-3.jpg" alt="categories" />
           <div className="Categories-content">
-            <Link href="/post-details-three">
+            <Link href="/business">
               <span>Financial</span>
               <img src="/images/arrow.svg" alt="" />
             </Link>
@@ -43,7 +43,7 @@ export default function SidebarCategories({ dark }) {
         <div className="item">
           <img src="/images/categories-4.jpg" alt="categories" />
           <div className="Categories-content">
-            <Link href="/post-details-three">
+            <Link href="/business">
               <span>Business</span>
               <img src="/images/arrow.svg" alt="" />
             </Link>
@@ -52,7 +52,7 @@ export default function SidebarCategories({ dark }) {
         <div className="item">
           <img src="/images/categories-5.jpg" alt="categories" />
           <div className="Categories-content">
-            <Link href="/post-details-three">
+            <Link href="/business">
               <span>Scientists</span>
               <img src="/images/arrow.svg" alt="" />
             </Link>
@@ -61,7 +61,7 @@ export default function SidebarCategories({ dark }) {
         <div className="item">
           <img src="/images/categories-6.jpg" alt="categories" />
           <div className="Categories-content">
-            <Link href="/post-details-three">
+            <Link href="/business">
               <span>International’s</span>
               <img src="/images/arrow.svg" alt="" />
             </Link>
