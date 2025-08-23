@@ -24,7 +24,6 @@ function NextArrow(props) {
 
 export default function NewsGallary({ customClass, dark }) {
   const host = process.env.NEXT_PUBLIC_API_URL;
-  console.log("API Host:", host);
 
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
@@ -106,7 +105,7 @@ export default function NewsGallary({ customClass, dark }) {
             <div className="post__gallery_play_content">
               <div className="post-meta">
                 <div className="meta-categories">
-                  <a href={item.source?.url || "#"} target="_blank">
+                  <a href={`/news/${item._id || item.id}`}>
                     {item.source?.name || "News"}
                   </a>
                 </div>
@@ -119,7 +118,7 @@ export default function NewsGallary({ customClass, dark }) {
                 </div>
               </div>
               <h2 className="title">
-                <Link href={item.url || "/"} target="_blank">
+                <Link href={`/news/${item._id || item.id}`}>
                   {item.title}
                 </Link>
               </h2>

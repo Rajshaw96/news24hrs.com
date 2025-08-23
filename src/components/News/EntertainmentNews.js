@@ -56,7 +56,7 @@ export default function EntertainmentNews({ dark }) {
                 <div className="trending-news-content">
                   <div className="post-meta">
                     <div className="meta-categories">
-                      <Link href={`/news/${item.id}`}>
+                      <Link href={`/news/${item._id}`}>
                         {item.category || "Entertainment"}
                       </Link>
                     </div>
@@ -69,7 +69,7 @@ export default function EntertainmentNews({ dark }) {
                     </div>
                   </div>
                   <h3 className="title">
-                    <Link href={`/news/${item.id}`}>
+                    <Link href={`/news/${item._id}`}>
                       {item.title
                         ? item.title.split(" ").slice(0, 8).join(" ") +
                           (item.title.split(" ").length > 8 ? "..." : "")

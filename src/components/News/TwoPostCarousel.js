@@ -30,7 +30,7 @@ export default function TwoPostCarousel({ dark, customClass }) {
   useEffect(() => {
     async function loadPopularNews() {
       try {
-        const res = await fetch(`${host}/api/news?category=popular`);
+        const res = await fetch(`${host}/api/news?category=world`);
         const data = await res.json();
 
         // Defensive fallback
@@ -98,7 +98,7 @@ export default function TwoPostCarousel({ dark, customClass }) {
                   <div className="single-play-post-content">
                     <div className="post-meta">
                       <div className="meta-categories">
-                        <Link href={item.source?.url || "#"} target="_blank">
+                        <Link href={`/news/${item._id || item.id}`}>
                           {item.source?.name || "Popular"}
                         </Link>
                       </div>
@@ -111,7 +111,7 @@ export default function TwoPostCarousel({ dark, customClass }) {
                       </div>
                     </div>
                     <h3 className="title">
-                      <Link href={item.url || `/news/${item._id || item.id || "#"}`} target="_blank">
+                      <Link href={`/news/${item._id || item.id || "#"}`} target="_blank">
                         {item.title}
                       </Link>
                     </h3>

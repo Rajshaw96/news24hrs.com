@@ -1,34 +1,43 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 export default function BusinessNews({ dark }) {
   const [businessNews, setBusinessNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadBusinessNews() {
       try {
-        const data = await fetchTodayNews("business");
+        const res = await fetch(`${host}/api/news?category=business`);
+        const data = await res.json();
+
+        // Defensive fallback
+        if (!Array.isArray(data)) {
+          console.warn("Unexpected API response:", data);
+          setBusinessNews([]);
+          return;
+        }
+
         setBusinessNews(data.slice(0, 4)); // limit to 4 items
       } catch (error) {
         console.error("Error fetching business news:", error);
       }
     }
     loadBusinessNews();
-  }, []);
+  }, [host]);
 
   return (
     <div className="business-news-post pt-40">
       <div className="section-title d-flex justify-content-between align-items-center">
         <h3 className="title">Business News</h3>
-        <Link href="/business-news">SEE ALL</Link>
+        <Link href="/business">SEE ALL</Link>
       </div>
 
       <div className="business-post">
         {businessNews.map((item, i) => (
           <div
-            key={item.id || i}
+            key={item._id || item.id || i}
             className={`business-post-item mb-40 ${
               dark ? "business-post-item-dark" : ""
             }`}
@@ -38,7 +47,9 @@ export default function BusinessNews({ dark }) {
                 <div className="business-post-thumb">
                   <img
                     src={
-                      item.urlToImage || `/images/business/business-${i + 1}.jpg`
+                      item.urlToImage ||
+                      item.image ||
+                      `/images/business/business-${i + 1}.jpg`
                     }
                     alt={item.title}
                     style={{
@@ -54,7 +65,7 @@ export default function BusinessNews({ dark }) {
                   <div className="trending-news-content">
                     <div className="post-meta">
                       <div className="meta-categories">
-                        <Link href={`/news/${item.id}`}>
+                        <Link href={`/news/${item._id || item.id}`}>
                           {item.category || "Business"}
                         </Link>
                       </div>
@@ -67,7 +78,7 @@ export default function BusinessNews({ dark }) {
                       </div>
                     </div>
                     <h3 className="title">
-                      <Link href={`/news/${item.id}`}>
+                      <Link href={`/news/${item._id || item.id}`}>
                         {item.title || ""}
                       </Link>
                     </h3>
@@ -80,7 +91,9 @@ export default function BusinessNews({ dark }) {
                           (item.description.split(" ").length > 20 ? "..." : "")
                         : ""}
                     </p>
-                    <Link href={`/news/${item.id}`}>Read more</Link>
+                    <Link href={`/news/${item._id || item.id}`}>
+                      Read more
+                    </Link>
                   </div>
                 </div>
               </div>

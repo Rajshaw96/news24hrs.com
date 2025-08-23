@@ -93,7 +93,7 @@ export default function SportsNewsCarousel({ dark }) {
                   <div className="gallery_item_content">
                     <div className="post-meta">
                       <div className="meta-categories">
-                        <Link href={item.url || `/news/${item._id || item.id}`}>
+                        <Link href={`/news/${item._id || item.id}`}>
                           {item.category || "Sports"}
                         </Link>
                       </div>
@@ -106,7 +106,7 @@ export default function SportsNewsCarousel({ dark }) {
                       </div>
                     </div>
                     <h4 className="title">
-                      <Link href={item.url || `/news/${item._id || item.id}`}>
+                      <Link href={`/news/${item._id || item.id}`}>
                         {item.title
                           ? item.title
                               .split(" ")

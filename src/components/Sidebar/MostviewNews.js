@@ -94,7 +94,7 @@ export default function MostviewNews({ dark }) {
               <div className="gallery_item_content">
                 <div className="post-meta">
                   <div className="meta-categories">
-                    <Link href={item.source?.url || "#"} target="_blank">
+                    <Link href={`/news/${item._id || item.id}`}>
                       {item.category || item.source?.name || "NEWS"}
                     </Link>
                   </div>
@@ -108,7 +108,7 @@ export default function MostviewNews({ dark }) {
                 </div>
                 <h4 className="title">
                   <Link
-                    href={item.url || `/post/${item._id || item.id || "#"}`}
+                    href={`/news/${item._id || item.id}`}
                     target="_blank"
                   >
                     {item.title}
@@ -143,7 +143,7 @@ export default function MostviewNews({ dark }) {
               <div className="gallery_item_content">
                 <div className="post-meta">
                   <div className="meta-categories">
-                    <Link href={item.source?.url || "#"} target="_blank">
+                    <Link href={`/news/${item._id || item.id}`}>
                       {item.category || item.source?.name || "NEWS"}
                     </Link>
                   </div>
@@ -157,8 +157,7 @@ export default function MostviewNews({ dark }) {
                 </div>
                 <h4 className="title">
                   <Link
-                    href={item.url || `/post/${item._id || item.id || "#"}`}
-                    target="_blank"
+                    href={`/news/${item._id || item.id}`}
                   >
                     {item.title}
                   </Link>

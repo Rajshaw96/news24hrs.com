@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { fetchTodayNews } from "@/lib/newsApi"; // Adjust the path if needed
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -11,6 +10,7 @@ function PrevArrow(props) {
     </span>
   );
 }
+
 function NextArrow(props) {
   const { onClick } = props;
   return (
@@ -22,19 +22,28 @@ function NextArrow(props) {
 
 export default function TrendingSingleCarousel() {
   const [news, setNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function getTrendingNews() {
       try {
-        const data = await fetchTodayNews("trending"); // Directly call the function
-        setNews(data);
+        const res = await fetch(`${host}/api/news?category=business`);
+        const data = await res.json();
+
+        if (!Array.isArray(data)) {
+          console.warn("Unexpected API response:", data);
+          setNews([]);
+          return;
+        }
+
+        setNews(data.slice(0, 6)); // show top 6 trending
       } catch (error) {
         console.error("Error fetching trending news:", error);
       }
     }
 
     getTrendingNews();
-  }, []);
+  }, [host]);
 
   const settings = {
     slidesToShow: 1,
@@ -71,13 +80,17 @@ export default function TrendingSingleCarousel() {
         <h3 className="title">Trending News</h3>
       </div>
       <Slider className="trending-sidebar-slider" {...settings}>
-        {news.map((item, index) => (
-          <div className="trending-news-item" key={index}>
+        {news.map((item, i) => (
+          <div className="trending-news-item" key={item._id || item.id || i}>
             <div className="trending-news-thumb">
               <img
-                src={item.urlToImage || "/images/trending-news-1.jpg"}
-                alt="trending"
-                style={{ width: "700px", height: "200px" }}
+                src={
+                  item.urlToImage ||
+                  item.image ||
+                  `/images/trending-news-${i + 1}.jpg`
+                }
+                alt={item.title || "Trending news"}
+                style={{ width: "700px", height: "200px", objectFit: "cover" }}
               />
               <div className="icon">
                 <a href="#">
@@ -88,14 +101,24 @@ export default function TrendingSingleCarousel() {
             <div className="trending-news-content">
               <div className="post-meta">
                 <div className="meta-categories">
-                  <a href="#">{item.source.name}</a>
+                  <a href={`/news/${item._id || item.id}`}>
+                    {item.category || "Trending"}
+                  </a>
                 </div>
                 <div className="meta-date">
-                  <span>{new Date(item.publishedAt).toDateString()}</span>
+                  <span>
+                    {item.publishedAt
+                      ? new Date(item.publishedAt).toDateString()
+                      : ""}
+                  </span>
                 </div>
               </div>
               <h3 className="title">
-                <a href={item.url} target="_blank">
+                <a
+                  href={`/news/${item._id || item.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {item.title?.split(" ").slice(0, 8).join(" ")}
                   {item.title?.split(" ").length > 8 ? "..." : ""}
                 </a>

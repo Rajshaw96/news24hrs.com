@@ -1,36 +1,67 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Pagination from "../Others/Pagination";
-import { fetchTodayNews } from "@/lib/newsApi";
 
 export default function LatestAndPopularNews() {
   const [latestNews, setLatestNews] = useState([]);
   const [popularNews, setPopularNews] = useState([]);
   const [activeTab, setActiveTab] = useState("latest");
+  const host = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function loadNews() {
       try {
-        const data = await fetchTodayNews("news");
-        setLatestNews(data);
-        // Example: sort by popularity if available, else just use data
-        setPopularNews([...data].sort((a, b) => (b.popularity || 0) - (a.popularity || 0)));
+        // Fetch all news
+        const res = await fetch(`${host}/api/news?category=world`);
+        const data = await res.json();
+
+        if (!Array.isArray(data)) {
+          console.warn("Unexpected API response:", data);
+          setLatestNews([]);
+          setPopularNews([]);
+          return;
+        }
+
+        // Latest news (raw order or sorted by publishedAt if available)
+        const latest = [...data].sort((a, b) => {
+          if (a.publishedAt && b.publishedAt) {
+            return new Date(b.publishedAt) - new Date(a.publishedAt);
+          }
+          return 0;
+        });
+
+        // Popular news (sorted by popularity if available)
+        const popular = [...data].sort(
+          (a, b) => (b.popularity || 0) - (a.popularity || 0)
+        );
+
+        setLatestNews(latest);
+        setPopularNews(popular);
       } catch (error) {
         console.error("Error fetching news:", error);
+        setLatestNews([]);
+        setPopularNews([]);
       }
     }
     loadNews();
-  }, []);
+  }, [host]);
 
-  const renderNewsItems = (newsList) => (
+  const renderNewsItems = (newsList) =>
     newsList.length === 0 ? (
       <div>No news found.</div>
     ) : (
       newsList.slice(0, 10).map((item, idx) => (
-        <div className="col-lg-6 col-md-6" key={item.id || idx}>
+        <div className="col-lg-6 col-md-6" key={item._id || item.id || idx}>
           <div className="trending-news-item mb-30">
             <div className="trending-news-thumb">
-              <img src={item.urlToImage || "/images/entertainment-dark-1.jpg"} alt={item.title || "trending"} />
+              <img
+                src={
+                  item.urlToImage ||
+                  item.image ||
+                  "/images/entertainment-dark-1.jpg"
+                }
+                alt={item.title || "trending"}
+              />
             </div>
             <div className="trending-news-content">
               <div className="post-meta">
@@ -38,19 +69,24 @@ export default function LatestAndPopularNews() {
                   <a href="#">{item.category || "TECHNOLOGY"}</a>
                 </div>
                 <div className="meta-date">
-                  <span>{item.date || "Unknown date"}</span>
+                  <span>
+                    {item.publishedAt
+                      ? new Date(item.publishedAt).toLocaleDateString()
+                      : "Unknown date"}
+                  </span>
                 </div>
               </div>
               <h3 className="title">
-                <a href="#">{item.title}</a>
+                <a href={`/news/${item._id || item.id}`}>
+                  {item.title}
+                </a>
               </h3>
               <p className="text">{item.description || ""}</p>
             </div>
           </div>
         </div>
       ))
-    )
-  );
+    );
 
   return (
     <div className="about-tab-btn mt-40">
@@ -84,9 +120,12 @@ export default function LatestAndPopularNews() {
           </a>
         </li>
       </ul>
+
       <div className="tab-content" id="pills-tabContent">
         <div
-          className={`tab-pane fade${activeTab === "latest" ? " show active" : ""}`}
+          className={`tab-pane fade${
+            activeTab === "latest" ? " show active" : ""
+          }`}
           id="pills-home"
           role="tabpanel"
           aria-labelledby="pills-home-tab"
@@ -100,8 +139,11 @@ export default function LatestAndPopularNews() {
             </div>
           </div>
         </div>
+
         <div
-          className={`tab-pane fade${activeTab === "popular" ? " show active" : ""}`}
+          className={`tab-pane fade${
+            activeTab === "popular" ? " show active" : ""
+          }`}
           id="pills-profile"
           role="tabpanel"
           aria-labelledby="pills-profile-tab"

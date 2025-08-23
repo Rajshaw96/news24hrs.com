@@ -49,7 +49,7 @@ export default function TrendingNewPost({ dark }) {
         <div className="gallery_item_content">
           <div className="post-meta">
             <div className="meta-categories">
-              <Link href={item.source?.url || "#"} target="_blank">
+              <Link href={`/news/${item._id || item.id}`}>
                 {item.source?.name || "News"}
               </Link>
             </div>
@@ -63,7 +63,7 @@ export default function TrendingNewPost({ dark }) {
           </div>
           <h4 className="title">
             <Link
-              href={item.url || `/news/${item._id || item.id || "#"}`}
+              href={`/news/${item._id || item.id || "#"}`}
               target="_blank"
             >
               {item.title}

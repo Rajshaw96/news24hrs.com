@@ -6,14 +6,14 @@ import classnames from "classnames";
 import { useSearchParams } from "next/navigation";
 
 export default function NewsTabs({ dark }) {
-  const [activeTab, setActiveTab] = useState("trendy");
+  const [activeTab, setActiveTab] = useState("world");
   const [trendyNews, setTrendyNews] = useState([]);
   const [latestNews, setLatestNews] = useState([]);
   const [popularNews, setPopularNews] = useState([]);
 
   const host = process.env.NEXT_PUBLIC_API_URL;
-  const searchParams = useSearchParams();
-  const category = searchParams.get("category") || "general";
+  // const searchParams = useSearchParams();
+  // const category = searchParams.get("category") || "general";
 
   const toggleTab = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
@@ -62,7 +62,7 @@ export default function NewsTabs({ dark }) {
         <div className="gallery_item_content">
           <div className="post-meta">
             <div className="meta-categories">
-              <a href={item.source?.url || "#"} target="_blank">
+              <a href={`/news/${item._id || item.id}`}>
                 {item.source?.name || "News"}
               </a>
             </div>
@@ -75,7 +75,7 @@ export default function NewsTabs({ dark }) {
             </div>
           </div>
           <h4 className="title">
-            <Link href={item.url || "/"} target="_blank">
+            <Link href={`/news/${item._id || item.id}`} >
               {item.title?.split(" ").slice(0, 8).join(" ")}
               {item.title?.split(" ").length > 8 ? "..." : ""}
             </Link>
@@ -87,7 +87,7 @@ export default function NewsTabs({ dark }) {
   return (
     <>
       <ul className="nav nav-pills" id="pills-tab" role="tablist">
-        {["trendy", "latest", "popular"].map((tab) => (
+        {["world", "sports", "business"].map((tab) => (
           <li className="nav-item" key={tab}>
             <a
               className={classnames("nav-link", { active: activeTab === tab })}
@@ -109,7 +109,7 @@ export default function NewsTabs({ dark }) {
       <div className="tab-content" id="pills-tabContent">
         <div
           className={`tab-pane fade show ${
-            activeTab === "trendy" ? "active" : ""
+            activeTab === "world" ? "active" : ""
           }`}
           id="pills-trendy"
         >
@@ -119,7 +119,7 @@ export default function NewsTabs({ dark }) {
         </div>
         <div
           className={`tab-pane fade show ${
-            activeTab === "latest" ? "active" : ""
+            activeTab === "sports" ? "active" : ""
           }`}
           id="pills-latest"
         >
@@ -129,7 +129,7 @@ export default function NewsTabs({ dark }) {
         </div>
         <div
           className={`tab-pane fade show ${
-            activeTab === "popular" ? "active" : ""
+            activeTab === "business" ? "active" : ""
           }`}
           id="pills-popular"
         >
