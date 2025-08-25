@@ -14,7 +14,7 @@
 /* main level */
 .stellarnav > ul > li { display: inline-block;  }
 .stellarnav > ul > li > a { padding: 20px 18px; }
-.stellarnav > ul > li > a.active,.stellarnav > ul > li > a:hover{ z-index: 10; color: #1091FF; background: #F3F3F4;}
+.stellarnav > ul > li > a.active,.stellarnav > ul > li > a:hover{ z-index: 10; color: #102f94; background: #F3F3F4;}
 .stellarnav > ul > li > a:hover::before,
 .stellarnav > ul > li > a.active::before{
     width: 100%;
@@ -27,7 +27,7 @@
     bottom: 0;
     height: 2px;
     width: 0%;
-    background: #1091FF;
+    background: #102f94;
     z-index: -1;
     transition: all linear 0.3s;
     z-index: 1;
@@ -74,7 +74,7 @@ body.stellarnav-noscroll-x { overflow-x: hidden; }
 .stellarnav.mobile > ul > li > a.dd-toggle { padding: 0; }
 .stellarnav li.call-btn-mobile, .stellarnav li.location-btn-mobile { display: none; }
 .stellarnav.desktop li.has-sub ul li a:hover{
-    background: #1091FF;
+    background: #102f94;
     color: #fff;
 }
 
