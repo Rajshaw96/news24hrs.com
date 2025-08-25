@@ -11,7 +11,7 @@ export default function Footer({ dark }) {
             <div className="col-lg-7 col-md-5">
               <div className="footer-logo">
                 <Link href="/">
-                  <img src="/images/logo/logo-white.png" alt="" />
+                  <img src="/images/logo/logo-color.png" alt="" width={"200px"} />
                 </Link>
                 <ul>
                   <li>
