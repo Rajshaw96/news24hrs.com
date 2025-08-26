@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import newsRoutes from "./routes/newsRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import "./services/schedulerService.js"; // <-- Import scheduler
+import commentRoutes from "./routes/commentRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -47,6 +48,7 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/news", newsRoutes);
 app.use("/api/contacts", contactRoutes);
+app.use("/api/comments", commentRoutes);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log(`🚀 Server running on port ${process.env.PORT || 5000}`);
