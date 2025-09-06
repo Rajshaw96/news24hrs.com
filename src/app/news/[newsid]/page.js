@@ -75,7 +75,11 @@ export default function PostDetailsOne() {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <BreadCrumb CategoryName={article.category} />
+                <BreadCrumb 
+                  CategoryName={
+                    article.category.charAt(0).toUpperCase() + article.category.slice(1)
+                  } 
+                />
               </div>
               <div className="col-lg-8">
                 <div className="post-layout-top-content">

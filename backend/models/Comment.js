@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const replySchema = new mongoose.Schema({
-  userName: { type: String, required: true },
+  userName: { type: String },
   email: { type: String },
   message: { type: String, required: true },
   createdAt: { type: Date, default: Date.now }
@@ -10,7 +10,7 @@ const replySchema = new mongoose.Schema({
 const commentSchema = new mongoose.Schema({
   newsId: { type: String, required: true },   // from browser URL
   newsTitle: { type: String },                // optional
-  userName: { type: String, required: true },
+  userName: { type: String },
   email: { type: String },
   message: { type: String, required: true },
   replies: [replySchema],                     // nested replies

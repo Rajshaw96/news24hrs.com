@@ -8120,8 +8120,8 @@ p {
   font-size: 17px;
   line-height: 27px;
   position: relative;
-  border-bottom: 2px dashed #dadcdd;
-  padding-bottom: 5px;
+  width: 100%;
+  border-bottom: 2px dashed red;
 }
 .post-comments-list .post-comments-item .post a {
   position: absolute;
