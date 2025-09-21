@@ -15,22 +15,38 @@ export default function Footer({ dark }) {
                 </Link>
                 <ul>
                   <li>
-                    <a href="#">
+                    <a
+                      href="https://twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-twitter"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-facebook-f"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a
+                      href="https://youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-youtube"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a
+                      href="https://instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-instagram"></i>
                     </a>
                   </li>
@@ -61,48 +77,54 @@ export default function Footer({ dark }) {
                       <div className="list d-flex justify-content-between">
                         <ul>
                           <li>
-                            <a href="#">Politics</a>
+                            <Link href="/category/politics">Politics</Link>
                           </li>
                           <li>
-                            <a href="#">Business</a>
+                            <Link href="/category/business">Business</Link>
                           </li>
                           <li>
-                            <a href="#">Technology</a>
+                            <Link href="/category/technology">Technology</Link>
                           </li>
                           <li>
-                            <a href="#">Science</a>
+                            <Link href="/category/science">Science</Link>
                           </li>
                           <li>
-                            <a href="#">Health</a>
+                            <Link href="/category/health">Health</Link>
                           </li>
                           <li>
-                            <a href="#">Sports</a>
+                            <Link href="/category/sports">Sports</Link>
                           </li>
                           <li>
-                            <a href="#">Entertainment</a>
+                            <Link href="/category/entertainment">
+                              Entertainment
+                            </Link>
                           </li>
                         </ul>
                         <ul>
                           <li>
-                            <a href="#">Education</a>
+                            <Link href="/category/education">Education</Link>
                           </li>
                           <li>
-                            <a href="#">Obituaries</a>
+                            <Link href="/category/obituaries">Obituaries</Link>
                           </li>
                           <li>
-                            <a href="#">Corrections</a>
+                            <Link href="/category/corrections">
+                              Corrections
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">Education</a>
+                            <Link href="/category/education">Education</Link>
                           </li>
                           <li>
-                            <a href="#">Today’s Paper</a>
+                            <Link href="/todays-paper">Today’s Paper</Link>
                           </li>
                           <li>
-                            <a href="#">Corrections</a>
+                            <Link href="/category/corrections">
+                              Corrections
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">Foods</a>
+                            <Link href="/category/foods">Foods</Link>
                           </li>
                         </ul>
                       </div>
@@ -116,48 +138,48 @@ export default function Footer({ dark }) {
                       <div className="list d-flex justify-content-between">
                         <ul>
                           <li>
-                            <a href="#">Crossword</a>
+                            <Link href="/living/crossword">Crossword</Link>
                           </li>
                           <li>
-                            <a href="#">Food</a>
+                            <Link href="/living/food">Food</Link>
                           </li>
                           <li>
-                            <a href="#">Automobiles</a>
+                            <Link href="/living/automobiles">Automobiles</Link>
                           </li>
                           <li>
-                            <a href="#">Education</a>
+                            <Link href="/living/education">Education</Link>
                           </li>
                           <li>
-                            <a href="#">Health</a>
+                            <Link href="/living/health">Health</Link>
                           </li>
                           <li>
-                            <a href="#">Magazine</a>
+                            <Link href="/living/magazine">Magazine</Link>
                           </li>
                           <li>
-                            <a href="#">Weddings</a>
+                            <Link href="/living/weddings">Weddings</Link>
                           </li>
                         </ul>
                         <ul>
                           <li>
-                            <a href="#">Classifieds</a>
+                            <Link href="/classifieds">Classifieds</Link>
                           </li>
                           <li>
-                            <a href="#">Photographies</a>
+                            <Link href="/photographies">Photographies</Link>
                           </li>
                           <li>
-                            <a href="#">NYT Store</a>
+                            <Link href="/store">NYT Store</Link>
                           </li>
                           <li>
-                            <a href="#">Journalisms</a>
+                            <Link href="/journalisms">Journalisms</Link>
                           </li>
                           <li>
-                            <a href="#">Public Editor</a>
+                            <Link href="/public-editor">Public Editor</Link>
                           </li>
                           <li>
-                            <a href="#">Tools & Services</a>
+                            <Link href="/tools-services">Tools & Services</Link>
                           </li>
                           <li>
-                            <a href="#">My Account</a>
+                            <Link href="/my-account">My Account</Link>
                           </li>
                         </ul>
                       </div>
@@ -174,28 +196,34 @@ export default function Footer({ dark }) {
                         <div className="list">
                           <ul>
                             <li>
-                              <a href="#">Today’s Opinion</a>
+                              <Link href="/opinion/todays-opinion">
+                                Today’s Opinion
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">Op-Ed Contributing</a>
+                              <Link href="/opinion/op-ed-contributing">
+                                Op-Ed Contributing
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">Contributing Writers</a>
+                              <Link href="/opinion/contributing-writers">
+                                Contributing Writers
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">Business News</a>
+                              <Link href="/news/business">Business News</Link>
                             </li>
                             <li>
-                              <a href="#">Collections</a>
+                              <Link href="/collections">Collections</Link>
                             </li>
                             <li>
-                              <a href="#">Today’s Paper</a>
+                              <Link href="/todays-paper">Today’s Paper</Link>
                             </li>
                             <li>
-                              <a href="#">Saturday Review</a>
+                              <Link href="/saturday-review">Saturday Review</Link>
                             </li>
                             <li>
-                              <a href="#">Product Review</a>
+                              <Link href="/product-review">Product Review</Link>
                             </li>
                           </ul>
                         </div>
@@ -211,8 +239,12 @@ export default function Footer({ dark }) {
                             <p>
                               Cyber Monday Sale, Save 33% on Jannah theme during
                               our year-end Sale, Purchase a new license for your
-                              next project…{' '}
-                              <a href="#">
+                              next project…
+                              <a
+                                href="https://dribbble.com/subash_chandra"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
                                 @newspark #technology
                                 https://dribbble.com/subash_chandra
                               </a>
@@ -228,8 +260,12 @@ export default function Footer({ dark }) {
                             <p>
                               Cyber Monday Sale, Save 33% on Jannah theme during
                               our year-end Sale, Purchase a new license for your
-                              next project…{' '}
-                              <a href="#">
+                              next project…
+                              <a
+                                href="https://dribbble.com/subash_chandra"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
                                 @newspark #technology
                                 https://dribbble.com/subash_chandra
                               </a>
@@ -257,22 +293,22 @@ export default function Footer({ dark }) {
                       <div className="service-item">
                         <ul>
                           <li>
-                            <a href="#">
+                            <Link href="/mobile">
                               <i className="fal fa-mobile-android-alt"></i> On
                               your mobile
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link href="/smart-speakers">
                               <i className="fal fa-microphone-alt"></i> On smart
                               speakers
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link href="/contact">
                               <i className="fal fa-envelope"></i> Contact
                               Newspark news
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>

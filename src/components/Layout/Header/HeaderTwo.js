@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import NavigationBar from './NavigationBar';
 import TopbarFour from './TopbarFour';
+import Weather from './Weather';
 
 export default function HeaderTwo({ customClass, className, action }) {
   return (
@@ -26,20 +27,7 @@ export default function HeaderTwo({ customClass, className, action }) {
                         <h5 className="title">Thursday</h5>
                         <span>March 26, 2020</span>
                       </div>
-                      <div className="header-temperature">
-                        <div className="icon">
-                          <img src="/images/temperature-icon-2.png" alt="" />
-                        </div>
-                        <div className="temperature-content text-center">
-                          <h5 className="title">
-                            13{' '}
-                            <sup>
-                              0<sub>C</sub>
-                            </sup>
-                          </h5>
-                          <p>San Francisco</p>
-                        </div>
-                      </div>
+                      <Weather iconSrc="/images/temperature-icon-2.png" />
                       <div className="social">
                         <ul>
                           <li>

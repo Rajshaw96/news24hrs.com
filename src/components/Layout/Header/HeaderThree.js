@@ -2,6 +2,7 @@ import React from 'react';
 import LogoBannerDark from './LogoBannerDark';
 import NavigationBar from './NavigationBar';
 import Topbar from './Topbar';
+import Weather from './Weather';
 
 export default function HeaderThree({ action }) {
   return (
@@ -47,20 +48,7 @@ export default function HeaderThree({ action }) {
                     <option value="4">Potato</option>
                   </select>
                 </div>
-                <div className="header-temperature">
-                  <div className="icon">
-                    <img src="/images/temperature-icon-3.svg" alt="" />
-                  </div>
-                  <div className="temperature-content text-center">
-                    <h5 className="title">
-                      13{' '}
-                      <sup>
-                        0<sub>C</sub>
-                      </sup>
-                    </h5>
-                    <p>San Francisco</p>
-                  </div>
-                </div>
+                <Weather iconSrc="/images/temperature-icon-3.svg" />
               </div>
             </div>
           </div>
