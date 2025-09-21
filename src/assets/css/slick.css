@@ -52,6 +52,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.slick-slide .item img{
+  width: 100% !important;
+  height: 80px !important;
+  object-fit: cover;
+}
 .slick-track:before,
 .slick-track:after {
   display: table;

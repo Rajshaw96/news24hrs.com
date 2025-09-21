@@ -10,7 +10,9 @@ export default function FooterCopyright({ dark }) {
         <div className="row">
           <div className="col-lg-12">
             <div className="copyright-item d-block d-md-flex justify-content-between align-items-center">
-              <p>© Copyright 2020, All Rights Reserved</p>
+              <p>
+                © Copyright {new Date().getFullYear()}, All Rights Reserved
+              </p>
               <ul>
                 <li>
                   <Link href="/about">About</Link>

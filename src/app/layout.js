@@ -6,6 +6,7 @@ import '@/assets/css/navbar.css';
 import '@/assets/css/default.css';
 import '@/assets/scss/style.scss';
 import 'react-modal-video/scss/modal-video.scss';
+import ClientWrapper from '@/components/Layout/ClientWrapper';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
           </iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        {children}
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );

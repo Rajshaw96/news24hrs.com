@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import Link from 'next/link';
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -19,6 +20,34 @@ function NextArrow(props) {
 }
 
 export default function Topbar() {
+  const [currentDate, setCurrentDate] = useState('');
+  const [trendingNews, setTrendingNews] = useState([]);
+
+  useEffect(() => {
+    const date = new Date();
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    setCurrentDate(date.toLocaleDateString('en-US', options));
+  }, []);
+
+  useEffect(() => {
+    const fetchTrendingNews = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/news?category=trendy&limit=5`
+        );
+        const data = await res.json();
+        setTrendingNews(Array.isArray(data) ? data : data.articles || []);
+      } catch (error) {
+        console.error('Failed to fetch trending news:', error);
+      }
+    };
+    fetchTrendingNews();
+  }, []);
   const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -46,29 +75,23 @@ export default function Topbar() {
         <div className="row align-items-center">
           <div className="col-lg-8">
             <div className="topbar-trending">
-              <span>Trending</span>
-              <Slider {...settings} className="trending-slider">
-                <div className="trending-item">
-                  <p>
-                    Top 10 Best Movies of 2018 So Far: Great Movies To Watch Now{' '}
-                  </p>
-                </div>
-                <div className="trending-item">
-                  <p>
-                    Top 10 Best Movies of 2018 So Far: Great Movies To Watch Now{' '}
-                  </p>
-                </div>
-                <div className="trending-item">
-                  <p>
-                    Top 10 Best Movies of 2018 So Far: Great Movies To Watch Now{' '}
-                  </p>
-                </div>
-              </Slider>
+              <span className="trending-badge">Trending</span>
+              {trendingNews.length > 0 && (
+                <Slider {...settings} className="trending-slider">
+                  {trendingNews.map((item) => (
+                    <div className="trending-item" key={item._id}>
+                      <p>
+                        <Link href={`/news/${item._id}`}>{item.title}</Link>
+                      </p>
+                    </div>
+                  ))}
+                </Slider>
+              )}
             </div>
           </div>
           <div className="col-lg-4">
             <div className="topbar-social d-flex align-items-center">
-              <p>Thursday, March 26, 2020</p>
+              <p>{currentDate}</p>
               <div className="social">
                 <ul>
                   <li>

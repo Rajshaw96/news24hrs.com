@@ -391,6 +391,23 @@ p {
   z-index: 0;
 }
 
+@keyframes trending-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 85, 85, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 85, 85, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 85, 85, 0);
+  }
+}
+.topbar-trending > span.trending-badge {
+  border-radius: 8px!important;
+  animation: trending-pulse 2s infinite;
+  margin-top: 8px!important;
+  letter-spacing: 0.5px;
+}
 /*===========================
     2.HEADER css 
 ===========================*/

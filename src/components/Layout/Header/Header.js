@@ -2,6 +2,7 @@ import React from 'react';
 import Topbar from './Topbar';
 import LogoBanner from './LogoBanner';
 import NavigationBar from './NavigationBar';
+import Weather from './Weather';
 
 export default function Header({ customClass, className, action, dark }) {
   return (
@@ -55,20 +56,7 @@ export default function Header({ customClass, className, action, dark }) {
                       <option value="4">Potato</option>
                     </select>
                   </div>
-                  <div className="header-temperature">
-                    <div className="icon">
-                      <img src="/images/temperature-icon.svg" alt="" />
-                    </div>
-                    <div className="temperature-content text-center">
-                      <h5 className="title">
-                        13{' '}
-                        <sup>
-                          0<sub>C</sub>
-                        </sup>
-                      </h5>
-                      <p>San Francisco</p>
-                    </div>
-                  </div>
+                  <Weather iconSrc="/images/temperature-icon.svg" />
                 </div>
               </div>
             </div>
