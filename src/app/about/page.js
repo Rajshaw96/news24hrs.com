@@ -1,5 +1,5 @@
 import AboutNewsArea from '@/components/About/AboutNewsArea';
-// import AuthorProfile from '@/components/About/AuthorProfile';
+import AuthorProfile from '@/components/About/AuthorProfile';
 import Footer from '@/components/Layout/Footer/Footer';
 import FooterCopyright from '@/components/Layout/Footer/FooterCopyright';
 import Layout from '@/components/Layout/Layout';
@@ -9,7 +9,7 @@ export default function About() {
   return (
     <Layout title="About">
       <div className="home-1-bg">
-        {/* <AuthorProfile /> */}
+        <AuthorProfile />
         <AboutNewsArea />
       </div>
       <Footer />

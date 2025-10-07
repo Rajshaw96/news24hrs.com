@@ -225,7 +225,7 @@ export default function FooterTwo() {
                         year-end Sale, Purchase a new license for your next
                         project…{' '}
                         <span>
-                          @newspark #TECHNOLOGY
+                          @News24hrs #TECHNOLOGY
                           https://dribbble.com/subash_chandra
                         </span>
                       </h6>
@@ -241,7 +241,7 @@ export default function FooterTwo() {
                         year-end Sale, Purchase a new license for your next
                         project…{' '}
                         <span>
-                          @newspark #TECHNOLOGY
+                          @News24hrs #TECHNOLOGY
                           https://dribbble.com/subash_chandra
                         </span>
                       </h6>
@@ -257,7 +257,7 @@ export default function FooterTwo() {
                         year-end Sale, Purchase a new license for your next
                         project…{' '}
                         <span>
-                          @newspark #TECHNOLOGY
+                          @News24hrs #TECHNOLOGY
                           https://dribbble.com/subash_chandra
                         </span>
                       </h6>
@@ -309,7 +309,7 @@ export default function FooterTwo() {
                 <div className="border_white_bottom"></div>
                 <div className="space-40"></div>
                 <div className="footer_contact">
-                  <h3 className="widget-title2">Newspark news services</h3>
+                  <h3 className="widget-title2">News24hrs news services</h3>
                   <div className="single_fcontact">
                     <div className="fcicon">
                       <img src="/img/icon/mobile.png" alt="" />
@@ -326,7 +326,7 @@ export default function FooterTwo() {
                     <div className="fcicon">
                       <img src="/img/icon/evelope.png" alt="" />
                     </div>{' '}
-                    <a href="#">Contact Newspark news</a>
+                    <a href="#">Contact News24hrs news</a>
                   </div>
                 </div>
               </div>

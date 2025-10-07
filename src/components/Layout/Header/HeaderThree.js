@@ -20,7 +20,7 @@ export default function HeaderThree({ action }) {
             </div>
             <div className="col-lg-8 col-sm-3 col-3">
               <div className="header-menu">
-                <NavigationBar customClass="newspark-dark-menu-items" />
+                <NavigationBar customClass="News24hrs-dark-menu-items" />
               </div>
             </div>
             <div className="col-lg-4 col-sm-9 col-9">

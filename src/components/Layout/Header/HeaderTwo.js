@@ -72,7 +72,7 @@ export default function HeaderTwo({ customClass, className, action }) {
               </div>
               <div className="col-lg-9 col-sm-3 col-3">
                 <div className="newsprk-header-main-menu">
-                  <NavigationBar customClass="newspark-dark-menu-items pl-3" />
+                  <NavigationBar customClass="News24hrs-dark-menu-items pl-3" />
                 </div>
               </div>
               <div className="col-lg-3 col-sm-9 col-9">

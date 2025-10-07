@@ -5,7 +5,7 @@ import data  from '@/data/navigation.js';
 function NavigationBar({ customClass }) {
   return (
     <>
-      <div className={`newspark-header-main-menu ${customClass}`}>
+      <div className={`News24hrs-header-main-menu ${customClass}`}>
         {data && data.length > 0 && (
           <ul>
             {data?.map((item, i) => (

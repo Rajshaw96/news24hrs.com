@@ -35,7 +35,7 @@ export default function AuthorProfile() {
                 </ul>
                 <div className="text">
                   <p>
-                    Subash Chandra is an investigative reporter for Newspark,
+                    Subash Chandra is an investigative reporter for News24hrs,
                     based in Bangladesh. He started at The Times in 1999
                     covering Mayor Rudolph W. Giuliani and then the Sept. 11,
                     2001, attacks.

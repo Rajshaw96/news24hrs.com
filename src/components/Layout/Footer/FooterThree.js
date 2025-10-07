@@ -11,14 +11,14 @@ export default function FooterThree() {
                 <img src="/images/logo/logo-black.png" alt="" />
               </a>
               <p>
-                <span>Newspark</span> vitae elementum ros. Pellentesquees Leo
+                <span>News24hrs</span> vitae elementum ros. Pellentesquees Leo
                 sed mi ullamcorper tristique mauris varius. congue enim in arcu
                 maximus feugiat vitae ut quam finibus risus molestie viverra.
               </p>
             </div>
             <div className="widget widget-services mt-35">
               <div className="section-title">
-                <h3 className="title">Newspark news services</h3>
+                <h3 className="title">News24hrs news services</h3>
               </div>
               <div className="service-item">
                 <ul>
@@ -36,7 +36,7 @@ export default function FooterThree() {
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fal fa-envelope"></i> Contact Newspark news
+                      <i className="fal fa-envelope"></i> Contact News24hrs news
                     </a>
                   </li>
                 </ul>
@@ -108,7 +108,7 @@ export default function FooterThree() {
                     Cyber Monday Sale, Save 33% on Jannah theme during our
                     year-end Sale, Purchase a new license for your next project…{' '}
                     <a href="#">
-                      @newspark #technology https://dribbble.com/subash_chandra
+                      @News24hrs #technology https://dribbble.com/subash_chandra
                     </a>
                   </p>
                   <span>March 26, 2020</span>
@@ -123,7 +123,7 @@ export default function FooterThree() {
                     Cyber Monday Sale, Save 33% on Jannah theme during our
                     year-end Sale, Purchase a new license for your next project…{' '}
                     <a href="#">
-                      @newspark #technology https://dribbble.com/subash_chandra
+                      @News24hrs #technology https://dribbble.com/subash_chandra
                     </a>
                   </p>
                   <span>March 26, 2020</span>
@@ -152,10 +152,10 @@ export default function FooterThree() {
                     <h3 className="title">Let’s chat</h3>
                     <ul>
                       <li>
-                        <a href="#">hello@newspark.com</a>
+                        <a href="#">hello@News24hrs.com</a>
                       </li>
                       <li>
-                        <a href="#">adsales@newspark.com</a>
+                        <a href="#">adsales@News24hrs.com</a>
                       </li>
                     </ul>
                   </div>
@@ -396,7 +396,7 @@ export default function FooterThree() {
             </div>
             <div className="footer-download-store d-block d-md-flex align-items-center justify-content-between">
               <div className="text">
-                <h4 className="title">Newspark app download</h4>
+                <h4 className="title">News24hrs app download</h4>
                 <span>Free sign & download, iOS & Android app</span>
               </div>
               <div className="store-btn">
