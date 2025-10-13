@@ -18,7 +18,14 @@ export default function EntertainmentNews({ dark }) {
     }
     loadEntertainmentNews();
   }, []);
-
+  const truncateTitle = (title, wordLimit = 5) => {
+  if (!title) return "";
+  const words = title.split(" ");
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(" ") + "...";
+  }
+  return title;
+};
   return (
     <div className="post-entertainment">
       <div className={`section-title ${dark ? "section-title-2" : ""}`}>
@@ -43,7 +50,7 @@ export default function EntertainmentNews({ dark }) {
                     alt={item.title}
                     style={{
                       width: "700px",
-                      height: "500px",
+                      height: "300px",
                       objectFit: "cover",
                     }}
                   />
@@ -76,7 +83,7 @@ export default function EntertainmentNews({ dark }) {
                         : ""}
                     </Link>
                   </h3>
-                  <p className="text">{item.description || ""}</p>
+                  <p className="text">{truncateTitle(item.description, 20) || ""}</p>
                 </div>
               </div>
             </div>

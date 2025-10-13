@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { bottom } from "quixote/src/descriptors/element_edge";
+// import { bottom } from "quixote/src/descriptors/element_edge";
 
 export default function CommentList() {
   const host = process.env.NEXT_PUBLIC_API_URL;

@@ -21,6 +21,16 @@ function NextArrow(props) {
   );
 }
 
+// Helper function to truncate title by word count
+const truncateTitle = (title, wordLimit = 5) => {
+  if (!title) return "";
+  const words = title.split(" ");
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(" ") + "...";
+  }
+  return title;
+};
+
 export default function MostviewNews({ dark }) {
   const [newsData, setNewsData] = useState([]);
   const [newsData2, setNewsData2] = useState([]);
@@ -93,7 +103,7 @@ export default function MostviewNews({ dark }) {
               </div>
               <div className="gallery_item_content">
                 <div className="post-meta">
-                  <div className="meta-categories">
+                  <div className="meta-categories" style={{textTransform: "capitalize"}}>
                     <Link href={`/news/${item._id || item.id}`}>
                       {item.category || item.source?.name || "NEWS"}
                     </Link>
@@ -111,7 +121,7 @@ export default function MostviewNews({ dark }) {
                     href={`/news/${item._id || item.id}`}
                     target="_blank"
                   >
-                    {item.title}
+                    {truncateTitle(item.title, 5)}
                   </Link>
                 </h4>
               </div>
@@ -142,7 +152,7 @@ export default function MostviewNews({ dark }) {
               </div>
               <div className="gallery_item_content">
                 <div className="post-meta">
-                  <div className="meta-categories">
+                  <div className="meta-categories" style={{textTransform: "capitalize"}}>
                     <Link href={`/news/${item._id || item.id}`}>
                       {item.category || item.source?.name || "NEWS"}
                     </Link>
@@ -159,7 +169,7 @@ export default function MostviewNews({ dark }) {
                   <Link
                     href={`/news/${item._id || item.id}`}
                   >
-                    {item.title}
+                    {truncateTitle(item.title, 5)}
                   </Link>
                 </h4>
               </div>

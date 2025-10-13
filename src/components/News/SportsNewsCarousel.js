@@ -92,7 +92,7 @@ export default function SportsNewsCarousel({ dark }) {
                   </div>
                   <div className="gallery_item_content">
                     <div className="post-meta">
-                      <div className="meta-categories">
+                      <div className="meta-categories" style={{textTransform: "capitalize"}}>
                         <Link href={`/news/${item._id || item.id}`}>
                           {item.category || "Sports"}
                         </Link>

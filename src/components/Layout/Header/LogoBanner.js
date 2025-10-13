@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 export default function LogoBanner() {
   return (
@@ -9,14 +9,18 @@ export default function LogoBanner() {
           <div className="col-lg-4">
             <div className="logo">
               <Link href="/">
-                <img src="/images/logo/logo-color.png" alt="News 24 Logo" width={300} />
+                <img
+                  src="/images/logo/logo-color.png"
+                  alt="News 24 Logo"
+                  width={300}
+                />
               </Link>
             </div>
           </div>
           <div className="col-lg-8">
-            <div className="header-centerbar-ad">
+            <div className="header-centerbar-ad" style={{ display: "flex", justifyContent: "flex-end" }}>
               <Link href="/">
-                <img src="/images/banner.png" alt="" />
+                <img src="/images/logo.png" alt="" width={"80%"} />
               </Link>
             </div>
           </div>
