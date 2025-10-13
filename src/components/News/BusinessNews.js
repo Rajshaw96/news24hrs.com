@@ -64,7 +64,7 @@ export default function BusinessNews({ dark }) {
                 <div className="trending-news-item">
                   <div className="trending-news-content">
                     <div className="post-meta">
-                      <div className="meta-categories">
+                      <div className="meta-categories" style={{textTransform: "capitalize"}}>
                         <Link href={`/news/${item._id || item.id}`}>
                           {item.category || "Business"}
                         </Link>

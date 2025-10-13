@@ -90,7 +90,7 @@ export default function TwoPostCarousel({ dark, customClass }) {
                     alt={item.title}
                     style={{
                       width: "100%",
-                      height: "auto",
+                      height: "383px",
                       objectFit: "cover",
                     }}
                   />

@@ -63,7 +63,7 @@ export default function VideoNews({ dark }) {
 
           <div className="video-news-post-content">
             <div className="post-meta">
-              <div className="meta-categories">
+              <div className="meta-categories" style={{textTransform: "capitalize"}}>
                 <Link href={`/news/${videoNews._id || videoNews.id}`}>
                   {videoNews.category || "Video"}
                 </Link>

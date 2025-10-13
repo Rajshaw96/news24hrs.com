@@ -71,7 +71,7 @@ export default function MostShare({ customClass, dark }) {
           key={item._id || item.id || i}
         >
           <div className="post-meta">
-            <div className="meta-categories">
+            <div className="meta-categories" style={{textTransform: "capitalize"}}>
               <Link href={item.url || `/news/${item._id || item.id}`}>
                 {item.category || "Business"}
               </Link>

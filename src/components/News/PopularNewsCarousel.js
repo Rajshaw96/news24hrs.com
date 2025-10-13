@@ -97,7 +97,7 @@ export default function PopularNewsCarousel({ dark }) {
                               : ""}
                           </Link>
                         </h4>
-                        <span>{item.category || "General"}</span>
+                        <span style={{textTransform: "capitalize"}}>{item.category || "General"}</span>
                       </div>
                     </div>
                   ))}

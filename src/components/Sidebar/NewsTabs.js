@@ -57,6 +57,9 @@ export default function NewsTabs({ dark }) {
           <img
             src={item.urlToImage || item.image || "/images/default.jpg"}
             alt="news"
+            width={"100px"}
+            height={"90px"}
+            style={{ objectFit: "cover" }}
           />
         </div>
         <div className="gallery_item_content">
