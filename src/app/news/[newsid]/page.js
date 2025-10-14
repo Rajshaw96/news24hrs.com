@@ -139,11 +139,11 @@ export default function PostDetailsOne() {
               <div className="col-lg-4">
                 <div className="post_gallery_sidebar mt-40">
                   <NewsTabs />
-                  <WidgetOne customClass="mt-30" />
+                  {/* <WidgetOne customClass="mt-30" /> */}
                   <TrendingSingleCarousel />
                   <TrendingNewsWidget />
                   <AdWidgetTwo />
-                  <MostShare customClass="mt-40" />
+                  {/* <MostShare customClass="mt-40" /> */}
                   <NewsLetter />
                 </div>
               </div>

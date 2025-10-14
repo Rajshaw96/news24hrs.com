@@ -1,7 +1,38 @@
+"use client";
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function SidebarCategories({ dark }) {
+  const [categories, setCategories] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
+
+  // An array of the images to cycle through for each category
+  const categoryImages = [
+    "/images/categories-1.jpg",
+    "/images/categories-2.jpg",
+    "/images/categories-3.jpg",
+    "/images/categories-4.jpg",
+    "/images/categories-5.jpg",
+    "/images/categories-6.jpg",
+  ];
+
+  useEffect(() => {
+    async function loadCategories() {
+      try {
+        // This endpoint should return an array of unique category names
+        const res = await fetch(`${host}/api/news`);
+        const data = await res.json();
+        console.log("Data of category ", data);
+        
+        // Assuming the API returns an array of strings: ['Business', 'Technology', ...]
+        setCategories(data.slice(0, 6)); // Limit to 6 to match the number of images
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    }
+    loadCategories();
+  }, [host]);
+
   return (
     <div className="Categories-post mt-40">
       <div
@@ -10,63 +41,24 @@ export default function SidebarCategories({ dark }) {
         }`}
       >
         <h3 className="title">Categories</h3>
-        <Link href="/business">SEE ALL </Link>
+        <Link href="/categories">SEE ALL</Link>
       </div>
       <div className="Categories-item">
-        <div className="item">
-          <img src="/images/categories-1.jpg" alt="categories" />
-          <div className="Categories-content">
-            <Link href="/business">
-              <span>Restaurant</span>
-              <img src="/images/arrow.svg" alt="" />
-            </Link>
+        {categories.map((item, index) => (
+          <div className="item" key={index} style={{width: "350px", height: "70px"}}>
+            <img
+              src={item.image}
+              alt={item.category}
+              style={{objectFit: "cover",width: "350px", height: "70px"}}
+            />
+            <div className="Categories-content" >
+              <Link href={`/category/${item.category.toLowerCase()}`}>
+                <span style={{ textTransform: 'capitalize' }}>{item.category}</span>
+                <img src="/images/arrow.svg" alt="arrow" />
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="item">
-          <img src="/images/categories-2.jpg" alt="categories" />
-          <div className="Categories-content">
-            <Link href="/business">
-              <span>Entertainment</span>
-              <img src="/images/arrow.svg" alt="" />
-            </Link>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/images/categories-3.jpg" alt="categories" />
-          <div className="Categories-content">
-            <Link href="/business">
-              <span>Financial</span>
-              <img src="/images/arrow.svg" alt="" />
-            </Link>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/images/categories-4.jpg" alt="categories" />
-          <div className="Categories-content">
-            <Link href="/business">
-              <span>Business</span>
-              <img src="/images/arrow.svg" alt="" />
-            </Link>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/images/categories-5.jpg" alt="categories" />
-          <div className="Categories-content">
-            <Link href="/business">
-              <span>Scientists</span>
-              <img src="/images/arrow.svg" alt="" />
-            </Link>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/images/categories-6.jpg" alt="categories" />
-          <div className="Categories-content">
-            <Link href="/business">
-              <span>International’s</span>
-              <img src="/images/arrow.svg" alt="" />
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

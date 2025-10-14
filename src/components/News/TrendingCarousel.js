@@ -61,7 +61,14 @@ export default function TrendingCarousel({ dark }) {
       { breakpoint: 576, settings: { arrows: false, slidesToShow: 1 } },
     ],
   };
-
+  const truncateTitle = (title, wordLimit = 5) => {
+    if (!title) return "";
+    const words = title.split(" ");
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(" ") + "...";
+    }
+    return title;
+  };
   return (
     <Slider {...settings} className="row trending-news-slider">
       {trendingData.map((item, i) => (
@@ -73,7 +80,9 @@ export default function TrendingCarousel({ dark }) {
           >
             <div className="trending-news-thumb">
               <img
-                src={item.urlToImage || item.image || "/images/default-thumb.jpg"}
+                src={
+                  item.urlToImage || item.image || "/images/default-thumb.jpg"
+                }
                 alt={item.title || "trending"}
               />
               <div className="icon">
@@ -98,9 +107,7 @@ export default function TrendingCarousel({ dark }) {
                 </div>
               </div>
               <h3 className="title">
-                <Link href={`/news/${item._id || item.id}`}>
-                  {item.title}
-                </Link>
+                <Link href={`/news/${item._id || item.id}`}>{truncateTitle(item.title, 5)}</Link>
               </h3>
               <p className="text">{item.description || ""}</p>
             </div>

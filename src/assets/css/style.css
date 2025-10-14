@@ -416,6 +416,9 @@ p {
   background: #fff;
 }
 @media (max-width: 767px) {
+  .populer-post{
+    padding: 20px;
+  }
   .header-topbar {
     display: none;
   }
@@ -3886,7 +3889,7 @@ p {
 }
 @media (max-width: 767px) {
   .populer-post {
-    padding-top: 40px;
+    padding: 20px !important;
   }
 }
 

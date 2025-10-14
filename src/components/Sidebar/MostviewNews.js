@@ -73,7 +73,7 @@ export default function MostviewNews({ dark }) {
 
   return (
     <>
-      <div className="trending-most-view mt-25">
+      <div className="trending-most-view">
         <div className={`section-title ${dark ? "section-title-2" : ""}`}>
           <h3 className="title">Most View</h3>
         </div>

@@ -60,7 +60,14 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
       { breakpoint: 576, settings: { arrows: false, slidesToShow: 1 } },
     ],
   };
-
+  const truncateTitle = (title, wordLimit = 5) => {
+  if (!title) return "";
+  const words = title.split(" ");
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(" ") + "...";
+  }
+  return title;
+};
   return (
     <section className={`feature-area ${customClass}`}>
       <div className="container">
@@ -100,7 +107,7 @@ export default function FeatureNewsCarousel({ customClass, dark }) {
                   </div>
                   <h4 className="title">
                     <Link href={`/news/${item._id || item.id || "#"}`} target="_blank">
-                      {item.title}
+                      {truncateTitle(item.title, 5)}
                     </Link>
                   </h4>
                 </div>

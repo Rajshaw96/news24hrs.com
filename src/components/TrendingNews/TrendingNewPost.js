@@ -5,7 +5,14 @@ import React, { useEffect, useState } from "react";
 export default function TrendingNewPost({ dark }) {
   const [news, setNews] = useState([]);
   const host = process.env.NEXT_PUBLIC_API_URL;
-
+  const truncateTitle = (title, wordLimit = 5) => {
+    if (!title) return "";
+    const words = title.split(" ");
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(" ") + "...";
+    }
+    return title;
+  };
   useEffect(() => {
     async function loadNews() {
       try {
@@ -62,11 +69,8 @@ export default function TrendingNewPost({ dark }) {
             </div>
           </div>
           <h4 className="title">
-            <Link
-              href={`/news/${item._id || item.id || "#"}`}
-              target="_blank"
-            >
-              {item.title}
+            <Link href={`/news/${item._id || item.id || "#"}`} target="_blank">
+              {truncateTitle(item.title, 5)}
             </Link>
           </h4>
         </div>

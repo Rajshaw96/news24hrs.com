@@ -105,6 +105,15 @@ export default function PopularNewsCarousel({ dark }) {
             )
           )}
       </Slider>
+
+      {/* Add mobile-specific styles using Styled-JSX */}
+      <style jsx>{`
+        @media (max-width: 767px) {
+          .populer-post {
+            padding: 20px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

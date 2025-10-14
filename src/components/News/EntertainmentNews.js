@@ -63,7 +63,7 @@ export default function EntertainmentNews({ dark }) {
                 <div className="trending-news-content">
                   <div className="post-meta">
                     <div className="meta-categories">
-                      <Link href={`/news/${item._id}`}>
+                      <Link href={`/news/${item._id}`} style={{textTransform: "capitalize"}}>
                         {item.category || "Entertainment"}
                       </Link>
                     </div>

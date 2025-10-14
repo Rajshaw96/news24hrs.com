@@ -82,7 +82,7 @@ export default function HomeOneOne() {
               </div>
               <div className="col-lg-4">
                 <div className="trending-right-sidebar">
-                  <WidgetOne />
+                  {/* <WidgetOne /> */}
                   <MostviewNews />
                 </div>
               </div>
@@ -189,8 +189,8 @@ export default function HomeOneOne() {
                 <BusinessNews />
               </div>
               <div className="col-lg-4">
-                <MostShare />
-                <SportsFixtures />
+                {/* <MostShare /> */}
+                {/* <SportsFixtures /> */}
                 <NewsLetter />
                 <SidebarCategories />
                 <AdOne />

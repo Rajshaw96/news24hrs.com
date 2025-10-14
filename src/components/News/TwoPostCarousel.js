@@ -26,7 +26,14 @@ export default function TwoPostCarousel({ dark, customClass }) {
   const [isOpen, setOpen] = useState(false);
   const [popularNews, setPopularNews] = useState([]);
   const host = process.env.NEXT_PUBLIC_API_URL;
-
+  const truncateTitle = (title, wordLimit = 5) => {
+    if (!title) return "";
+    const words = title.split(" ");
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(" ") + "...";
+    }
+    return title;
+  };
   useEffect(() => {
     async function loadPopularNews() {
       try {
@@ -34,7 +41,6 @@ export default function TwoPostCarousel({ dark, customClass }) {
         const data = await res.json();
 
         // Defensive fallback
-        
 
         setPopularNews(data); // Limit to first 6
       } catch (error) {
@@ -86,7 +92,9 @@ export default function TwoPostCarousel({ dark, customClass }) {
               <div className="col" key={item._id || item.id || i}>
                 <div className="single-play-post-item">
                   <img
-                    src={item.urlToImage || item.image || "/images/placeholder.jpg"}
+                    src={
+                      item.urlToImage || item.image || "/images/placeholder.jpg"
+                    }
                     alt={item.title}
                     style={{
                       width: "100%",
@@ -111,8 +119,11 @@ export default function TwoPostCarousel({ dark, customClass }) {
                       </div>
                     </div>
                     <h3 className="title">
-                      <Link href={`/news/${item._id || item.id || "#"}`} target="_blank">
-                        {item.title}
+                      <Link
+                        href={`/news/${item._id || item.id || "#"}`}
+                        target="_blank"
+                      >
+                        {truncateTitle(item.title, 5)}
                       </Link>
                     </h3>
                   </div>

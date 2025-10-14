@@ -1,6 +1,26 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function LatestNews() {
+  const [latestNews, setLatestNews] = useState([]);
+  const host = process.env.NEXT_PUBLIC_API_URL;
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await fetch(`${host}/api/news/`);
+        const data = await res.json();
+        // Assuming the API returns an array of news, we take the first 3
+        setLatestNews(data.slice(0, 3));
+      } catch (error) {
+        console.error("Failed to fetch latest news:", error);
+      }
+    };
+
+    fetchNews();
+  }, [host]);
+
   return (
     <section className="latest-news-area">
       <div className="container">
@@ -12,84 +32,49 @@ export default function LatestNews() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-4">
-            <div className="trending-news-item mb-30">
-              <div className="trending-news-thumb">
-                <img src="/images/latest-news-1.png" alt="trending" />
-              </div>
-              <div className="trending-news-content">
-                <div className="post-meta">
-                  <div className="meta-categories">
-                    <a href="#">TECHNOLOGY</a>
-                  </div>
-                  <div className="meta-date">
-                    <span>March 26, 2020</span>
-                  </div>
+          {latestNews.map((item, index) => (
+            <div className="col-lg-4" key={item._id || index}>
+              <div className="trending-news-item mb-30">
+                <div className="trending-news-thumb">
+                  <img
+                    src={item.image || `/images/latest-news-${index + 1}.png`}
+                    alt={item.title}
+                    style={{ width: '350px', height: '250px', objectFit: 'cover' }}
+                  />
                 </div>
-                <h3 className="title">
-                  <a href="#">
-                    There may be no consoles in the future ea exec says
-                  </a>
-                </h3>
-                <p className="text">
-                  The property, complete with 30-seat screening from room, a
-                  100-seat amphitheater and a swimming pond with sandy shower…
-                </p>
+                <div className="trending-news-content">
+                  <div className="post-meta">
+                    <div className="meta-categories" style={{textTransform: "capitalize"}}>
+                      <Link href={`/category/${item.category?.toLowerCase() || 'general'}`}>
+                        {item.category || 'NEWS'}
+                      </Link>
+                    </div>
+                    <div className="meta-date">
+                      <span>
+                        {item.publishedAt
+                          ? new Date(item.publishedAt).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric',
+                            })
+                          : ''}
+                      </span>
+                    </div>
+                  </div>
+                  <h3 className="title">
+                    <Link href={`/news/${item._id}`}>
+                      {item.title}
+                    </Link>
+                  </h3>
+                  <p className="text">
+                    {item.description
+                      ? item.description.slice(0, 150) + (item.description.length > 150 ? '...' : '')
+                      : ''}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="trending-news-item mb-30">
-              <div className="trending-news-thumb">
-                <img src="/images/latest-news-2.png" alt="trending" />
-              </div>
-              <div className="trending-news-content">
-                <div className="post-meta">
-                  <div className="meta-categories">
-                    <a href="#">TECHNOLOGY</a>
-                  </div>
-                  <div className="meta-date">
-                    <span>March 26, 2020</span>
-                  </div>
-                </div>
-                <h3 className="title">
-                  <a href="#">
-                    There may be no consoles in the future ea exec says
-                  </a>
-                </h3>
-                <p className="text">
-                  The property, complete with 30-seat screening from room, a
-                  100-seat amphitheater and a swimming pond with sandy shower…
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="trending-news-item mb-30">
-              <div className="trending-news-thumb">
-                <img src="/images/latest-news-3.png" alt="trending" />
-              </div>
-              <div className="trending-news-content">
-                <div className="post-meta">
-                  <div className="meta-categories">
-                    <a href="#">TECHNOLOGY</a>
-                  </div>
-                  <div className="meta-date">
-                    <span>March 26, 2020</span>
-                  </div>
-                </div>
-                <h3 className="title">
-                  <a href="#">
-                    There may be no consoles in the future ea exec says
-                  </a>
-                </h3>
-                <p className="text">
-                  The property, complete with 30-seat screening from room, a
-                  100-seat amphitheater and a swimming pond with sandy shower…
-                </p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
